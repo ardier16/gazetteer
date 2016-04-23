@@ -1,1 +1,12 @@
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\bin\Debug\Gazetteer.exe.config
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\bin\Debug\Gazetteer.exe
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\bin\Debug\Gazetteer.pdb
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.csprojResolveAssemblyReference.cache
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.Gazetteer.resources
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.Properties.Resources.resources
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.csproj.GenerateResource.Cache
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.exe
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.pdb
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\bin\Debug\ru-UA\Gazetteer.resources.dll
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.Gazetteer.ru-UA.resources
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\ru-UA\Gazetteer.resources.dll

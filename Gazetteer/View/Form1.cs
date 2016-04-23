@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Gazetteer
 {
-    public partial class Form1 : Form
+    public partial class Gazetteer : Form
     {
-        public Form1()
+        public Gazetteer()
         {
             InitializeComponent();
         }

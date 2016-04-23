@@ -1,6 +1,6 @@
 ﻿namespace Gazetteer
 {
-    partial class Form1
+    partial class Gazetteer
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,9 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Gazetteer));
+            this.SuspendLayout();
+            // 
+            // Gazetteer
+            // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this, "$this");
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.HelpButton = true;
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.Name = "Gazetteer";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
