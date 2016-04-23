@@ -7,14 +7,12 @@ namespace Gazetteer
     {
         public string Latitude { get; } 
         public string Longitude { get; }
-        public Region Region { get; }
 
-        public City(string name, int pop, double area, string lat, string lon, Region reg)
+        public City(string name, double pop, double area, string lat, string lon)
             : base(name, pop, area)
         {
             this.Latitude = lat;
             this.Longitude = lon;
-            this.Region = reg;
         }
 
     }

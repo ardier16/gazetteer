@@ -16,9 +16,9 @@ namespace Gazetteer
             this.Countries = countries;
         }
 
-        public int GetPopulation()
+        public double GetPopulation()
         {
-            int pop = 0;
+            double pop = 0;
 
             for (int i = 0; i < this.Countries.Count; i++)
             {
@@ -45,6 +45,11 @@ namespace Gazetteer
             }
 
             return CitiesList;
+        }
+
+        public void AddCountry(Country c)
+        {
+            this.Countries.Add(c);
         }
     }
 }

@@ -6,10 +6,10 @@ namespace Gazetteer
     public abstract class Unit
     {
         public string Name { get; }
-        public int Population { get; }
+        public double Population { get; }
         public double Area { get; }
 
-        public Unit(string name, int pop, double area)
+        public Unit(string name, double pop, double area)
         {
             this.Name = name;
             this.Population = pop;
@@ -18,9 +18,7 @@ namespace Gazetteer
 
         public double GetDensity
         {
-            get { return this.Area / this.Population; }
+            get { return this.Population / this.Area; }
         }
-
-
     }
 }
