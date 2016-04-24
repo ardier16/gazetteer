@@ -27,7 +27,7 @@ namespace Gazetteer
 
             XmlNode root = doc.DocumentElement;
 
-            XmlNode reg = root.FirstChild.ChildNodes[2].FirstChild.ChildNodes[6];
+            XmlNode reg = root.ChildNodes[5].ChildNodes[2].FirstChild.ChildNodes[6];
 
             XmlElement rg = doc.CreateElement("region");
             reg.AppendChild(rg);
@@ -54,7 +54,10 @@ namespace Gazetteer
 
             doc.Save("Data.xml");
 
+            //List<Continent> cont = GetData("Data.xml");
+
             label6.Text = "ADDED";
+            textBox1.Text = textBox2.Text = textBox3.Text = textBox5.Text = "";
         }
 
         public List<Continent> GetData(string source)
@@ -133,7 +136,7 @@ namespace Gazetteer
 
             XmlNode root = doc.DocumentElement;
 
-            XmlNode reg = root.FirstChild.ChildNodes[2].FirstChild.ChildNodes[6].ChildNodes[(int)numericUpDown1.Value].LastChild;
+            XmlNode reg = root.ChildNodes[5].ChildNodes[2].FirstChild.ChildNodes[6].ChildNodes[(int)numericUpDown1.Value].LastChild;
 
             XmlElement rg = doc.CreateElement("city");
             reg.AppendChild(rg);
@@ -158,7 +161,7 @@ namespace Gazetteer
             doc.Save("Data.xml");
 
             label6.Text = "OK";
-            textBox6.Text = textBox7.Text = textBox8.Text = textBox9.Text = textBox10.Text = "";
+            textBox6.Text = textBox7.Text = textBox8.Text = "";
         }
     }
 }

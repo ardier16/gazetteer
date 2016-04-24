@@ -189,44 +189,185 @@
     <area>44579</area>
     <countries>
       <country>
-        <name>
-        </name>
-        <area>
-        </area>
-        <population>
-        </population>
-        <government>
-        </government>
-        <capital>
-        </capital>
+        <name>Китайская народная республика</name>
+        <area>9596,96</area>
+        <population>1368660</population>
+        <government>Однопартийная парламентская республика</government>
+        <capital>Пекин</capital>
         <languages>
-          <language>
-          </language>
+          <language>Китайский</language>
         </languages>
         <regions>
           <region>
-            <name>
-            </name>
-            <area>
-            </area>
-            <population>
-            </population>
-            <type>
-            </type>
-            <center>
-            </center>
+            <name>Гуандун</name>
+            <area>178,341</area>
+            <population>104303,132</population>
+            <type>Провинция</type>
+            <center>Гуанчжоу</center>
             <cities>
               <city>
-                <name>
-                </name>
-                <area>
-                </area>
-                <population>
-                </population>
-                <latitude>
-                </latitude>
-                <longitude>
-                </longitude>
+                <name>Гуанчжоу</name>
+                <area>7,4344</area>
+                <population>10500</population>
+                <latitude>23°07′39″ с. ш.</latitude>
+                <longitude>113°14′50″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Шэньчжень</name>
+                <area>1,989</area>
+                <population>10357,938</population>
+                <latitude>22°32′00″ с. ш.</latitude>
+                <longitude>114°08′00″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Дунгуань</name>
+                <area>0,002465</area>
+                <population>6445</population>
+                <latitude>23°02′00″ с. ш.</latitude>
+                <longitude>113°43′00″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Фошань</name>
+                <area>0,003848</area>
+                <population>7197,394</population>
+                <latitude>23°01′00″ с. ш.</latitude>
+                <longitude>113°07′00″ в. д.</longitude>
+              </city>
+            </cities>
+          </region>
+          <region>
+            <name>Хэнань</name>
+            <area>166,31</area>
+            <population>94023,567</population>
+            <type>Провинция</type>
+            <center>Чжэнчжоу</center>
+            <cities>
+              <city>
+                <name>Чжэнчжоу</name>
+                <area>0,007446</area>
+                <population>8626,505</population>
+                <latitude>34°46′00″ с. ш.</latitude>
+                <longitude>113°3′00″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Чжоукоу</name>
+                <area>0,011959</area>
+                <population>8953,793</population>
+                <latitude>33°38′00″ с.ш.</latitude>
+                <longitude>114°38′00″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Шанцю</name>
+                <area>0,010704</area>
+                <population>7362,975</population>
+                <latitude>34°25′00″ с.ш.</latitude>
+                <longitude>115°39′00″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Наньян</name>
+                <area>26,50869</area>
+                <population>10263</population>
+                <latitude>33°00′00″ с.ш.</latitude>
+                <longitude>112°32′00″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Кайфын</name>
+                <area>0,006247</area>
+                <population>4676,159</population>
+                <latitude>34°48′00″ с.ш.</latitude>
+                <longitude>114°18′00″ в. д.</longitude>
+              </city>
+            </cities>
+          </region>
+          <region>
+            <name>Шаньдун</name>
+            <area>156,219</area>
+            <population>95793,065</population>
+            <type>Провинция</type>
+            <center>Цзинань</center>
+            <cities>
+              <city>
+                <name>Цзинань</name>
+                <area>8,177</area>
+                <population>6810</population>
+                <latitude>36°40′00″ с. ш.</latitude>
+                <longitude>116°59′00″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Циндао</name>
+                <area>10,654</area>
+                <population>7579,9</population>
+                <latitude>36°07′00″ с. ш.</latitude>
+                <longitude>120°24′00″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Тайань</name>
+                <area>7,76183</area>
+                <population>5494,207</population>
+                <latitude>36°10′00″ с. ш.</latitude>
+                <longitude>117°07′00″ в. д.</longitude>
+              </city>
+            </cities>
+          </region>
+          <region>
+            <name>Сычуань</name>
+            <area>491,146</area>
+            <population>80418,2</population>
+            <type>Провинция</type>
+            <center>Чэнду</center>
+            <cities>
+              <city>
+                <name>Чэнду</name>
+                <area>12,39</area>
+                <population>14047,624</population>
+                <latitude>30°39′49″ с. ш.</latitude>
+                <longitude>104°04′00″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Наньчун</name>
+                <area>12,482</area>
+                <population>6278,614</population>
+                <latitude>30°48′00″ с. ш.</latitude>
+                <longitude>106°05′00″ в. д.</longitude>
+              </city>
+            </cities>
+          </region>
+          <region>
+            <name>Цзянсу</name>
+            <area>98,285</area>
+            <population>78659,903</population>
+            <type>Провинция</type>
+            <center>Нанкин</center>
+            <cities>
+              <city>
+                <name>Нанкин</name>
+                <area>6,596</area>
+                <population>8118</population>
+                <latitude>32°03′00″ с. ш.</latitude>
+                <longitude>118°46′00″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Уси</name>
+                <area>0,004788</area>
+                <population>6372,624</population>
+                <latitude>31°34′00″ с. ш.</latitude>
+                <longitude>120°18′00″ в. д.</longitude>
+              </city>
+            </cities>
+          </region>
+          <region>
+            <name>Пекин</name>
+            <area>16,808</area>
+            <population>21705</population>
+            <type>Город центрального подчинения</type>
+            <center>Пекин</center>
+            <cities>
+              <city>
+                <name>Пекин</name>
+                <area>16,801</area>
+                <population>19612,368</population>
+                <latitude>39°56′00″ с. ш.</latitude>
+                <longitude>116°24′00″ в. д.</longitude>
               </city>
             </cities>
           </region>
@@ -239,44 +380,98 @@
     <area>30221,532</area>
     <countries>
       <country>
-        <name>
-        </name>
-        <area>
-        </area>
-        <population>
-        </population>
-        <government>
-        </government>
-        <capital>
-        </capital>
+        <name>Южно-Африканская Республика</name>
+        <area>1219,912</area>
+        <population>48601,098</population>
+        <government>Демократическая республика</government>
+        <capital>Претория</capital>
         <languages>
-          <language>
-          </language>
+          <language>Английский</language>
+          <language>Африкаанс</language>
+          <language>Венда</language>
+          <language>Зулу</language>
+          <language>Коса</language>
+          <language>Южный ндебеле</language>
+          <language>Свати</language>
+          <language>Северный сото</language>
+          <language>Сесото</language>
+          <language>Тсвана</language>
+          <language>Тсонга</language>
         </languages>
         <regions>
           <region>
-            <name>
-            </name>
-            <area>
-            </area>
-            <population>
-            </population>
-            <type>
-            </type>
-            <center>
-            </center>
+            <name>Гаутенг</name>
+            <area>18,178</area>
+            <population>12272,263</population>
+            <type>Провинция</type>
+            <center>Йоханнесбург</center>
             <cities>
               <city>
-                <name>
-                </name>
-                <area>
-                </area>
-                <population>
-                </population>
-                <latitude>
-                </latitude>
-                <longitude>
-                </longitude>
+                <name>Йоханнесбург</name>
+                <area>1,644</area>
+                <population>7860,781</population>
+                <latitude>26°08′42″ ю. ш.</latitude>
+                <longitude>28°03′01″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Претория</name>
+                <area>0,68754</area>
+                <population>741,651</population>
+                <latitude>25°43′32″ ю. ш.</latitude>
+                <longitude>28°14′38″ в. д.</longitude>
+              </city>
+            </cities>
+          </region>
+          <region>
+            <name>Квазулу-Натал</name>
+            <area>94,361</area>
+            <population>10267,3</population>
+            <type>Провинция</type>
+            <center>Питермарицбург</center>
+            <cities>
+              <city>
+                <name>Дурбан</name>
+                <area>2,292</area>
+                <population>3442,361</population>
+                <latitude>29°51′00″ ю. ш.</latitude>
+                <longitude>31°01′00″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Питермарицбург</name>
+                <area>0,649</area>
+                <population>521,805</population>
+                <latitude>29°35′00″ ю. ш.</latitude>
+                <longitude>30°25′00″ в. д.</longitude>
+              </city>
+            </cities>
+          </region>
+          <region>
+            <name>Восточно-Капская</name>
+            <area>168,966</area>
+            <population>6562,053</population>
+            <type>Провинция</type>
+            <center>Бишо</center>
+            <cities>
+              <city>
+                <name>Бишо</name>
+                <area>0,00808</area>
+                <population>11,192</population>
+                <latitude>32°52′37″ ю. ш.</latitude>
+                <longitude>27°23′16″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Порт-Элизабет</name>
+                <area>0,251</area>
+                <population>1244,9</population>
+                <latitude>33°57′29″ ю. ш.</latitude>
+                <longitude>25°36′00″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Ист-Лондон</name>
+                <area>2,536</area>
+                <population>755,2</population>
+                <latitude>32°59′00″ ю. ш.</latitude>
+                <longitude>27°52′00″ в. д.</longitude>
               </city>
             </cities>
           </region>
@@ -289,44 +484,119 @@
     <area>24250</area>
     <countries>
       <country>
-        <name>
-        </name>
-        <area>
-        </area>
-        <population>
-        </population>
-        <government>
-        </government>
-        <capital>
-        </capital>
+        <name>Канада</name>
+        <area>9984,67</area>
+        <population>35675,834</population>
+        <government>Конституционная монархия</government>
+        <capital>Оттава</capital>
         <languages>
-          <language>
-          </language>
+          <language>Английский</language>
+          <language>Французский</language>
         </languages>
         <regions>
           <region>
-            <name>
-            </name>
-            <area>
-            </area>
-            <population>
-            </population>
-            <type>
-            </type>
-            <center>
-            </center>
+            <name>Онтарио</name>
+            <area>1076,395</area>
+            <population>13505,9</population>
+            <type>Провинция</type>
+            <center>Торонто</center>
             <cities>
               <city>
-                <name>
-                </name>
-                <area>
-                </area>
-                <population>
-                </population>
-                <latitude>
-                </latitude>
-                <longitude>
-                </longitude>
+                <name>Торонто</name>
+                <area>0,63021</area>
+                <population>2615,06</population>
+                <latitude>43°38′55″ с. ш.</latitude>
+                <longitude>79°23′07″ з. д.</longitude>
+              </city>
+              <city>
+                <name>Оттава</name>
+                <area>2,79022</area>
+                <population>1236,324</population>
+                <latitude>45°25′17″ с. ш.</latitude>
+                <longitude>75°40′46″ з. д.</longitude>
+              </city>
+              <city>
+                <name>Гамильтон</name>
+                <area>1,37176</area>
+                <population>721,053</population>
+                <latitude>43°15′00″ с. ш.</latitude>
+                <longitude>79°52′00″ з. д.</longitude>
+              </city>
+              <city>
+                <name>Лондон</name>
+                <area>0,42057</area>
+                <population>352,395</population>
+                <latitude>42°58′57″ с. ш.</latitude>
+                <longitude>81°15′14″ з. д.</longitude>
+              </city>
+            </cities>
+          </region>
+          <region>
+            <name>Квебек</name>
+            <area>1667,441</area>
+            <population>8054,756</population>
+            <type>Провинция</type>
+            <center>Квебек</center>
+            <cities>
+              <city>
+                <name>Монреаль</name>
+                <area>4,25831</area>
+                <population>4127,1</population>
+                <latitude>45°30′32″ с. ш.</latitude>
+                <longitude>73°33′15″ з. д.</longitude>
+              </city>
+              <city>
+                <name>Квебек</name>
+                <area>3,34912</area>
+                <population>806,4</population>
+                <latitude>46°49′00″ с. ш.</latitude>
+                <longitude>71°13′00″ з. д.</longitude>
+              </city>
+            </cities>
+          </region>
+          <region>
+            <name>Британская Колумбия</name>
+            <area>944,735</area>
+            <population>4622,573</population>
+            <type>Провинция</type>
+            <center>Виктория</center>
+            <cities>
+              <city>
+                <name>Виктория</name>
+                <area>0,01968</area>
+                <population>80,017</population>
+                <latitude>48°26′58″ с. ш.</latitude>
+                <longitude>123°21′40″ з. д.</longitude>
+              </city>
+              <city>
+                <name>Ванкувер</name>
+                <area>0,11467</area>
+                <population>2313,328</population>
+                <latitude>49°18′08″ с. ш.</latitude>
+                <longitude>123°06′26″ з. д.</longitude>
+              </city>
+            </cities>
+          </region>
+          <region>
+            <name>Альберта</name>
+            <area>661,848</area>
+            <population>3873,745</population>
+            <type>Провинция</type>
+            <center>Эдмонтон</center>
+            <cities>
+              <city>
+                <name>Эдмонтон</name>
+                <area>0,684</area>
+                <population>817,498</population>
+                <latitude>53°37′19″ с. ш.</latitude>
+                <longitude>113°29′25″ з. д.</longitude>
+              </city>
+              <city>
+                <name>Калгари</name>
+                <area>0,7265</area>
+                <population>1214,839</population>
+                <latitude>51°02′42″ с. ш.</latitude>
+                <longitude>114°03′26″ з. д.</longitude>
               </city>
             </cities>
           </region>
@@ -339,44 +609,162 @@
     <area>17840</area>
     <countries>
       <country>
-        <name>
-        </name>
-        <area>
-        </area>
-        <population>
-        </population>
-        <government>
-        </government>
-        <capital>
-        </capital>
+        <name>Бразилия</name>
+        <area>8514,877</area>
+        <population>201009,622</population>
+        <government>Президентская республика</government>
+        <capital>Бразилиа</capital>
         <languages>
-          <language>
-          </language>
+          <language>Португальский</language>
         </languages>
         <regions>
           <region>
-            <name>
-            </name>
-            <area>
-            </area>
-            <population>
-            </population>
-            <type>
-            </type>
-            <center>
-            </center>
+            <name>Центрально-западный</name>
+            <area>1610,0772</area>
+            <population>13600</population>
+            <type>Регион</type>
+            <center>Бразилиа</center>
             <cities>
               <city>
-                <name>
-                </name>
-                <area>
-                </area>
-                <population>
-                </population>
-                <latitude>
-                </latitude>
-                <longitude>
-                </longitude>
+                <name>Бразилиа</name>
+                <area>5,802</area>
+                <population>2556,149</population>
+                <latitude>15°47′56″ ю. ш.</latitude>
+                <longitude>47°52′00″ з. д.</longitude>
+              </city>
+              <city>
+                <name>Гояния</name>
+                <area>0,739492</area>
+                <population>2206734</population>
+                <latitude>16°40′44″ ю. ш.</latitude>
+                <longitude>49°15′14″ з. д.</longitude>
+              </city>
+              <city>
+                <name>Кампу-Гранди</name>
+                <area>8,09605</area>
+                <population>106942</population>
+                <latitude>20°28′07″ ю. ш.</latitude>
+                <longitude>54°37′20″ з. д.</longitude>
+              </city>
+            </cities>
+          </region>
+          <region>
+            <name>Северо-восточный</name>
+            <area>1558,196</area>
+            <population>53079,95</population>
+            <type>Регион</type>
+            <center>Ресифи</center>
+            <cities>
+              <city>
+                <name>Ресифи</name>
+                <area>2,768</area>
+                <population>3743,854</population>
+                <latitude>08°03′14″ ю. ш.</latitude>
+                <longitude>34°52′51″ з. д.</longitude>
+              </city>
+              <city>
+                <name>Салвадор</name>
+                <area>0,693</area>
+                <population>3919,864</population>
+                <latitude>12°58′15″ ю. ш.</latitude>
+                <longitude>38°30′39″ з. д.</longitude>
+              </city>
+              <city>
+                <name>Форталеза</name>
+                <area>0,3138</area>
+                <population>3602,319</population>
+                <latitude>03°46′53″ ю. ш.</latitude>
+                <longitude>38°35′20″ з. д.</longitude>
+              </city>
+            </cities>
+          </region>
+          <region>
+            <name>Северный</name>
+            <area>3853,3272</area>
+            <population>15020,06</population>
+            <type>Регион</type>
+            <center>Манаус</center>
+            <cities>
+              <city>
+                <name>Манаус</name>
+                <area>11,40106</area>
+                <population>2316,173</population>
+                <latitude>03°06′00″ ю. ш.</latitude>
+                <longitude>60°01′00″ з. д.</longitude>
+              </city>
+              <city>
+                <name>Белен</name>
+                <area>1,0594</area>
+                <population>2249,405</population>
+                <latitude>01°27′21″ ю. ш.</latitude>
+                <longitude>48°30′14″ з. д.</longitude>
+              </city>
+            </cities>
+          </region>
+          <region>
+            <name>Юго-восточный</name>
+            <area>922,5113</area>
+            <population>80700</population>
+            <type>Регион</type>
+            <center>Сан-Паулу</center>
+            <cities>
+              <city>
+                <name>Сан-Паулу</name>
+                <area>7,944</area>
+                <population>20395,204</population>
+                <latitude>23°30′00″ ю. ш.</latitude>
+                <longitude>46°37′00″ з. д.</longitude>
+              </city>
+              <city>
+                <name>Рио-де-Жанейро</name>
+                <area>4,557</area>
+                <population>12090,607</population>
+                <latitude>22°54′30″ ю. ш.</latitude>
+                <longitude>43°11′47″ з. д.</longitude>
+              </city>
+              <city>
+                <name>Белу-Оризонти</name>
+                <area>9,4591</area>
+                <population>5156,217</population>
+                <latitude>19°49′01″ ю. ш.</latitude>
+                <longitude>43°57′21″ з. д.</longitude>
+              </city>
+              <city>
+                <name>Гуарульюс</name>
+                <area>0,31868</area>
+                <population>1324,781</population>
+                <latitude>23°27′46″ ю. ш.</latitude>
+                <longitude>46°31′58″ з. д.</longitude>
+              </city>
+              <city>
+                <name>Кампинас</name>
+                <area>3,645</area>
+                <population>2633,523</population>
+                <latitude>22°54′21″ ю. ш.</latitude>
+                <longitude>47°03′39″ з. д.</longitude>
+              </city>
+            </cities>
+          </region>
+          <region>
+            <name>Южный</name>
+            <area>574,4096</area>
+            <population>27300</population>
+            <type>Регион</type>
+            <center>Порту-Алегри</center>
+            <cities>
+              <city>
+                <name>Куритиба</name>
+                <area>15,4169</area>
+                <population>3400</population>
+                <latitude>25°25′47″ ю. ш.</latitude>
+                <longitude>49°16′19″ з. д.</longitude>
+              </city>
+              <city>
+                <name>Порту-Алегри</name>
+                <area>0,496827</area>
+                <population>4405,769</population>
+                <latitude>30°01′58″ ю. ш.</latitude>
+                <longitude>51°13′48″ з. д.</longitude>
               </city>
             </cities>
           </region>
@@ -389,44 +777,187 @@
     <area>8520</area>
     <countries>
       <country>
-        <name>
-        </name>
-        <area>
-        </area>
-        <population>
-        </population>
-        <government>
-        </government>
-        <capital>
-        </capital>
+        <name>Австралия</name>
+        <area>7692,024</area>
+        <population>23130,931</population>
+        <government>Парламентская монархия</government>
+        <capital>Канберра</capital>
         <languages>
-          <language>
-          </language>
+          <language>Австралийский английский</language>
         </languages>
         <regions>
           <region>
-            <name>
-            </name>
-            <area>
-            </area>
-            <population>
-            </population>
-            <type>
-            </type>
-            <center>
-            </center>
+            <name>Новый Южный Уэльс</name>
+            <area>800,642</area>
+            <population>6917,658</population>
+            <type>Штат</type>
+            <center>Сидней</center>
             <cities>
               <city>
-                <name>
-                </name>
-                <area>
-                </area>
-                <population>
-                </population>
-                <latitude>
-                </latitude>
-                <longitude>
-                </longitude>
+                <name>Сидней</name>
+                <area>12,3677</area>
+                <population>4921</population>
+                <latitude>33°52′10″ ю. ш.</latitude>
+                <longitude>151°12′30″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Ньюкасл</name>
+                <area>0,2618</area>
+                <population>308,308</population>
+                <latitude>32°55′00″ ю. ш.</latitude>
+                <longitude>151°45′00″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Вуллонгонг</name>
+                <area>0.684</area>
+                <population>292,19</population>
+                <latitude>34°26′00″ ю. ш.</latitude>
+                <longitude>150°53′00″ в. д.</longitude>
+              </city>
+            </cities>
+          </region>
+          <region>
+            <name>Виктория</name>
+            <area>227,416</area>
+            <population>5354,042</population>
+            <type>Штат</type>
+            <center>Мельбурн</center>
+            <cities>
+              <city>
+                <name>Мельбурн</name>
+                <area>9,9905</area>
+                <population>4529,5</population>
+                <latitude>37°49′14″ ю. ш.</latitude>
+                <longitude>144°57′41″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Джилонг</name>
+                <area>0,91879</area>
+                <population>184,182</population>
+                <latitude>38°09′00″ ю. ш.</latitude>
+                <longitude>144°21′00″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Бендиго</name>
+                <area>0,146</area>
+                <population>146,424</population>
+                <latitude>36°45′00″ ю. ш.</latitude>
+                <longitude>144°16′00″ в. д.</longitude>
+              </city>
+            </cities>
+          </region>
+          <region>
+            <name>Квинсленд</name>
+            <area>1730,648</area>
+            <population>4332,739</population>
+            <type>Штат</type>
+            <center>Брисбен</center>
+            <cities>
+              <city>
+                <name>Брисбен</name>
+                <area>15,826</area>
+                <population>2308,7</population>
+                <latitude>27°28′04″ ю. ш.</latitude>
+                <longitude>153°01′40″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Голд-Кост</name>
+                <area>1,402</area>
+                <population>591,473</population>
+                <latitude>27°56′10″ ю. ш.</latitude>
+                <longitude>153°22′55″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Ипсуич</name>
+                <area>1,090</area>
+                <population>163</population>
+                <latitude>27°37′00″ ю. ш.</latitude>
+                <longitude>152°46′00″ в. д.</longitude>
+              </city>
+            </cities>
+          </region>
+          <region>
+            <name>Западная Австралия</name>
+            <area>2529,875</area>
+            <population>2239,17</population>
+            <type>Штат</type>
+            <center>Перт</center>
+            <cities>
+              <city>
+                <name>Перт</name>
+                <area>6,4179</area>
+                <population>2021,2</population>
+                <latitude>31°57′11″ ю. ш.</latitude>
+                <longitude>115°51′32″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Манджера</name>
+                <area>0,1066</area>
+                <population>83,294</population>
+                <latitude>32°31′44″ ю. ш.</latitude>
+                <longitude>115°43′23″ в. д.</longitude>
+              </city>
+            </cities>
+          </region>
+          <region>
+            <name>Южная Австралия</name>
+            <area>983,482</area>
+            <population>1596,572</population>
+            <type>Штат</type>
+            <center>Аделаида</center>
+            <cities>
+              <city>
+                <name>Аделаида</name>
+                <area>3257,7</area>
+                <population>1304,631</population>
+                <latitude>34°56′00″ ю. ш.</latitude>
+                <longitude>138°35′00″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Маунт-Гамбир</name>
+                <area>0,0267</area>
+                <population>25,199</population>
+                <latitude>37°49′46″ ю. ш.</latitude>
+                <longitude>140°46′58″ в. д.</longitude>
+              </city>
+            </cities>
+          </region>
+          <region>
+            <name>Тасмания</name>
+            <area>68,401</area>
+            <population>495,354</population>
+            <type>Штат</type>
+            <center>Хобарт</center>
+            <cities>
+              <city>
+                <name>Хобарт</name>
+                <area>1,3573</area>
+                <population>200,525</population>
+                <latitude>42°53′00″ ю. ш.</latitude>
+                <longitude>147°19′00″ в. д.</longitude>
+              </city>
+              <city>
+                <name>Лонсестон</name>
+                <area>0.0951</area>
+                <population>74,085</population>
+                <latitude>41°26′40″ ю. ш.</latitude>
+                <longitude>147°08′16″ в. д.</longitude>
+              </city>
+            </cities>
+          </region>
+          <region>
+            <name>Австралийская столичная территория</name>
+            <area>2,358</area>
+            <population>357,222</population>
+            <type>Территория</type>
+            <center>Канберра</center>
+            <cities>
+              <city>
+                <name>Канберра</name>
+                <area>0,8142</area>
+                <population>355,596</population>
+                <latitude>35°18′10″ ю. ш.</latitude>
+                <longitude>149°08′30″ в. д.</longitude>
               </city>
             </cities>
           </region>
