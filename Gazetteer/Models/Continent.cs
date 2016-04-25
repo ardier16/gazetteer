@@ -22,7 +22,7 @@ namespace Gazetteer
 
             for (int i = 0; i < this.Countries.Count; i++)
             {
-                pop += this.Countries[i].GetSummaryRegionsPopulation();
+                pop += this.Countries[i].Population;
             }
 
             return pop;
@@ -38,7 +38,7 @@ namespace Gazetteer
                 {
                     for (int k = 0; k < this.Countries[i].Regions[j].Cities.Count; k++)
                     {
-                        if (this.Countries[i].Regions[j].Cities[k].Name.ToLower().Contains(key.ToLower()))
+                        if (this.Countries[i].Regions[j].Cities[k].Name.ToLower().IndexOf(key.ToLower()) == 0)
                             CitiesList.Add(this.Countries[i].Regions[j].Cities[k]);
                     }
                 }
@@ -51,5 +51,6 @@ namespace Gazetteer
         {
             this.Countries.Add(c);
         }
+
     }
 }

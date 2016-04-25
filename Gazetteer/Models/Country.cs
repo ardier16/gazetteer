@@ -40,5 +40,10 @@ namespace Gazetteer
         {
             this.Regions.Add(r);
         }
+
+        public string[] GetInfo()
+        {
+            return new string[] { Name, Area.ToString(), Population.ToString(), Government, Capital };
+        }
     }
 }

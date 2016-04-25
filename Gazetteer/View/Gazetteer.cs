@@ -13,54 +13,56 @@ namespace Gazetteer
 {
     public partial class Gazetteer : Form
     {
+        public List<Continent> conts;
+        
+
         public Gazetteer()
         {
             InitializeComponent();
         }
 
-        //List<Continent> conts = GetData("Data.xml");
-
-        private void button1_Click(object sender, EventArgs e)
+        public Gazetteer(List<Continent> cs)
         {
-            XmlDocument doc = new XmlDocument();
-            doc.Load("Data.xml");
-
-            XmlNode root = doc.DocumentElement;
-
-            XmlNode reg = root.ChildNodes[5].ChildNodes[2].FirstChild.ChildNodes[6];
-
-            XmlElement rg = doc.CreateElement("region");
-            reg.AppendChild(rg);
-
-            XmlElement name = doc.CreateElement("name");
-            name.InnerText = textBox1.Text;
-            XmlElement area = doc.CreateElement("area");
-            area.InnerText = textBox2.Text;
-            XmlElement pop = doc.CreateElement("population");
-            pop.InnerText = textBox3.Text;
-            XmlElement type = doc.CreateElement("type");
-            type.InnerText = textBox4.Text;
-            XmlElement center = doc.CreateElement("center");
-            center.InnerText = textBox5.Text;
-            XmlElement c = doc.CreateElement("cities");
-            c.InnerText = "";
-
-            rg.AppendChild(name);
-            rg.AppendChild(area);
-            rg.AppendChild(pop);
-            rg.AppendChild(type);
-            rg.AppendChild(center);
-            rg.AppendChild(c);
-
-            doc.Save("Data.xml");
-
-            //List<Continent> cont = GetData("Data.xml");
-
-            label6.Text = "ADDED";
-            textBox1.Text = textBox2.Text = textBox3.Text = textBox5.Text = "";
+            this.conts = cs;
+            InitializeComponent();
         }
 
-        public List<Continent> GetData(string source)
+
+        private void Gazetteer_Load(object sender, EventArgs e)
+        {
+            conts = GetData("Data.xml");
+            FillList();
+
+            for (int i = 0; i < conts.Count; i++)
+            {
+                comboBox1.Items.Add(conts[i].Name);
+            }
+        }
+
+
+      
+        
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            List<City> res = new List<City>();
+
+            for (int i = 0; i < conts.Count; i++)
+            {
+                res.AddRange(conts[i].SearchCitiesHomonyms(textBox1.Text));
+            }
+
+            if (res.Count > 0 && textBox1.Text != "")
+            {
+                var cities = new Cities(res, textBox1.Text);
+                cities.Show();
+            }
+            else
+                MessageBox.Show("Города не найдены");
+
+        }
+
+        public static List<Continent> GetData(string source)
         {
             List<Continent> conts = new List<Continent>();
             XmlDocument doc = new XmlDocument();
@@ -111,10 +113,11 @@ namespace Gazetteer
                             string name = cts.ChildNodes[l].FirstChild.LastChild.Value;
                             double pop = double.Parse(cts.ChildNodes[l].ChildNodes[2].LastChild.Value);
                             double area = double.Parse(cts.ChildNodes[l].ChildNodes[1].LastChild.Value);
+                            string cityReg = $"{Cname}; {Rtype}: {Rname}";
                             string lat = cts.ChildNodes[l].ChildNodes[3].LastChild.Value;
                             string lon = cts.ChildNodes[l].ChildNodes[4].LastChild.Value;
 
-                            cities.Add(new City(name, pop, area, lat, lon));
+                            cities.Add(new City(name, pop, area, cityReg, lat, lon));
                         }
 
                         Cregs.Add(new Region(Rname, Rpop, Rarea, Rtype, cities, Rcenter));
@@ -129,39 +132,37 @@ namespace Gazetteer
             return conts;
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        public void FillList()
         {
-            XmlDocument doc = new XmlDocument();
-            doc.Load("Data.xml");
+            for (int i = 0; i < conts.Count; i++)
+            {
+                for (int j = 0; j < conts[i].Countries.Count; j++)
+                {
+                    string[] info = new string[6];
+                    info[0] = conts[i].Name;
 
-            XmlNode root = doc.DocumentElement;
+                    for (int k = 1; k < info.Length; k++)
+                    {
+                        info[k] = conts[i].Countries[j].GetInfo()[k - 1];
+                    }
 
-            XmlNode reg = root.ChildNodes[5].ChildNodes[2].FirstChild.ChildNodes[6].ChildNodes[(int)numericUpDown1.Value].LastChild;
+                    ListViewItem list = new ListViewItem(info);
+                    listView1.Items.AddRange(new ListViewItem[] { list });
+                }
+            }
+        }
 
-            XmlElement rg = doc.CreateElement("city");
-            reg.AppendChild(rg);
-
-            XmlElement name = doc.CreateElement("name");
-            name.InnerText = textBox6.Text;
-            XmlElement area = doc.CreateElement("area");
-            area.InnerText = textBox7.Text;
-            XmlElement pop = doc.CreateElement("population");
-            pop.InnerText = textBox8.Text;
-            XmlElement lat = doc.CreateElement("latitude");
-            lat.InnerText = textBox9.Text;
-            XmlElement lon = doc.CreateElement("longitude");
-            lon.InnerText = textBox10.Text;
-
-            rg.AppendChild(name);
-            rg.AppendChild(area);
-            rg.AppendChild(pop);
-            rg.AppendChild(lat);
-            rg.AppendChild(lon);
-
-            doc.Save("Data.xml");
-
-            label6.Text = "OK";
-            textBox6.Text = textBox7.Text = textBox8.Text = "";
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double pop = Math.Round(conts[comboBox1.SelectedIndex].GetPopulation()/1000, 3);
+                label1.Text = pop.ToString() + " млн чел";
+            }
+            catch
+            {
+                MessageBox.Show("Не выбран континент");
+            }
         }
     }
 }

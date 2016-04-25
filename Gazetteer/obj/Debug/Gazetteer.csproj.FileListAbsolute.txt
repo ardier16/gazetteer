@@ -10,3 +10,5 @@ C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.p
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\bin\Debug\ru-UA\Gazetteer.resources.dll
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.Gazetteer.ru-UA.resources
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\ru-UA\Gazetteer.resources.dll
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.Form1.resources
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.Cities.resources

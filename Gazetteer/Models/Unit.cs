@@ -16,7 +16,7 @@ namespace Gazetteer
             this.Area = area;
         }
 
-        public double GetDensity
+        public double Density
         {
             get { return this.Population / this.Area; }
         }
