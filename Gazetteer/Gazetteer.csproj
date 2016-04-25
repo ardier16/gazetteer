@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cities.cs">
+    <Compile Include="View\Cities.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cities.Designer.cs">
+    <Compile Include="View\Cities.Designer.cs">
       <DependentUpon>Cities.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
@@ -63,6 +63,12 @@
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Region.cs" />
     <Compile Include="Models\Unit.cs" />
+    <Compile Include="View\CountryInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CountryInfo.Designer.cs">
+      <DependentUpon>CountryInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Gazetteer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,11 +77,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Cities.resx">
+    <EmbeddedResource Include="View\Cities.resx">
       <DependentUpon>Cities.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CountryInfo.resx">
+      <DependentUpon>CountryInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Gazetteer.resx">
       <DependentUpon>Gazetteer.cs</DependentUpon>

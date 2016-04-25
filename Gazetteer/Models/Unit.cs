@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Gazetteer
+﻿namespace Gazetteer
 {
     public abstract class Unit
     {
@@ -15,6 +12,8 @@ namespace Gazetteer
             this.Population = pop;
             this.Area = area;
         }
+
+
 
         public double Density
         {

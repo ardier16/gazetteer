@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Gazetteer
 {
@@ -16,19 +15,26 @@ namespace Gazetteer
             this.Countries = countries;
         }
 
-        public double GetPopulation()
+
+
+        public double Population
         {
-            double pop = 0;
-
-            for (int i = 0; i < this.Countries.Count; i++)
+            get
             {
-                pop += this.Countries[i].Population;
-            }
+                double pop = 0;
 
-            return pop;
+                for (int i = 0; i < this.Countries.Count; i++)
+                {
+                    pop += this.Countries[i].Population;
+                }
+
+                return pop;
+            }
         }
 
-        public List<City> SearchCitiesHomonyms(string key)
+
+
+        public List<City> SearchCitiesHomonyms(string key, bool method)
         {
             List<City> CitiesList = new List<City>();
 
@@ -38,8 +44,18 @@ namespace Gazetteer
                 {
                     for (int k = 0; k < this.Countries[i].Regions[j].Cities.Count; k++)
                     {
-                        if (this.Countries[i].Regions[j].Cities[k].Name.ToLower().IndexOf(key.ToLower()) == 0)
-                            CitiesList.Add(this.Countries[i].Regions[j].Cities[k]);
+                        string name = this.Countries[i].Regions[j].Cities[k].Name.ToLower();
+
+                        if (method)
+                        {
+                            if (name.IndexOf(key.ToLower()) == 0)
+                                CitiesList.Add(this.Countries[i].Regions[j].Cities[k]);
+                        }
+                        else
+                        {
+                            if (name.Contains(key.ToLower()))
+                                CitiesList.Add(this.Countries[i].Regions[j].Cities[k]);
+                        }
                     }
                 }
             }
@@ -50,6 +66,17 @@ namespace Gazetteer
         public void AddCountry(Country c)
         {
             this.Countries.Add(c);
+        }
+
+        public Country SearchCountryByName(string name)
+        {
+            for (int i = 0; i < Countries.Count; i++)
+            {
+                if (Countries[i].Name == name)
+                    return Countries[i];
+            }
+
+            return null;
         }
 
     }

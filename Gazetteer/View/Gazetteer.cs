@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -15,7 +9,6 @@ namespace Gazetteer
     {
         public List<Continent> conts;
         
-
         public Gazetteer()
         {
             InitializeComponent();
@@ -32,35 +25,62 @@ namespace Gazetteer
         {
             conts = GetData("Data.xml");
             FillList();
+            FillContsBox();           
+        }       
 
-            for (int i = 0; i < conts.Count; i++)
+        
+
+        private void GetContPopulation_Click(object sender, EventArgs e)
+        {
+            try
             {
-                comboBox1.Items.Add(conts[i].Name);
+                double pop = Math.Round(conts[ContsPopBox.SelectedIndex].Population / 1000, 3);
+                ContPopResult.Text = "Суммарное население: " + pop.ToString() + " млн чел";
+            }
+            catch
+            {
+                MessageBox.Show("Не выбран континент");
             }
         }
 
-
-      
-        
-
-        private void button3_Click(object sender, EventArgs e)
+        private void SearchButton_Click(object sender, EventArgs e)
         {
             List<City> res = new List<City>();
 
             for (int i = 0; i < conts.Count; i++)
             {
-                res.AddRange(conts[i].SearchCitiesHomonyms(textBox1.Text));
+                res.AddRange(conts[i].SearchCitiesHomonyms(SearchField.Text, StartSearchPos.Checked));
             }
 
-            if (res.Count > 0 && textBox1.Text != "")
+            if (res.Count > 0 && SearchField.Text != "")
             {
-                var cities = new Cities(res, textBox1.Text);
+                var cities = new Cities(res, SearchField.Text);
                 cities.Show();
             }
             else
                 MessageBox.Show("Города не найдены");
-
         }
+
+        private void CountriesList_DoubleClick(object sender, EventArgs e)
+        {
+            if (CountriesList.SelectedIndices.Count == 1)
+            {
+                Country c = null;
+
+                for (int i = 0; i < conts.Count; i++)
+                {
+                    c = conts[i].SearchCountryByName(
+                        CountriesList.Items[CountriesList.SelectedIndices[0]].SubItems[1].Text);
+
+                    if (c != null)
+                        break;
+                }
+
+                var CountryInfo = new CountryInfo(c);
+                CountryInfo.ShowDialog();
+            }
+        }
+
 
         public static List<Continent> GetData(string source)
         {
@@ -147,21 +167,16 @@ namespace Gazetteer
                     }
 
                     ListViewItem list = new ListViewItem(info);
-                    listView1.Items.AddRange(new ListViewItem[] { list });
+                    CountriesList.Items.AddRange(new ListViewItem[] { list });
                 }
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void FillContsBox()
         {
-            try
+            for (int i = 0; i < conts.Count; i++)
             {
-                double pop = Math.Round(conts[comboBox1.SelectedIndex].GetPopulation()/1000, 3);
-                label1.Text = pop.ToString() + " млн чел";
-            }
-            catch
-            {
-                MessageBox.Show("Не выбран континент");
+                ContsPopBox.Items.Add(conts[i].Name);
             }
         }
     }

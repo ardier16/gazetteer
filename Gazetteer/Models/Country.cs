@@ -19,22 +19,31 @@ namespace Gazetteer
             this.Languages = langs;
         }
 
-        public double GetSummaryRegionsPopulation()
-        {
-            double sumPop = 0;
 
-            for (int i = 0; i < this.Regions.Count; i++)
+
+        public double SummaryRegionsPopulation
+        {
+            get
             {
-                sumPop += this.Regions[i].GetSummaryCitiesPopulation();
+                double sumPop = 0;
+
+                for (int i = 0; i < this.Regions.Count; i++)
+                {
+                    sumPop += this.Regions[i].SummaryCitiesPopulation;
+                }
+
+                return sumPop;
             }
-
-            return sumPop;
+            
         }
 
-        public double GetUrbanization()
+        public double Urbanization
         {
-            return Math.Round((this.GetSummaryRegionsPopulation() * 100 / this.Population), 3);
+            get { return Math.Round((this.SummaryRegionsPopulation * 100 / this.Population), 3); }
         }
+
+
+
 
         public void AddRegion(Region r)
         {
@@ -44,6 +53,17 @@ namespace Gazetteer
         public string[] GetInfo()
         {
             return new string[] { Name, Area.ToString(), Population.ToString(), Government, Capital };
+        }
+
+        public Region SearchRegionByName(string name)
+        {
+            for (int i = 0; i < Regions.Count; i++)
+            {
+                if (Regions[i].Name == name)
+                    return Regions[i];
+            }
+
+            return null;
         }
     }
 }

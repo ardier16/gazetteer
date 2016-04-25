@@ -17,22 +17,29 @@ namespace Gazetteer
             this.Center = center;
         }
 
-        public double GetUrbanization()
+
+        public double Urbanization
         {
-            return Math.Round((this.GetSummaryCitiesPopulation() * 100 / this.Population), 3);
+            get { return Math.Round((this.SummaryCitiesPopulation * 100 / this.Population), 3); }
         }
 
-        public double GetSummaryCitiesPopulation()
+        public double SummaryCitiesPopulation
         {
-            double sumPop = 0;
-
-            for (int i = 0; i < this.Cities.Count; i++)
+            get
             {
-                sumPop += this.Cities[i].Population;
-            }
+                double sumPop = 0;
 
-            return sumPop;
+                for (int i = 0; i < this.Cities.Count; i++)
+                {
+                    sumPop += this.Cities[i].Population;
+                }
+
+                return sumPop;
+            }
+            
         }
+
+
 
         public void AddCity(City c)
         {
