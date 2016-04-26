@@ -180,6 +180,7 @@
             // CountryInfo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.Ivory;
             resources.ApplyResources(this, "$this");
             this.Controls.Add(this.CountryUrban);
             this.Controls.Add(this.CUrbanization);
@@ -198,6 +199,7 @@
             this.Controls.Add(this.CArea);
             this.Controls.Add(this.CName);
             this.Controls.Add(this.Info);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "CountryInfo";

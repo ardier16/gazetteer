@@ -34,7 +34,7 @@ namespace Gazetteer
 
 
 
-        public List<City> SearchCitiesHomonyms(string key, bool method)
+        public List<City> SearchCities(string key, bool method)
         {
             List<City> CitiesList = new List<City>();
 
@@ -56,6 +56,25 @@ namespace Gazetteer
                             if (name.Contains(key.ToLower()))
                                 CitiesList.Add(this.Countries[i].Regions[j].Cities[k]);
                         }
+                    }
+                }
+            }
+
+            return CitiesList;
+        }
+
+        public List<City> SearchCitiesHomonyms()
+        {
+            List<City> CitiesList = new List<City>();
+
+            for (int i = 0; i < this.Countries.Count; i++)
+            {
+                for (int j = 0; j < this.Countries[i].Regions.Count; j++)
+                {
+                    for (int k = 0; k < this.Countries[i].Regions[j].Cities.Count; k++)
+                    {
+                        if (SearchCities(Countries[i].Regions[j].Cities[k].Name, true).Count != 0)
+                            CitiesList.AddRange(SearchCities(Countries[i].Regions[j].Cities[k].Name, true));
                     }
                 }
             }

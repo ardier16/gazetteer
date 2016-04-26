@@ -45,11 +45,15 @@
             this.SearchHomonyms = new System.Windows.Forms.Label();
             this.StartSearchPos = new System.Windows.Forms.RadioButton();
             this.AnySearchPos = new System.Windows.Forms.RadioButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.WorldCountries = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // CountriesList
             // 
             this.CountriesList.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.CountriesList, "CountriesList");
             this.CountriesList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Continent,
             this.CName,
@@ -57,7 +61,6 @@
             this.Population,
             this.Government,
             this.Capital});
-            resources.ApplyResources(this.CountriesList, "CountriesList");
             this.CountriesList.ForeColor = System.Drawing.SystemColors.InfoText;
             this.CountriesList.FullRowSelect = true;
             this.CountriesList.GridLines = true;
@@ -93,9 +96,10 @@
             // 
             // SearchButton
             // 
+            this.SearchButton.BackColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.SearchButton, "SearchButton");
             this.SearchButton.Name = "SearchButton";
-            this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.UseVisualStyleBackColor = false;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // ContPopResult
@@ -145,11 +149,25 @@
             this.AnySearchPos.Name = "AnySearchPos";
             this.AnySearchPos.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            // 
+            // WorldCountries
+            // 
+            resources.ApplyResources(this.WorldCountries, "WorldCountries");
+            this.WorldCountries.Name = "WorldCountries";
+            // 
             // Gazetteer
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             resources.ApplyResources(this, "$this");
+            this.Controls.Add(this.WorldCountries);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.CountriesList);
             this.Controls.Add(this.AnySearchPos);
             this.Controls.Add(this.StartSearchPos);
             this.Controls.Add(this.SearchHomonyms);
@@ -159,7 +177,6 @@
             this.Controls.Add(this.SearchField);
             this.Controls.Add(this.ContPopResult);
             this.Controls.Add(this.SearchButton);
-            this.Controls.Add(this.CountriesList);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.HelpButton = true;
@@ -167,6 +184,7 @@
             this.MaximizeBox = false;
             this.Name = "Gazetteer";
             this.Load += new System.EventHandler(this.Gazetteer_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,6 +207,8 @@
         private System.Windows.Forms.Label SearchHomonyms;
         private System.Windows.Forms.RadioButton StartSearchPos;
         private System.Windows.Forms.RadioButton AnySearchPos;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label WorldCountries;
     }
 }
 

@@ -23,9 +23,17 @@ namespace Gazetteer
 
         private void Gazetteer_Load(object sender, EventArgs e)
         {
-            conts = GetData("Data.xml");
-            FillList();
-            FillContsBox();           
+            try
+            {
+                conts = GetData("Data.xml");
+                FillList();
+                FillContsBox();
+            }
+            catch
+            {
+                MessageBox.Show("Файл Data.xml не найден или имеет неизвестный формат");
+                this.Close();
+            }                  
         }       
 
         
@@ -47,12 +55,17 @@ namespace Gazetteer
         {
             List<City> res = new List<City>();
 
-            for (int i = 0; i < conts.Count; i++)
+            if (SearchField.Text != "")
             {
-                res.AddRange(conts[i].SearchCitiesHomonyms(SearchField.Text, StartSearchPos.Checked));
+                res = SearchCities(SearchField.Text);
             }
 
-            if (res.Count > 0 && SearchField.Text != "")
+            else
+            {
+                res = SearchCitiesHomonyms();
+            }
+
+            if (res.Count > 0)
             {
                 var cities = new Cities(res, SearchField.Text);
                 cities.Show();
@@ -178,6 +191,62 @@ namespace Gazetteer
             {
                 ContsPopBox.Items.Add(conts[i].Name);
             }
+        }
+
+        public List<City> SearchCities(string key)
+        {
+            List<City> res = new List<City>();
+
+            for (int i = 0; i < conts.Count; i++)
+            {
+                res.AddRange(conts[i].SearchCities(key, StartSearchPos.Checked));
+            }
+
+            return res;
+        }
+
+        public List<City> SearchCitiesHomonyms()
+        {
+            List<City> res = new List<City>();
+
+            for (int i = 0; i < conts.Count; i++)
+            {
+                for (int j = 0; j < conts[i].Countries.Count; j++)
+                {
+                    for (int k = 0; k < conts[i].Countries[j].Regions.Count; k++)
+                    {
+                        for (int l = 0; l < conts[i].Countries[j].Regions[k].Cities.Count; l++)
+                        {
+                            City temp = conts[i].Countries[j].Regions[k].Cities[l];
+                            List<City> search = SearchCities(temp.Name);
+
+                            if (search.Count > 1)
+                                res.AddRange(search);
+                                                    
+                        }
+                    }
+                }
+            }
+
+            return RemoveSameCities(res);
+        }
+
+        public List<City> RemoveSameCities(List<City> source)
+        {
+            for (int i = 0; i < source.Count; i++)
+            {
+                for (int j = i + 1; j < source.Count; j++)
+                {
+                    if (source[i].Latitude == source[j].Latitude &&
+                        source[i].Longitude == source[j].Longitude)
+                    {
+                        source.RemoveAt(j);
+                        j--;
+                    }
+                }
+            }
+
+            return source;
         }
     }
 }

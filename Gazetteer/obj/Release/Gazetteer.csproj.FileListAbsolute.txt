@@ -1,0 +1,14 @@
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\bin\Release\Gazetteer.exe.config
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\bin\Release\Gazetteer.exe
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\bin\Release\Gazetteer.pdb
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\bin\Release\ru-UA\Gazetteer.resources.dll
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.Cities.resources
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.Form1.resources
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.CountryInfo.resources
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.Gazetteer.resources
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.Properties.Resources.resources
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.Gazetteer.ru-UA.resources
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.csproj.GenerateResource.Cache
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\ru-UA\Gazetteer.resources.dll
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.exe
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.pdb
