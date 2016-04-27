@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace Gazetteer
 {
     public partial class Gazetteer : Form
     {
         public List<Continent> conts;
+        public DocumentEditor doc = new DocumentEditor();
+        public string source;
         
         public Gazetteer()
         {
@@ -25,7 +26,8 @@ namespace Gazetteer
         {
             try
             {
-                conts = GetData("Data.xml");
+                source = "Data.xml";
+                conts = doc.GetData(source);
                 FillList();
                 FillContsBox();
             }
@@ -95,75 +97,7 @@ namespace Gazetteer
         }
 
 
-        public static List<Continent> GetData(string source)
-        {
-            List<Continent> conts = new List<Continent>();
-            XmlDocument doc = new XmlDocument();
-            doc.Load(source);
-
-            XmlNode root = doc.DocumentElement;
-
-            for (int h = 0; h < root.ChildNodes.Count; h++)
-            {
-                string ContName = root.ChildNodes[h].FirstChild.LastChild.Value;
-                double ContArea = double.Parse(root.ChildNodes[h].ChildNodes[1].LastChild.Value);
-
-                XmlNode coun = root.ChildNodes[h].ChildNodes[2];
-                List<Country> countries = new List<Country>();
-
-                for (int i = 0; i < coun.ChildNodes.Count; i++)
-                {
-                    string Cname = coun.ChildNodes[i].FirstChild.LastChild.Value;
-                    double Cpop = double.Parse(coun.ChildNodes[i].ChildNodes[2].LastChild.Value);
-                    double Carea = double.Parse(coun.ChildNodes[i].ChildNodes[1].LastChild.Value);
-                    string Cgov = coun.ChildNodes[i].ChildNodes[3].LastChild.Value;
-                    string Ccap = coun.ChildNodes[i].ChildNodes[4].LastChild.Value;
-
-                    XmlNode lang = coun.ChildNodes[i].ChildNodes[5];
-                    List<string> Clangs = new List<string>();
-
-                    for (int j = 0; j < lang.ChildNodes.Count; j++)
-                    {
-                        Clangs.Add(lang.ChildNodes[j].LastChild.Value);
-                    }
-
-                    XmlNode rgs = coun.ChildNodes[i].ChildNodes[6];
-                    List<Region> Cregs = new List<Region>();
-
-                    for (int k = 0; k < rgs.ChildNodes.Count; k++)
-                    {
-                        string Rname = rgs.ChildNodes[k].FirstChild.LastChild.Value;
-                        double Rpop = double.Parse(rgs.ChildNodes[k].ChildNodes[2].LastChild.Value);
-                        double Rarea = double.Parse(rgs.ChildNodes[k].ChildNodes[1].LastChild.Value);
-                        string Rtype = rgs.ChildNodes[k].ChildNodes[3].LastChild.Value;
-                        string Rcenter = rgs.ChildNodes[k].ChildNodes[4].LastChild.Value;
-
-                        XmlNode cts = rgs.ChildNodes[k].ChildNodes[5];
-                        List<City> cities = new List<City>();
-
-                        for (int l = 0; l < cts.ChildNodes.Count; l++)
-                        {
-                            string name = cts.ChildNodes[l].FirstChild.LastChild.Value;
-                            double pop = double.Parse(cts.ChildNodes[l].ChildNodes[2].LastChild.Value);
-                            double area = double.Parse(cts.ChildNodes[l].ChildNodes[1].LastChild.Value);
-                            string cityReg = $"{Cname}; {Rtype}: {Rname}";
-                            string lat = cts.ChildNodes[l].ChildNodes[3].LastChild.Value;
-                            string lon = cts.ChildNodes[l].ChildNodes[4].LastChild.Value;
-
-                            cities.Add(new City(name, pop, area, cityReg, lat, lon));
-                        }
-
-                        Cregs.Add(new Region(Rname, Rpop, Rarea, Rtype, cities, Rcenter));
-                    }
-
-                    countries.Add(new Country(Cname, Cpop, Carea, Cgov, Ccap, Cregs, Clangs));
-                }
-
-                conts.Add(new Continent(ContName, ContArea, countries));
-            }
-
-            return conts;
-        }
+        
 
         public void FillList()
         {
@@ -247,6 +181,127 @@ namespace Gazetteer
             }
 
             return source;
+        }
+
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.ShowDialog();
+        }
+
+        private void создатьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.ShowDialog();
+            string oldSource = source;
+            source = openFileDialog1.FileName;
+
+            try
+            {
+                conts = doc.GetData(source);
+                CountriesList.Items.Clear();
+                FillList();
+            }
+            catch
+            {
+                MessageBox.Show("Файл Data.xml не найден или имеет неизвестный формат");
+                source = oldSource;
+            }
+        }
+
+        private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var addForm = new AddCountry(conts, source);
+            addForm.ShowDialog();
+        }
+
+        public int[] GetCountryIndex(List<Continent> conts, string name)
+        {
+            for (int i = 0; i < conts.Count; i++)
+            {
+                for(int j = 0; j < conts[i].Countries.Count; j++)
+                {
+                    if (conts[i].Countries[j].Name == name)
+                        return new int[] { i, j };
+                }
+            }
+
+            return new int[0];
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            conts = doc.GetData(source);
+            CountriesList.Items.Clear();
+            FillList();
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int[] idx = GetCountryIndex(conts, CountriesList.SelectedItems[0].SubItems[1].Text);
+
+                DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите удалить выбранную страну?", "Удаление страны", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    doc.DeleteCountry("Data.xml", idx[0], idx[1]);
+                    button1_Click(null, null);
+
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Пожалуйста, выберите страну!", "Внимание!");
+            }
+        }
+
+        private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int[] k = GetCountryIndex(conts, CountriesList.SelectedItems[0].SubItems[1].Text);
+
+                Country c = null;
+
+                for (int i = 0; i < conts.Count; i++)
+                {
+                    c = conts[i].SearchCountryByName(
+                        CountriesList.Items[CountriesList.SelectedIndices[0]].SubItems[1].Text);
+
+                    if (c != null)
+                        break;
+                }
+
+                var form = new AddCountry(conts, k, source);
+                form.ShowDialog();
+            }
+            catch
+            {
+                MessageBox.Show("Пожалуйста, выберите страну!", "Внимание!");
+            }
+        }
+
+        private void создатьToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                saveFileDialog1.ShowDialog();
+                doc.CreateNewBase(saveFileDialog1.FileName);
+                source = saveFileDialog1.FileName;
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка при создании файла");
+            }
         }
     }
 }

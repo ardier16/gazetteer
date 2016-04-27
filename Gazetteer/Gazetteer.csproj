@@ -64,6 +64,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCountry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCountry.Designer.cs">
+      <DependentUpon>AddCountry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentEditor.cs" />
     <Compile Include="View\Cities.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +102,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddCountry.resx">
+      <DependentUpon>AddCountry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Cities.resx">
       <DependentUpon>Cities.cs</DependentUpon>
     </EmbeddedResource>

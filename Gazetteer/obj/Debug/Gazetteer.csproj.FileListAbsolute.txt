@@ -13,3 +13,4 @@ C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\ru-UA\Gazet
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.Form1.resources
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.Cities.resources
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.CountryInfo.resources
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.AddCountry.resources

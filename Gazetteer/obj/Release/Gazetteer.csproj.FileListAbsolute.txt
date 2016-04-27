@@ -12,3 +12,4 @@ C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\ru-UA\Gazetteer.resources.dll
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.exe
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.pdb
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.csprojResolveAssemblyReference.cache
