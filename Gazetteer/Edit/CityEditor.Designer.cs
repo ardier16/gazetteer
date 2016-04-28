@@ -69,47 +69,54 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(262, 377);
+            this.button2.BackColor = System.Drawing.Color.LightSalmon;
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button2.Location = new System.Drawing.Point(243, 377);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(126, 34);
             this.button2.TabIndex = 25;
             this.button2.Text = "Отмена";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.LightGreen;
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Location = new System.Drawing.Point(66, 377);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(126, 34);
             this.button1.TabIndex = 24;
             this.button1.Text = "Сохранить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pop
             // 
             this.pop.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.pop.Location = new System.Drawing.Point(168, 177);
+            this.pop.MaxLength = 9;
             this.pop.Name = "pop";
             this.pop.Size = new System.Drawing.Size(100, 26);
-            this.pop.TabIndex = 21;
+            this.pop.TabIndex = 2;
             // 
             // area
             // 
             this.area.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.area.Location = new System.Drawing.Point(168, 131);
+            this.area.MaxLength = 9;
             this.area.Name = "area";
             this.area.Size = new System.Drawing.Size(100, 26);
-            this.area.TabIndex = 20;
+            this.area.TabIndex = 1;
             // 
             // name
             // 
             this.name.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.name.Location = new System.Drawing.Point(168, 88);
+            this.name.MaxLength = 30;
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(182, 26);
-            this.name.TabIndex = 19;
+            this.name.TabIndex = 0;
             // 
             // label6
             // 
@@ -182,7 +189,7 @@
             0});
             this.latD.Name = "latD";
             this.latD.Size = new System.Drawing.Size(59, 24);
-            this.latD.TabIndex = 26;
+            this.latD.TabIndex = 3;
             // 
             // latM
             // 
@@ -194,7 +201,7 @@
             0});
             this.latM.Name = "latM";
             this.latM.Size = new System.Drawing.Size(48, 24);
-            this.latM.TabIndex = 27;
+            this.latM.TabIndex = 4;
             // 
             // latS
             // 
@@ -206,12 +213,12 @@
             0});
             this.latS.Name = "latS";
             this.latS.Size = new System.Drawing.Size(50, 24);
-            this.latS.TabIndex = 28;
+            this.latS.TabIndex = 5;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(62, 15);
+            this.label7.Location = new System.Drawing.Point(68, 14);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(14, 17);
             this.label7.TabIndex = 31;
@@ -259,7 +266,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox1.Controls.Add(this.latN);
             this.groupBox1.Controls.Add(this.latD);
             this.groupBox1.Controls.Add(this.latM);
@@ -308,7 +315,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(142, 14);
+            this.label15.Location = new System.Drawing.Point(136, 14);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(11, 17);
             this.label15.TabIndex = 31;
@@ -316,7 +323,7 @@
             // 
             // lonS
             // 
-            this.lonS.Location = new System.Drawing.Point(159, 13);
+            this.lonS.Location = new System.Drawing.Point(153, 14);
             this.lonS.Maximum = new decimal(new int[] {
             59,
             0,
@@ -324,12 +331,12 @@
             0});
             this.lonS.Name = "lonS";
             this.lonS.Size = new System.Drawing.Size(50, 24);
-            this.lonS.TabIndex = 28;
+            this.lonS.TabIndex = 8;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(215, 9);
+            this.label18.Location = new System.Drawing.Point(209, 14);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(13, 17);
             this.label18.TabIndex = 31;
@@ -337,7 +344,7 @@
             // 
             // lonM
             // 
-            this.lonM.Location = new System.Drawing.Point(88, 14);
+            this.lonM.Location = new System.Drawing.Point(82, 14);
             this.lonM.Maximum = new decimal(new int[] {
             59,
             0,
@@ -345,7 +352,7 @@
             0});
             this.lonM.Name = "lonM";
             this.lonM.Size = new System.Drawing.Size(48, 24);
-            this.lonM.TabIndex = 27;
+            this.lonM.TabIndex = 7;
             // 
             // lonD
             // 
@@ -357,7 +364,7 @@
             0});
             this.lonD.Name = "lonD";
             this.lonD.Size = new System.Drawing.Size(56, 24);
-            this.lonD.TabIndex = 26;
+            this.lonD.TabIndex = 6;
             // 
             // groupBox2
             // 
@@ -377,8 +384,11 @@
             // 
             // CityEditor
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.CancelButton = this.button2;
             this.ClientSize = new System.Drawing.Size(441, 426);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -394,9 +404,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CityEditor";
-            this.Text = "CityEditor";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Добавление/изменение города";
             this.Load += new System.EventHandler(this.CityEditor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.latD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.latM)).EndInit();

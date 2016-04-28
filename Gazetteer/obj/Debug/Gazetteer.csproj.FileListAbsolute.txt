@@ -15,3 +15,5 @@ C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.C
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.CityEditor.resources
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.CountryEditor.resources
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.RegionEditor.resources
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.Map.resources
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.About.resources

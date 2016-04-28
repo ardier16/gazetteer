@@ -76,6 +76,18 @@
     <Compile Include="Edit\CountryEditor.Designer.cs">
       <DependentUpon>CountryEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Map.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Map.Designer.cs">
+      <DependentUpon>Map.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\DocumentEditor.cs" />
     <Compile Include="Edit\RegionEditor.cs">
       <SubType>Form</SubType>
@@ -116,6 +128,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Edit\RegionEditor.resx">
       <DependentUpon>RegionEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Map.resx">
+      <DependentUpon>Map.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Cities.resx">
       <DependentUpon>Cities.cs</DependentUpon>

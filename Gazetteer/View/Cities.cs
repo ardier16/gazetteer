@@ -26,10 +26,11 @@ namespace Gazetteer
             InitializeComponent();
         }
 
-        public Cities(List<City> cs, string s)
+        public Cities(List<City> cs, string s, string sou)
         {
             this.cities = cs;
             this.SearchInfo = s;
+            this.source = sou;
             InitializeComponent();
         }
 
@@ -143,6 +144,30 @@ namespace Gazetteer
         private void Cities_Activated(object sender, EventArgs e)
         {
             RefreshList();
+        }
+
+        private void CitiesList_DoubleClick(object sender, EventArgs e)
+        {
+            //City c = cities[CitiesList.SelectedIndices[0]];
+            //var form = new Map(c);
+            //form.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<City> cts = new List<City>();
+
+            int idx = CitiesList.SelectedIndices.Count;
+
+            for (int i = 0; i < idx; i++)
+            {
+                cts.Add(cities[CitiesList.SelectedIndices[i]]);
+
+               
+            }
+
+            var form = new Map(cts);
+            form.ShowDialog();
         }
     }
 }

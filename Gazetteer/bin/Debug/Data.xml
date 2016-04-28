@@ -9,13 +9,29 @@
         <area>30,528</area>
         <population>11242,781</population>
         <government>Конституционная монархия</government>
-        <capital>Брюссель</capital>
+        <capital>Брюссе</capital>
         <languages>
           <language>Нидерландский</language>
           <language>Французский</language>
           <language>Немецкий</language>
         </languages>
         <regions>
+          <region>
+            <name>цукцук</name>
+            <area>2334</area>
+            <population>324342</population>
+            <type>йцукйцук</type>
+            <center>йуцк</center>
+            <cities>
+              <city>
+                <name>йцкйцк</name>
+                <area>2234</area>
+                <population>432</population>
+                <latitude>34°34′2″ с. ш.</latitude>
+                <longitude>3°24′59″ з. д.</longitude>
+              </city>
+            </cities>
+          </region>
         </regions>
       </country>
       <country>
@@ -31,34 +47,6 @@
         </regions>
       </country>
       <country>
-        <name>Германия</name>
-        <area>357,021</area>
-        <population>81174</population>
-        <government>Парламентская республика</government>
-        <capital>Берлин</capital>
-        <languages>
-          <language>Немецкий</language>
-        </languages>
-        <regions>
-          <region>
-            <name>wrwer</name>
-            <area>234324</area>
-            <population>234234</population>
-            <type>ewrwer</type>
-            <center>werwer</center>
-            <cities>
-              <city>
-                <name>werwer</name>
-                <area>234</area>
-                <population>5345</population>
-                <longitude>179°55′4″ з. д.с. ш.</longitude>
-                <latitude>54°5′4″ </latitude>
-              </city>
-            </cities>
-          </region>
-        </regions>
-      </country>
-      <country>
         <name>Франция</name>
         <area>674,685</area>
         <population>66200</population>
@@ -71,164 +59,28 @@
         </regions>
       </country>
       <country>
-        <name>Украина</name>
-        <area>603,549</area>
-        <population>42552,317</population>
-        <government>Парламентско-президентская республика</government>
-        <capital>Киев</capital>
+        <name>Германия</name>
+        <area>32</area>
+        <population>23</population>
+        <government>уцуц</government>
+        <capital>Берлин</capital>
         <languages>
-          <language>Украинский</language>
+          <language>цууц</language>
         </languages>
         <regions>
           <region>
-            <name>Харьковская</name>
-            <area>31,415</area>
-            <population>2738,384</population>
-            <type>Область</type>
-            <center>Харьков</center>
+            <name>Бавария</name>
+            <area>1231</area>
+            <population>4546</population>
+            <type>Земля</type>
+            <center>Мюнхен</center>
             <cities>
               <city>
-                <name>Харьков</name>
-                <area>0,35</area>
-                <population>1449,7</population>
-                <latitude>50°0′0″ с. ш.</latitude>
-                <longitude>36°13′45″ з. д.</longitude>
-              </city>
-              <city>
-                <name>Лозовая</name>
-                <area>18,1</area>
-                <population>71,1</population>
-                <latitude>48°53′21″ с. ш.</latitude>
-                <longitude>36°18′58″ з. д.</longitude>
-              </city>
-              <city>
-                <name>Изюм</name>
-                <area>0,041</area>
-                <population>51,511</population>
-                <latitude>49°13′26″ с. ш.</latitude>
-                <longitude>37°17′29″ в. д.</longitude>
-              </city>
-            </cities>
-          </region>
-          <region>
-            <name>Донецкая</name>
-            <area>26,517</area>
-            <population>4281,585</population>
-            <type>Область</type>
-            <center>Донецк</center>
-            <cities>
-              <city>
-                <name>Донецк</name>
-                <area>0,385</area>
-                <population>948,427</population>
-                <latitude>48°00′32″ с. ш.</latitude>
-                <longitude>37°48′15″ в. д.</longitude>
-              </city>
-              <city>
-                <name>Мариуполь</name>
-                <area>0,24317</area>
-                <population>475,2</population>
-                <latitude>47°07′50″ с. ш.</latitude>
-                <longitude>37°33′50″ в. д.</longitude>
-              </city>
-              <city>
-                <name>Краматорск</name>
-                <area>0,12426</area>
-                <population>194,235</population>
-                <latitude>48°44′16″ с. ш.</latitude>
-                <longitude>37°35′03″ в. д.</longitude>
-              </city>
-            </cities>
-          </region>
-          <region>
-            <name>Днепропетровская</name>
-            <area>31,923</area>
-            <population>3271,305</population>
-            <type>Область</type>
-            <center>Днепропетровск</center>
-            <cities>
-              <city>
-                <name>Днепропетровск</name>
-                <area>0,405</area>
-                <population>983,836</population>
-                <latitude>48°28′00″ с. ш.</latitude>
-                <longitude>35°01′05″ в. д.</longitude>
-              </city>
-              <city>
-                <name>Кривой Рог</name>
-                <area>0,405</area>
-                <population>643,184</population>
-                <latitude>47°57′16″ с. ш.</latitude>
-                <longitude>33°25′22″ в. д. </longitude>
-              </city>
-              <city>
-                <name>Днепродзержинск</name>
-                <area>0,138</area>
-                <population>239,44</population>
-                <latitude>48°30′27″ с. ш.</latitude>
-                <longitude>34°36′47″ в. д.</longitude>
-              </city>
-            </cities>
-          </region>
-          <region>
-            <name>Киев</name>
-            <area>0,84766</area>
-            <population>4071</population>
-            <type>Статусный город</type>
-            <center>Киев</center>
-            <cities>
-              <city>
-                <name>Киев</name>
-                <area>0,84766</area>
-                <population>4071</population>
-                <latitude>50°27′00″ с. ш.</latitude>
-                <longitude>30°31′24″ в. д.</longitude>
-              </city>
-            </cities>
-          </region>
-          <region>
-            <name>Львовская</name>
-            <area>21,831</area>
-            <population>2518,556</population>
-            <type>Область</type>
-            <center>Львов</center>
-            <cities>
-              <city>
-                <name>Львов</name>
-                <area>0,19201</area>
-                <population>728,545</population>
-                <latitude>49°50′00″ с. ш.</latitude>
-                <longitude>24°00′00″ в. д. </longitude>
-              </city>
-              <city>
-                <name>Дрогобыч</name>
-                <area>0,0445</area>
-                <population>98,015</population>
-                <latitude>49°21′00″ с. ш.</latitude>
-                <longitude>23°30′00″ в. д. </longitude>
-              </city>
-            </cities>
-          </region>
-          <region>
-            <name>Одесская</name>
-            <area>33,314</area>
-            <population>2384,466</population>
-            <type>Область</type>
-            <center>Одесса</center>
-            <cities>
-              <city>
-                <name>Одесса</name>
-                <area>0,2369</area>
-                <population>1009,732</population>
-                <latitude>46°29′10″ с. ш.</latitude>
-                <longitude>30°43′40″ в. д.</longitude>
-              </city>
-              <city>
-                <name>Измаил</name>
-                <area>0,053</area>
-                <population>73,336</population>
-                <latitude>45°21′00″ с. ш.</latitude>
-                <longitude>28°50′00″ в. д.</longitude>
+                <name>Мюнхен</name>
+                <area>354</area>
+                <population>4534</population>
+                <latitude>0°0′0″ с. ш.</latitude>
+                <longitude>0°0′0″ в. д.</longitude>
               </city>
             </cities>
           </region>
@@ -271,11 +123,11 @@
             <center>Гуанчжоу</center>
             <cities>
               <city>
-                <name>Шэньчжень</name>
+                <name>цуккуцк</name>
                 <area>1,989</area>
                 <population>10357,938</population>
-                <latitude>22°32′00″ с. ш.</latitude>
-                <longitude>114°08′00″ в. д.</longitude>
+                <latitude>22°32′0″ с. ш.</latitude>
+                <longitude>114°8′0″ в. д.</longitude>
               </city>
               <city>
                 <name>Дунгуань</name>
@@ -299,13 +151,6 @@
                 <population>8626,505</population>
                 <latitude>34°46′00″ с. ш.</latitude>
                 <longitude>113°3′00″ в. д.</longitude>
-              </city>
-              <city>
-                <name>кеукук</name>
-                <area>35</area>
-                <population>43534</population>
-                <longitude>78°11′0″ в. д.</longitude>
-                <latitude>54°33′55″ с. ш.</latitude>
               </city>
             </cities>
           </region>

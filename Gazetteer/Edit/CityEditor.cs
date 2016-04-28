@@ -4,8 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gazetteer
@@ -49,7 +47,7 @@ namespace Gazetteer
                 string lon = lonD.Value + "°" + lonM.Value + "′" + lonS.Value + "″ ";
                 string lat = latD.Value + "°" + latM.Value + "′" + latS.Value + "″ ";
 
-                if (lonW.Checked)
+                if (lonE.Checked)
                     lon += "в. д.";
                 else
                     lon += "з. д.";

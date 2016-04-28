@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.cancel = new System.Windows.Forms.Button();
-            this.save = new System.Windows.Forms.Button();
             this.cen = new System.Windows.Forms.TextBox();
             this.type = new System.Windows.Forms.TextBox();
             this.pop = new System.Windows.Forms.TextBox();
@@ -41,27 +40,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.save = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cancel
             // 
-            this.cancel.Location = new System.Drawing.Point(200, 336);
+            this.cancel.BackColor = System.Drawing.Color.LightSalmon;
+            this.cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancel.Location = new System.Drawing.Point(221, 336);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(126, 34);
             this.cancel.TabIndex = 25;
             this.cancel.Text = "Отмена";
-            this.cancel.UseVisualStyleBackColor = true;
+            this.cancel.UseVisualStyleBackColor = false;
             this.cancel.Click += new System.EventHandler(this.cancel_Click);
-            // 
-            // save
-            // 
-            this.save.Location = new System.Drawing.Point(38, 336);
-            this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(126, 34);
-            this.save.TabIndex = 24;
-            this.save.Text = "Сохранить";
-            this.save.UseVisualStyleBackColor = true;
-            this.save.Click += new System.EventHandler(this.save_Click);
             // 
             // cen
             // 
@@ -164,10 +156,23 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Новый регион";
             // 
+            // save
+            // 
+            this.save.BackColor = System.Drawing.Color.LightGreen;
+            this.save.Location = new System.Drawing.Point(51, 336);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(126, 34);
+            this.save.TabIndex = 24;
+            this.save.Text = "Сохранить";
+            this.save.UseVisualStyleBackColor = false;
+            this.save.Click += new System.EventHandler(this.save_Click);
+            // 
             // RegionEditor
             // 
+            this.AcceptButton = this.save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancel;
             this.ClientSize = new System.Drawing.Size(409, 404);
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.save);
@@ -183,9 +188,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "RegionEditor";
-            this.Text = "RegionEditor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Добавить/изменить регион";
             this.Load += new System.EventHandler(this.RegionEditor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -195,7 +203,6 @@
         #endregion
 
         private System.Windows.Forms.Button cancel;
-        private System.Windows.Forms.Button save;
         private System.Windows.Forms.TextBox cen;
         private System.Windows.Forms.TextBox type;
         private System.Windows.Forms.TextBox pop;
@@ -207,5 +214,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button save;
     }
 }

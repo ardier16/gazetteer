@@ -68,7 +68,10 @@ namespace Gazetteer
             {
                 for (int i = 0; i < conts.Count; i++)
                 {
-                    if (name.Text != "" && conts[idx[0]].Countries[idx[1]].SearchRegionByName(name.Text) != null)
+                    if ((name.Text != "" && conts[idx[0]].Countries[idx[1]].SearchRegionByName(name.Text) != null &&
+                        regId != -1 && conts[idx[0]].Countries[idx[1]].SearchRegionByName(name.Text).Name != 
+                        conts[idx[0]].Countries[idx[1]].Regions[regId].Name) || (regId == -1 && name.Text != "" && 
+                        conts[idx[0]].Countries[idx[1]].SearchRegionByName(name.Text) != null))
                     {
                         MessageBox.Show("Регион с таким названием уже имеется");
                         return;

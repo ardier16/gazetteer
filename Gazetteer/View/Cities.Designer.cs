@@ -43,6 +43,7 @@
             this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.редактироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +68,7 @@
             this.CitiesList.TabIndex = 0;
             this.CitiesList.UseCompatibleStateImageBehavior = false;
             this.CitiesList.View = System.Windows.Forms.View.Details;
+            this.CitiesList.DoubleClick += new System.EventHandler(this.CitiesList_DoubleClick);
             // 
             // CityName
             // 
@@ -121,9 +123,9 @@
             // 
             this.OKButton.BackColor = System.Drawing.Color.LightGreen;
             this.OKButton.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OKButton.Location = new System.Drawing.Point(747, 40);
+            this.OKButton.Location = new System.Drawing.Point(661, 27);
             this.OKButton.Name = "OKButton";
-            this.OKButton.Size = new System.Drawing.Size(122, 71);
+            this.OKButton.Size = new System.Drawing.Size(205, 52);
             this.OKButton.TabIndex = 3;
             this.OKButton.Text = "ОК";
             this.OKButton.UseVisualStyleBackColor = false;
@@ -131,6 +133,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Honeydew;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.добавитьToolStripMenuItem,
             this.редактироватьToolStripMenuItem,
@@ -151,8 +154,8 @@
             // редактироватьToolStripMenuItem
             // 
             this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
-            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
-            this.редактироватьToolStripMenuItem.Text = "Редактировать";
+            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.редактироватьToolStripMenuItem.Text = "Изменить";
             this.редактироватьToolStripMenuItem.Click += new System.EventHandler(this.редактироватьToolStripMenuItem_Click);
             // 
             // удалитьToolStripMenuItem
@@ -162,12 +165,25 @@
             this.удалитьToolStripMenuItem.Text = "Удалить";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightBlue;
+            this.button1.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(661, 85);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(205, 46);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Показать карту";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Cities
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(916, 547);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.OKButton);
             this.Controls.Add(this.SearchingInfo);
             this.Controls.Add(this.InfoField);
@@ -208,5 +224,6 @@
         private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem редактироватьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }

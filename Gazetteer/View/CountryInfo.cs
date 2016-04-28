@@ -121,7 +121,7 @@ namespace Gazetteer
                 if (dialogResult == DialogResult.Yes)
                 {
                     doc.DeleteRegion(source, idx[0], idx[1], regId);
-                    button1_Click(null, null);
+                    RefreshList();
 
                 }
                 else if (dialogResult == DialogResult.No)
@@ -137,17 +137,16 @@ namespace Gazetteer
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void CountryInfo_Activated(object sender, EventArgs e)
+        {
+            RefreshList();
+        }
+
+        public void RefreshList()
         {
             conts = doc.GetData(source);
             CountryRegions.Items.Clear();
             SetCountryData();
-
-        }
-
-        private void CountryInfo_Activated(object sender, EventArgs e)
-        {
-            button1_Click(null, null);
         }
     }
 }
