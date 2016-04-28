@@ -180,7 +180,6 @@ namespace Gazetteer
 
         public void DeleteCountry(string source, int ContId, int CounId)
         {
-            List<Continent> conts = new List<Continent>();
             doc.Load(source);
 
             XmlNode root = doc.DocumentElement;
@@ -194,8 +193,145 @@ namespace Gazetteer
 
         public void CreateNewBase(string source)
         {
+            string xml = "<?xml version='1.0' encoding='utf-8'?> <gazetteer> <continent> " +
+                "<name>Европа</name> <area>10180</area> <countries> </countries> </continent>" +
+                " <continent> <name>Азия</name> <area>44579</area> <countries> </countries> " +
+                "</continent> <continent> <name>Африка</name> <area>30221,532</area> <countries> " +
+                "</countries> </continent> <continent> <name>Северная Америка</name> <area>24250</area> " +
+                "<countries> </countries> </continent> <continent> <name>Южная Америка</name> <area>17840</area> " +
+                "<countries> </countries> </continent> <continent> <name>Австралия и Океания</name> <area>8520</area> " +
+                "<countries> </countries> </continent> <continent> <name>Антарктида</name> <area>14107</area> <countries> " +
+                "</countries> </continent> </gazetteer>";
+            doc.LoadXml(xml);
+            doc.Save(source);
+        }
 
-            doc.LoadXml("<?xml version='1.0' encoding='utf-8'?> <gazetteer> <continent> <name>Европа</name> <area>10180</area> <countries> </countries> </continent> <continent> <name>Азия</name> <area>44579</area> <countries> </countries> </continent> <continent> <name>Африка</name> <area>30221,532</area> <countries> </countries> </continent> <continent> <name>Северная Америка</name> <area>24250</area> <countries> </countries> </continent> <continent> <name>Южная Америка</name> <area>17840</area> <countries> </countries> </continent> <continent> <name>Австралия и Океания</name> <area>8520</area> <countries> </countries> </continent> <continent> <name>Антарктида</name> <area>14107</area> <countries> </countries> </continent> </gazetteer>");
+
+        public void AddRegion(string source, int ContId, int CounId, string name, double area,
+                               double pop, string type, string cen)
+        {
+            doc.Load(source);
+            XmlNode root = doc.DocumentElement;
+
+            XmlNode regs = root.ChildNodes[ContId].ChildNodes[2].ChildNodes[CounId].ChildNodes[6];
+
+            XmlElement reg = doc.CreateElement("region");
+            reg.InnerText = "";
+            regs.AppendChild(reg);
+
+            XmlElement Rname = doc.CreateElement("name");
+            Rname.InnerText = name;
+            XmlElement Rarea = doc.CreateElement("area");
+            Rarea.InnerText = area.ToString();
+            XmlElement Rpop = doc.CreateElement("population");
+            Rpop.InnerText = pop.ToString();
+            XmlElement Rtype = doc.CreateElement("type");
+            Rtype.InnerText = type;
+            XmlElement Rcen = doc.CreateElement("center");
+            Rcen.InnerText = cen;
+            XmlElement Rcts = doc.CreateElement("cities");
+            Rcts.InnerText = "";
+
+
+            reg.AppendChild(Rname);
+            reg.AppendChild(Rarea);
+            reg.AppendChild(Rpop);
+            reg.AppendChild(Rtype);
+            reg.AppendChild(Rcen);
+            reg.AppendChild(Rcts);
+
+            doc.Save(source);
+        }
+
+        public void EditRegion(string source, int ContId, int CounId, int RegId, string name, double area,
+                               double pop, string type, string cen)
+        {
+            doc.Load(source);
+            XmlNode root = doc.DocumentElement;
+
+            XmlNode reg = root.ChildNodes[ContId].ChildNodes[2].ChildNodes[CounId].ChildNodes[6].ChildNodes[RegId];
+
+            reg.FirstChild.InnerText = name;
+            reg.ChildNodes[1].InnerText = area.ToString();
+            reg.ChildNodes[2].InnerText = pop.ToString();
+            reg.ChildNodes[3].InnerText = type;
+            reg.ChildNodes[4].InnerText = cen;
+
+            doc.Save(source);
+        }
+
+        public void DeleteRegion(string source, int ContId, int CounId, int RegId)
+        {
+            doc.Load(source);
+            XmlNode root = doc.DocumentElement;
+
+            XmlNode regs = root.ChildNodes[ContId].ChildNodes[2].ChildNodes[CounId].ChildNodes[6];
+
+            regs.RemoveChild(regs.ChildNodes[RegId]);
+
+            doc.Save(source);
+        }
+
+
+        public void AddCity(string source, int ContId, int CounId, int RegId, string name, double area,
+                               double pop, string lat, string lon)
+        {
+            doc.Load(source);
+            XmlNode root = doc.DocumentElement;
+
+            XmlNode cts = root.ChildNodes[ContId].ChildNodes[2].ChildNodes[CounId].ChildNodes[6].ChildNodes[RegId].ChildNodes[5];
+
+            XmlNode ct = doc.CreateElement("city");
+            ct.InnerText = "";
+            cts.AppendChild(ct);
+
+            XmlElement Cname = doc.CreateElement("name");
+            Cname.InnerText = name;
+            XmlElement Carea = doc.CreateElement("area");
+            Carea.InnerText = area.ToString();
+            XmlElement Cpop = doc.CreateElement("population");
+            Cpop.InnerText = pop.ToString();
+            XmlElement Clat = doc.CreateElement("latitude");
+            Clat.InnerText = lat;
+            XmlElement Clon = doc.CreateElement("longitude");
+            Clon.InnerText = lon;
+
+
+            ct.AppendChild(Cname);
+            ct.AppendChild(Carea);
+            ct.AppendChild(Cpop);
+            ct.AppendChild(Clat);
+            ct.AppendChild(Clon);
+
+            doc.Save(source);
+        }
+
+        public void EditCity(string source, int ContId, int CounId, int RegId, int CityId,
+                            string name, double area, double pop, string lat, string lon)
+        {
+            doc.Load(source);
+            XmlNode root = doc.DocumentElement;
+
+            XmlNode region = root.ChildNodes[ContId].ChildNodes[2].ChildNodes[CounId].ChildNodes[6].ChildNodes[RegId].ChildNodes[5];
+            XmlNode city = region.ChildNodes[CityId];
+
+            city.FirstChild.InnerText = name;
+            city.ChildNodes[1].InnerText = area.ToString();
+            city.ChildNodes[2].InnerText = pop.ToString();
+            city.ChildNodes[3].InnerText = lat;
+            city.ChildNodes[4].InnerText = lon;
+
+            doc.Save(source);
+        }
+
+        public void DeleteCity(string source, int ContId, int CounId, int RegId, int CityId)
+        {
+            doc.Load(source);
+            XmlNode root = doc.DocumentElement;
+
+            XmlNode region = root.ChildNodes[ContId].ChildNodes[2].ChildNodes[CounId].ChildNodes[6].ChildNodes[RegId].ChildNodes[5];
+            region.RemoveChild(region.ChildNodes[CityId]);
+
             doc.Save(source);
         }
     }

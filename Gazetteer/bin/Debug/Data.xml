@@ -40,6 +40,22 @@
           <language>Немецкий</language>
         </languages>
         <regions>
+          <region>
+            <name>wrwer</name>
+            <area>234324</area>
+            <population>234234</population>
+            <type>ewrwer</type>
+            <center>werwer</center>
+            <cities>
+              <city>
+                <name>werwer</name>
+                <area>234</area>
+                <population>5345</population>
+                <longitude>179°55′4″ з. д.с. ш.</longitude>
+                <latitude>54°5′4″ </latitude>
+              </city>
+            </cities>
+          </region>
         </regions>
       </country>
       <country>
@@ -73,17 +89,17 @@
             <cities>
               <city>
                 <name>Харьков</name>
-                <area>350</area>
+                <area>0,35</area>
                 <population>1449,7</population>
-                <latitude>50°00′00″ с. ш.</latitude>
-                <longitude>36°13′45″ в. д.</longitude>
+                <latitude>50°0′0″ с. ш.</latitude>
+                <longitude>36°13′45″ з. д.</longitude>
               </city>
               <city>
                 <name>Лозовая</name>
                 <area>18,1</area>
                 <population>71,1</population>
                 <latitude>48°53′21″ с. ш.</latitude>
-                <longitude>36°18′58″ в. д.</longitude>
+                <longitude>36°18′58″ з. д.</longitude>
               </city>
               <city>
                 <name>Изюм</name>
@@ -91,13 +107,6 @@
                 <population>51,511</population>
                 <latitude>49°13′26″ с. ш.</latitude>
                 <longitude>37°17′29″ в. д.</longitude>
-              </city>
-              <city>
-                <name>Чугуев</name>
-                <area>0,0128</area>
-                <population>36,438</population>
-                <latitude>49°50′07″ с. ш.</latitude>
-                <longitude>36°40′32″ в. д.</longitude>
               </city>
             </cities>
           </region>
@@ -121,13 +130,6 @@
                 <population>475,2</population>
                 <latitude>47°07′50″ с. ш.</latitude>
                 <longitude>37°33′50″ в. д.</longitude>
-              </city>
-              <city>
-                <name>Горловка</name>
-                <area>0,4222</area>
-                <population>271,096</population>
-                <latitude>48°20′01″ с. ш.</latitude>
-                <longitude>38°05′33″ в. д.</longitude>
               </city>
               <city>
                 <name>Краматорск</name>
@@ -250,7 +252,7 @@
         </languages>
         <regions>
         </regions>
-      </country>  
+      </country>
       <country>
         <name>Китайская Народная Республика</name>
         <area>9596,96</area>
@@ -269,13 +271,6 @@
             <center>Гуанчжоу</center>
             <cities>
               <city>
-                <name>Гуанчжоу</name>
-                <area>7,4344</area>
-                <population>10500</population>
-                <latitude>23°07′39″ с. ш.</latitude>
-                <longitude>113°14′50″ в. д.</longitude>
-              </city>
-              <city>
                 <name>Шэньчжень</name>
                 <area>1,989</area>
                 <population>10357,938</population>
@@ -288,13 +283,6 @@
                 <population>6445</population>
                 <latitude>23°02′00″ с. ш.</latitude>
                 <longitude>113°43′00″ в. д.</longitude>
-              </city>
-              <city>
-                <name>Фошань</name>
-                <area>0,003848</area>
-                <population>7197,394</population>
-                <latitude>23°01′00″ с. ш.</latitude>
-                <longitude>113°07′00″ в. д.</longitude>
               </city>
             </cities>
           </region>
@@ -313,32 +301,11 @@
                 <longitude>113°3′00″ в. д.</longitude>
               </city>
               <city>
-                <name>Чжоукоу</name>
-                <area>0,011959</area>
-                <population>8953,793</population>
-                <latitude>33°38′00″ с.ш.</latitude>
-                <longitude>114°38′00″ в. д.</longitude>
-              </city>
-              <city>
-                <name>Шанцю</name>
-                <area>0,010704</area>
-                <population>7362,975</population>
-                <latitude>34°25′00″ с.ш.</latitude>
-                <longitude>115°39′00″ в. д.</longitude>
-              </city>
-              <city>
-                <name>Наньян</name>
-                <area>26,50869</area>
-                <population>10263</population>
-                <latitude>33°00′00″ с.ш.</latitude>
-                <longitude>112°32′00″ в. д.</longitude>
-              </city>
-              <city>
-                <name>Кайфын</name>
-                <area>0,006247</area>
-                <population>4676,159</population>
-                <latitude>34°48′00″ с.ш.</latitude>
-                <longitude>114°18′00″ в. д.</longitude>
+                <name>кеукук</name>
+                <area>35</area>
+                <population>43534</population>
+                <longitude>78°11′0″ в. д.</longitude>
+                <latitude>54°33′55″ с. ш.</latitude>
               </city>
             </cities>
           </region>
@@ -355,13 +322,6 @@
                 <population>6810</population>
                 <latitude>36°40′00″ с. ш.</latitude>
                 <longitude>116°59′00″ в. д.</longitude>
-              </city>
-              <city>
-                <name>Циндао</name>
-                <area>10,654</area>
-                <population>7579,9</population>
-                <latitude>36°07′00″ с. ш.</latitude>
-                <longitude>120°24′00″ в. д.</longitude>
               </city>
               <city>
                 <name>Тайань</name>
@@ -447,7 +407,7 @@
         </languages>
         <regions>
         </regions>
-      </country> 
+      </country>
       <country>
         <name>Япония</name>
         <area>377,944</area>
@@ -459,7 +419,7 @@
         </languages>
         <regions>
         </regions>
-      </country>   
+      </country>
     </countries>
   </continent>
   <continent>
@@ -477,7 +437,7 @@
         </languages>
         <regions>
         </regions>
-      </country> 
+      </country>
       <country>
         <name>Нигерия</name>
         <area>923,768</area>
@@ -489,7 +449,7 @@
         </languages>
         <regions>
         </regions>
-      </country>   
+      </country>
       <country>
         <name>Южно-Африканская Республика</name>
         <area>1219,912</area>
@@ -724,7 +684,7 @@
         </languages>
         <regions>
         </regions>
-      </country>  
+      </country>
       <country>
         <name>Соединённые Штаты Америки</name>
         <area>9519,431</area>
@@ -736,7 +696,7 @@
         </languages>
         <regions>
         </regions>
-      </country>       
+      </country>
     </countries>
   </continent>
   <continent>
@@ -754,7 +714,7 @@
         </languages>
         <regions>
         </regions>
-      </country>     
+      </country>
       <country>
         <name>Колумбия</name>
         <area>1141,748</area>
@@ -766,7 +726,7 @@
         </languages>
         <regions>
         </regions>
-      </country>             
+      </country>
       <country>
         <name>Бразилия</name>
         <area>8514,877</area>
@@ -928,7 +888,7 @@
             </cities>
           </region>
         </regions>
-      </country> 
+      </country>
     </countries>
   </continent>
   <continent>
@@ -1135,7 +1095,7 @@
         </languages>
         <regions>
         </regions>
-      </country>     
+      </country>
       <country>
         <name>Папуа-Новая Гвинея</name>
         <area>462,84</area>
@@ -1149,7 +1109,7 @@
         </languages>
         <regions>
         </regions>
-      </country>                 
+      </country>
     </countries>
   </continent>
   <continent>

@@ -52,6 +52,12 @@
             this.CRegions = new System.Windows.Forms.Label();
             this.CUrbanization = new System.Windows.Forms.Label();
             this.CountryUrban = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.редактироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Info
@@ -103,7 +109,6 @@
             this.CountryRegions.GridLines = true;
             this.CountryRegions.Name = "CountryRegions";
             this.CountryRegions.ShowItemToolTips = true;
-            this.CountryRegions.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.CountryRegions.UseCompatibleStateImageBehavior = false;
             this.CountryRegions.View = System.Windows.Forms.View.Details;
             this.CountryRegions.DoubleClick += new System.EventHandler(this.CountryRegions_DoubleClick);
@@ -177,11 +182,46 @@
             resources.ApplyResources(this.CountryUrban, "CountryUrban");
             this.CountryUrban.Name = "CountryUrban";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.добавитьToolStripMenuItem,
+            this.редактироватьToolStripMenuItem,
+            this.удалитьToolStripMenuItem});
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
+            this.menuStrip1.Name = "menuStrip1";
+            // 
+            // добавитьToolStripMenuItem
+            // 
+            this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
+            resources.ApplyResources(this.добавитьToolStripMenuItem, "добавитьToolStripMenuItem");
+            this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
+            // 
+            // редактироватьToolStripMenuItem
+            // 
+            this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
+            resources.ApplyResources(this.редактироватьToolStripMenuItem, "редактироватьToolStripMenuItem");
+            this.редактироватьToolStripMenuItem.Click += new System.EventHandler(this.редактироватьToolStripMenuItem_Click);
+            // 
+            // удалитьToolStripMenuItem
+            // 
+            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
+            resources.ApplyResources(this.удалитьToolStripMenuItem, "удалитьToolStripMenuItem");
+            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
+            // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // CountryInfo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Ivory;
             resources.ApplyResources(this, "$this");
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.CountryUrban);
             this.Controls.Add(this.CUrbanization);
             this.Controls.Add(this.CRegions);
@@ -199,11 +239,16 @@
             this.Controls.Add(this.CArea);
             this.Controls.Add(this.CName);
             this.Controls.Add(this.Info);
+            this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "CountryInfo";
+            this.Activated += new System.EventHandler(this.CountryInfo_Activated);
             this.Load += new System.EventHandler(this.CountryInfo_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,5 +279,10 @@
         private System.Windows.Forms.Label CUrbanization;
         private System.Windows.Forms.Label CountryUrban;
         private System.Windows.Forms.ColumnHeader RegionUrban;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem редактироватьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }

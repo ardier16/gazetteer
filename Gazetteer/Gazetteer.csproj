@@ -64,24 +64,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddCountry.cs">
+    <Compile Include="Edit\CityEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddCountry.Designer.cs">
-      <DependentUpon>AddCountry.cs</DependentUpon>
+    <Compile Include="Edit\CityEditor.Designer.cs">
+      <DependentUpon>CityEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="DocumentEditor.cs" />
+    <Compile Include="Edit\CountryEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit\CountryEditor.Designer.cs">
+      <DependentUpon>CountryEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DocumentEditor.cs" />
+    <Compile Include="Edit\RegionEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit\RegionEditor.Designer.cs">
+      <DependentUpon>RegionEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Cities.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Cities.Designer.cs">
       <DependentUpon>Cities.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\Continent.cs" />
@@ -102,14 +108,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddCountry.resx">
-      <DependentUpon>AddCountry.cs</DependentUpon>
+    <EmbeddedResource Include="Edit\CityEditor.resx">
+      <DependentUpon>CityEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\CountryEditor.resx">
+      <DependentUpon>CountryEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\RegionEditor.resx">
+      <DependentUpon>RegionEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Cities.resx">
       <DependentUpon>Cities.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\CountryInfo.resx">
       <DependentUpon>CountryInfo.cs</DependentUpon>

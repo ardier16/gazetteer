@@ -34,7 +34,10 @@ namespace Gazetteer
             catch
             {
                 MessageBox.Show("Файл Data.xml не найден или имеет неизвестный формат");
-                this.Close();
+                создатьToolStripMenuItem1_Click(null, null);
+                conts = doc.GetData(source);
+                FillList();
+                FillContsBox();
             }                  
         }       
 
@@ -80,18 +83,10 @@ namespace Gazetteer
         {
             if (CountriesList.SelectedIndices.Count == 1)
             {
-                Country c = null;
+                string name = CountriesList.Items[CountriesList.SelectedIndices[0]].SubItems[1].Text;
+                int[] idx = GetCountryIndex(conts, name);
 
-                for (int i = 0; i < conts.Count; i++)
-                {
-                    c = conts[i].SearchCountryByName(
-                        CountriesList.Items[CountriesList.SelectedIndices[0]].SubItems[1].Text);
-
-                    if (c != null)
-                        break;
-                }
-
-                var CountryInfo = new CountryInfo(c);
+                var CountryInfo = new CountryInfo(idx, conts, source);
                 CountryInfo.ShowDialog();
             }
         }
@@ -214,7 +209,7 @@ namespace Gazetteer
 
         private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var addForm = new AddCountry(conts, source);
+            var addForm = new CountryEditor(conts, source);
             addForm.ShowDialog();
         }
 
@@ -249,7 +244,7 @@ namespace Gazetteer
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    doc.DeleteCountry("Data.xml", idx[0], idx[1]);
+                    doc.DeleteCountry(source, idx[0], idx[1]);
                     button1_Click(null, null);
 
                 }
@@ -281,7 +276,7 @@ namespace Gazetteer
                         break;
                 }
 
-                var form = new AddCountry(conts, k, source);
+                var form = new CountryEditor(conts, k, source);
                 form.ShowDialog();
             }
             catch
@@ -302,6 +297,11 @@ namespace Gazetteer
             {
                 MessageBox.Show("Ошибка при создании файла");
             }
+        }
+
+        private void Gazetteer_Activated(object sender, EventArgs e)
+        {
+            button1_Click(null, null);
         }
     }
 }

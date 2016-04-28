@@ -10,7 +10,8 @@ C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.p
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\bin\Debug\ru-UA\Gazetteer.resources.dll
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.Gazetteer.ru-UA.resources
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\ru-UA\Gazetteer.resources.dll
-C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.Form1.resources
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.Cities.resources
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.CountryInfo.resources
-C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.AddCountry.resources
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.CityEditor.resources
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.CountryEditor.resources
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Debug\Gazetteer.RegionEditor.resources

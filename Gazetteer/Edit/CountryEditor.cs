@@ -10,18 +10,18 @@ using System.Windows.Forms;
 
 namespace Gazetteer
 {
-    public partial class AddCountry : Form
+    public partial class CountryEditor : Form
     {
         List<Continent> conts;
         int[] idx;
         string source;
 
-        public AddCountry()
+        public CountryEditor()
         {
             InitializeComponent();
         }
 
-        public AddCountry(List<Continent> c, int[] i, string s)
+        public CountryEditor(List<Continent> c, int[] i, string s)
         {
             conts = c;
             idx = i;
@@ -29,7 +29,7 @@ namespace Gazetteer
             InitializeComponent();
         }
 
-        public AddCountry(List<Continent> c, string s)
+        public CountryEditor(List<Continent> c, string s)
         {
             conts = c;
             source = s;
