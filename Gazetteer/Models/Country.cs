@@ -20,7 +20,7 @@ namespace Gazetteer
         }
 
 
-
+        // Sum of a population of each region in the country
         public double SummaryRegionsPopulation
         {
             get
@@ -37,24 +37,23 @@ namespace Gazetteer
             
         }
 
+        // The percentage of the country's urban population
         public double Urbanization
         {
-            get { return Math.Round((this.SummaryRegionsPopulation * 100 / this.Population), 3); }
+            get { return Math.Round((this.SummaryRegionsPopulation * 100 / 
+                this.Population), 3); }
         }
 
-
-
-
-        public void AddRegion(Region r)
-        {
-            this.Regions.Add(r);
-        }
-
+        // Returns information about country in an array 
+        // {name, area, population, government, capital}
         public string[] GetInfo()
         {
-            return new string[] { Name, Area.ToString(), Population.ToString(), Government, Capital };
+            return new string[] { Name, Area.ToString(), Population.ToString(),
+                Government, Capital };
         }
 
+        // Finds a region that has specified name. 
+        // If there's no such of region, method returns null
         public Region SearchRegionByName(string name)
         {
             for (int i = 0; i < Regions.Count; i++)

@@ -91,6 +91,7 @@ namespace Gazetteer
             {
                 City c = conts[idx[0]].Countries[idx[1]].Regions[idx[2]].Cities[idx[3]];
 
+                label1.Text = "Город";
                 name.Text = c.Name;
                 area.Text = c.Area.ToString();
                 pop.Text = c.Population.ToString();

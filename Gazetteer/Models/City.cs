@@ -6,7 +6,8 @@
         public string Latitude { get; } 
         public string Longitude { get; }
 
-        public City(string name, double pop, double area, string reg, string lat, string lon)
+        public City(string name, double pop, double area, string reg, 
+            string lat, string lon)
             : base(name, pop, area)
         {
             this.Region = reg;
@@ -14,6 +15,7 @@
             this.Longitude = lon;
         }
 
+        // Returns the city longitude in an array {degrees, minutes, seconds}
         public int[] GetLongitude()
         {
             int[] lon = new int[4];
@@ -34,6 +36,7 @@
             return lon;
         }
 
+        // Returns the city latitude in an array {degrees, minutes, seconds}
         public int[] GetLatitude()
         {
             int[] lat = new int[4];

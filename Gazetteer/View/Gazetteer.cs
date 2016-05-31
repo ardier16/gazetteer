@@ -102,27 +102,29 @@ namespace Gazetteer
             this.Close();
         }
 
-        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.ShowDialog();
-        }
-
-        private void создатьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openFileDialog1.ShowDialog();
             string oldSource = source;
-            source = openFileDialog1.FileName;
 
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                source = openFileDialog1.FileName;
+            }
+            
             try
             {
                 conts = doc.GetData(source);
-                CountriesList.Items.Clear();
-                FillList();
             }
             catch
-            {
-                MessageBox.Show("Файл Data.xml не найден или имеет неизвестный формат");
+            {                
                 source = oldSource;
+                conts = doc.GetData(source);
+                MessageBox.Show("Файл повреждён или имеет неизвестный формат");
+            }
+            finally
+            {
+                CountriesList.Items.Clear();
+                FillList();
             }
         }
 
@@ -187,9 +189,14 @@ namespace Gazetteer
         {
             try
             {
-                saveFileDialog1.ShowDialog();
-                doc.CreateNewBase(saveFileDialog1.FileName);
-                source = saveFileDialog1.FileName;
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    doc.CreateNewBase(saveFileDialog1.FileName);
+                    source = saveFileDialog1.FileName;
+                    CountriesList.Items.Clear();
+                    FillList();
+                    RefreshList();
+                }
             }
             catch
             {
@@ -311,5 +318,13 @@ namespace Gazetteer
             var about = new About();
             about.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var form = new Map(conts);
+            form.ShowDialog();
+        }
+
+
     }
 }

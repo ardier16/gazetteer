@@ -50,7 +50,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.создатьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.создатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.редактированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,6 +59,7 @@
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -134,9 +135,10 @@
             // 
             // GetContPopulation
             // 
+            this.GetContPopulation.BackColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.GetContPopulation, "GetContPopulation");
             this.GetContPopulation.Name = "GetContPopulation";
-            this.GetContPopulation.UseVisualStyleBackColor = true;
+            this.GetContPopulation.UseVisualStyleBackColor = false;
             this.GetContPopulation.Click += new System.EventHandler(this.GetContPopulation_Click);
             // 
             // ContinentPop
@@ -188,7 +190,7 @@
             // 
             this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.создатьToolStripMenuItem1,
-            this.создатьToolStripMenuItem,
+            this.открытьToolStripMenuItem,
             this.выходToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             resources.ApplyResources(this.файлToolStripMenuItem, "файлToolStripMenuItem");
@@ -199,11 +201,11 @@
             resources.ApplyResources(this.создатьToolStripMenuItem1, "создатьToolStripMenuItem1");
             this.создатьToolStripMenuItem1.Click += new System.EventHandler(this.создатьToolStripMenuItem1_Click);
             // 
-            // создатьToolStripMenuItem
+            // открытьToolStripMenuItem
             // 
-            this.создатьToolStripMenuItem.Name = "создатьToolStripMenuItem";
-            resources.ApplyResources(this.создатьToolStripMenuItem, "создатьToolStripMenuItem");
-            this.создатьToolStripMenuItem.Click += new System.EventHandler(this.создатьToolStripMenuItem_Click);
+            this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
+            resources.ApplyResources(this.открытьToolStripMenuItem, "открытьToolStripMenuItem");
+            this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem
             // 
@@ -254,11 +256,20 @@
             this.saveFileDialog1.FileName = "Data.xml";
             resources.ApplyResources(this.saveFileDialog1, "saveFileDialog1");
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Gazetteer
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             resources.ApplyResources(this, "$this");
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.WorldCountries);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.CountriesList);
@@ -310,7 +321,7 @@
         private System.Windows.Forms.Label WorldCountries;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem создатьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem редактированиеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
@@ -320,6 +331,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem создатьToolStripMenuItem1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -45,6 +45,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1
@@ -171,6 +173,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(162, 25);
             this.comboBox1.TabIndex = 13;
+            this.comboBox1.Text = "Европа";
             // 
             // label7
             // 
@@ -216,6 +219,26 @@
             this.save.UseVisualStyleBackColor = false;
             this.save.Click += new System.EventHandler(this.save_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(274, 178);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(88, 17);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "тыс. кв. км";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(274, 222);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(76, 17);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "тыс. чел.";
+            // 
             // CountryEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -231,6 +254,8 @@
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -272,5 +297,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button save;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }

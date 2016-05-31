@@ -88,7 +88,7 @@
     <Compile Include="View\Map.Designer.cs">
       <DependentUpon>Map.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\DocumentEditor.cs" />
+    <Compile Include="DocumentEditor.cs" />
     <Compile Include="Edit\RegionEditor.cs">
       <SubType>Form</SubType>
     </Compile>

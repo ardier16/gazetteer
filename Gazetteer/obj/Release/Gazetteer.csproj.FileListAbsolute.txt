@@ -3,7 +3,6 @@ C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\bin\Release\Gazetteer
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\bin\Release\Gazetteer.pdb
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\bin\Release\ru-UA\Gazetteer.resources.dll
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.Cities.resources
-C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.Form1.resources
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.CountryInfo.resources
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.Gazetteer.resources
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.Properties.Resources.resources
@@ -13,3 +12,8 @@ C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\ru-UA\Gaz
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.exe
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.pdb
 C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.csprojResolveAssemblyReference.cache
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.CityEditor.resources
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.CountryEditor.resources
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.RegionEditor.resources
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.About.resources
+C:\Users\Максим\Desktop\Projects\Gazetteer\Gazetteer\obj\Release\Gazetteer.Map.resources

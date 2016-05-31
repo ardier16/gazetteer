@@ -1,23 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Gazetteer
 {
-    public class Continent 
+    public class Continent : Unit
     {
-        public string Name { get; }
-        public double Area { get; }
         public List<Country> Countries { get; }
-
-        public Continent(string name, double area, List<Country> countries)
-        {
-            this.Name = name;
-            this.Area = area;
-            this.Countries = countries;
-        }
-
-
-
-        public double Population
+        public override double Population
         {
             get
             {
@@ -32,61 +21,31 @@ namespace Gazetteer
             }
         }
 
+        public Continent(string name, double area, List<Country> countries) : base (name, area, 0)
+        {
+            this.Countries = countries;
+        }
 
-
+        // Finds cities that have (if method is false) or 
+        // contain (if method is true) specified name.
         public List<City> SearchCities(string key, bool method)
         {
-            List<City> CitiesList = new List<City>();
-
-            for (int i = 0; i < this.Countries.Count; i++)
+            if (method)
             {
-                for (int j = 0; j < this.Countries[i].Regions.Count; j++)
-                {
-                    for (int k = 0; k < this.Countries[i].Regions[j].Cities.Count; k++)
-                    {
-                        string name = this.Countries[i].Regions[j].Cities[k].Name.ToLower();
-
-                        if (method)
-                        {
-                            if (name.IndexOf(key.ToLower()) == 0)
-                                CitiesList.Add(this.Countries[i].Regions[j].Cities[k]);
-                        }
-                        else
-                        {
-                            if (name.Contains(key.ToLower()))
-                                CitiesList.Add(this.Countries[i].Regions[j].Cities[k]);
-                        }
-                    }
-                }
+                return this.Countries.SelectMany(c => c.Regions).
+                    SelectMany(r => r.Cities).Where(c => c.Name.ToLower().
+                    IndexOf(key.ToLower()) == 0).ToList();
             }
-
-            return CitiesList;
-        }
-
-        public List<City> SearchCitiesHomonyms()
-        {
-            List<City> CitiesList = new List<City>();
-
-            for (int i = 0; i < this.Countries.Count; i++)
+            else
             {
-                for (int j = 0; j < this.Countries[i].Regions.Count; j++)
-                {
-                    for (int k = 0; k < this.Countries[i].Regions[j].Cities.Count; k++)
-                    {
-                        if (SearchCities(Countries[i].Regions[j].Cities[k].Name, true).Count != 0)
-                            CitiesList.AddRange(SearchCities(Countries[i].Regions[j].Cities[k].Name, true));
-                    }
-                }
+                return this.Countries.SelectMany(c => c.Regions).
+                    SelectMany(r => r.Cities).Where(c => c.Name.ToLower().
+                    Contains(key.ToLower())).ToList();
             }
-
-            return CitiesList;
         }
 
-        public void AddCountry(Country c)
-        {
-            this.Countries.Add(c);
-        }
-
+        // Finds a country that has specified name. 
+        // If there's no such of country, method returns null
         public Country SearchCountryByName(string name)
         {
             for (int i = 0; i < Countries.Count; i++)

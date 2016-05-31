@@ -44,6 +44,7 @@ namespace Gazetteer
         {
             if (regId != -1)
             {
+                label1.Text = "Регион";
                 Region reg = conts[idx[0]].Countries[idx[1]].Regions[regId];
 
                 name.Text = reg.Name;

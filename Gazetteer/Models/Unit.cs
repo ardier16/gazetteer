@@ -3,7 +3,7 @@
     public abstract class Unit
     {
         public string Name { get; }
-        public double Population { get; }
+        public virtual double Population { get; }
         public double Area { get; }
 
         public Unit(string name, double pop, double area)
@@ -14,7 +14,7 @@
         }
 
 
-
+        // Returns population per unit area
         public double Density
         {
             get { return this.Population / this.Area; }

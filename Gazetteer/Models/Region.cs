@@ -9,7 +9,8 @@ namespace Gazetteer
         public string RegionType { get; }
         public string Center { get; }
 
-        public Region(string name, double pop, double area, string type, List<City> cities, string center)
+        public Region(string name, double pop, double area, string type, 
+            List<City> cities, string center)
             : base(name, pop, area)
         {
             this.Cities = cities;
@@ -17,12 +18,13 @@ namespace Gazetteer
             this.Center = center;
         }
 
-
+        // The percentage of the region's urban population
         public double Urbanization
         {
             get { return Math.Round((this.SummaryCitiesPopulation * 100 / this.Population), 3); }
         }
 
+        // Sum of a population of each city in the region
         public double SummaryCitiesPopulation
         {
             get
@@ -37,13 +39,6 @@ namespace Gazetteer
                 return sumPop;
             }
             
-        }
-
-
-
-        public void AddCity(City c)
-        {
-            this.Cities.Add(c);
         }
     }
 }
