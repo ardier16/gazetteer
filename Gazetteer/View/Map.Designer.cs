@@ -29,29 +29,29 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Map));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.MapPic = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.новаяИграToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NewGameMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.NextCityBtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MapPic)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // MapPic
             // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(1, 135);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1080, 540);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
+            this.MapPic.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MapPic.BackgroundImage")));
+            this.MapPic.Location = new System.Drawing.Point(1, 135);
+            this.MapPic.Name = "MapPic";
+            this.MapPic.Size = new System.Drawing.Size(1080, 540);
+            this.MapPic.TabIndex = 0;
+            this.MapPic.TabStop = false;
+            this.MapPic.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MapPic_MouseClick);
             // 
             // label1
             // 
@@ -76,19 +76,19 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.новаяИграToolStripMenuItem});
+            this.NewGameMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1081, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // новаяИграToolStripMenuItem
+            // NewGameMenu
             // 
-            this.новаяИграToolStripMenuItem.Name = "новаяИграToolStripMenuItem";
-            this.новаяИграToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
-            this.новаяИграToolStripMenuItem.Text = "Новая игра";
-            this.новаяИграToolStripMenuItem.Click += new System.EventHandler(this.новаяИграToolStripMenuItem_Click);
+            this.NewGameMenu.Name = "NewGameMenu";
+            this.NewGameMenu.Size = new System.Drawing.Size(77, 20);
+            this.NewGameMenu.Text = "New Game";
+            this.NewGameMenu.Click += new System.EventHandler(this.NewGameMenu_Click);
             // 
             // label3
             // 
@@ -99,17 +99,17 @@
             this.label3.Size = new System.Drawing.Size(0, 26);
             this.label3.TabIndex = 4;
             // 
-            // button1
+            // NextCityBtn
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(12, 32);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(186, 43);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Далее";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.NextCityBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.NextCityBtn.Location = new System.Drawing.Point(12, 32);
+            this.NextCityBtn.Name = "NextCityBtn";
+            this.NextCityBtn.Size = new System.Drawing.Size(186, 43);
+            this.NextCityBtn.TabIndex = 5;
+            this.NextCityBtn.Text = "Next City";
+            this.NextCityBtn.UseVisualStyleBackColor = true;
+            this.NextCityBtn.Visible = false;
+            this.NextCityBtn.Click += new System.EventHandler(this.NextCityBtn_Click);
             // 
             // label4
             // 
@@ -138,7 +138,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(242, 75);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Города";
+            this.label6.Text = "Cities";
             // 
             // Map
             // 
@@ -149,11 +149,11 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.NextCityBtn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.MapPic);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -161,9 +161,9 @@
             this.MaximizeBox = false;
             this.Name = "Map";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Карта";
+            this.Text = "Map";
             this.Load += new System.EventHandler(this.Map_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MapPic)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -173,13 +173,13 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox MapPic;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem новаяИграToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem NewGameMenu;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button NextCityBtn;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;

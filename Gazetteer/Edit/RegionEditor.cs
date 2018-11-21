@@ -1,110 +1,102 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gazetteer
 {
     public partial class RegionEditor : Form
     {
-        List<Continent> conts;
-        int[] idx;
-        string source;
-        int regId;
+        int regId = -1;
+        string country;
 
-        public RegionEditor()
+        public RegionEditor(string coun)
         {
+            country = coun;
             InitializeComponent();
         }
 
-        public RegionEditor(List<Continent> c, int[] i, string s)
+        public RegionEditor(int id)
         {
-            this.conts = c;
-            this.idx = i;
-            this.source = s;
-            this.regId = -1;
+            regId = id;
             InitializeComponent();
         }
 
-        public RegionEditor(List<Continent> c, int[] i, int regId, string s)
-        {
-            this.conts = c;
-            this.idx = i;
-            this.source = s;
-            this.regId = regId;
-            InitializeComponent();
-        }
 
         private void RegionEditor_Load(object sender, EventArgs e)
         {
-            if (regId != -1)
-            {
-                label1.Text = "Регион";
-                Region reg = conts[idx[0]].Countries[idx[1]].Regions[regId];
-
-                name.Text = reg.Name;
-                area.Text = reg.Area.ToString();
-                pop.Text = reg.Population.ToString();
-                type.Text = reg.RegionType;
-                cen.Text = reg.Center;
-            }
+            FillFormData();
         }
 
-        private void cancel_Click(object sender, EventArgs e)
+        private void CancelBtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void save_Click(object sender, EventArgs e)
+        private void SaveBtn_Click(object sender, EventArgs e)
         {
-            DocumentEditor doc = new DocumentEditor();
-            List<string> list = new List<string>();
-
             try
             {
-                for (int i = 0; i < conts.Count; i++)
-                {
-                    if ((name.Text != "" && conts[idx[0]].Countries[idx[1]].SearchRegionByName(name.Text) != null &&
-                        regId != -1 && conts[idx[0]].Countries[idx[1]].SearchRegionByName(name.Text).Name != 
-                        conts[idx[0]].Countries[idx[1]].Regions[regId].Name) || (regId == -1 && name.Text != "" && 
-                        conts[idx[0]].Countries[idx[1]].SearchRegionByName(name.Text) != null))
-                    {
-                        MessageBox.Show("Регион с таким названием уже имеется");
-                        return;
-                    }
-                }
-
-                string Rname = name.Text;
-                double Rarea = double.Parse(area.Text);
-                double Rpop = double.Parse(pop.Text);
-                string Rtype = type.Text;
-                string Rcen = cen.Text;
-
-                if (Rname == "" || Rtype == "" || Rcen == "" || Rarea <= 0 || Rpop <= 0)
-                {
-                    MessageBox.Show("Заполните поля формы правильно!");
-                    return;
-                }
-                    
-
-                if (regId == -1)
-                    doc.AddRegion(source, idx[0], idx[1], Rname, Rarea, Rpop, Rtype, Rcen);
-                else
-                    doc.EditRegion(source, idx[0], idx[1], regId, Rname, Rarea, Rpop, Rtype, Rcen);
-
-                MessageBox.Show("Изменения сохранены!");
+                SaveData();
+                MessageBox.Show("Changes saved!");
                 this.Close();
-
             }
             catch
             {
-                MessageBox.Show("Проверьте правильность ввода данных!");
+                MessageBox.Show("Please, enter correct data");
             }
+        }
+
+        private void type_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TypeList.DataSource = SQLEditor.GetList("SELECT RegionType FROM Region WHERE RegionType LIKE '" + TypeList.Text + "%' GROUP BY RegionType ORDER BY Count(*) DESC");
+            TypeList.DroppedDown = true;
+        }
+
+
+        private void FillFormData()
+        {
+            CenterList.DataSource = SQLEditor.GetCurList("SELECT CityName FROM City WHERE RegionId=" + regId);
+            TypeList.DataSource = SQLEditor.GetList("SELECT RegionType FROM Region GROUP BY RegionType ORDER BY Count(*) DESC");
+            TypeList.Text = "";
+
+            if (regId != -1)
+            {
+
+                label1.Text = "Region";
+                DataTable dt = SQLEditor.DoSqlOperation("SELECT * FROM Region WHERE RegionId=" + regId);
+
+                NameField.Text = dt.Rows[0].ItemArray[1].ToString();
+                AreaField.Value = Convert.ToDecimal(dt.Rows[0].ItemArray[2].ToString());
+                PopulationField.Value = Convert.ToDecimal(dt.Rows[0].ItemArray[3].ToString());
+                TypeList.Text = dt.Rows[0].ItemArray[4].ToString();
+                LeaderField.Text = dt.Rows[0].ItemArray[6].ToString();
+                country = dt.Rows[0].ItemArray[7].ToString();
+                CenterList.Text = City.SearchCityById(dt.Rows[0].ItemArray[5].ToString());
+            }
+        }
+
+        private void SaveData()
+        {
+            string Rname = NameField.Text;
+            decimal Rarea = AreaField.Value;
+            decimal Rpop = PopulationField.Value;
+            string Rtype = TypeList.Text;
+            string Rlead = LeaderField.Text;
+            string Rcen = "NULL";
+
+            if (CenterList.Text != "Nope")
+                Rcen = City.SearchCityByName(CenterList.Text, country);
+
+
+            if (Rname == "" || Rtype == "" || Rlead == "")
+            {
+                throw new Exception();
+            }
+
+            if (regId == -1)
+                State.InsertRegion(Rname, (int)Rarea, Rpop.ToString(), Rtype, Rcen, Rlead, country);
+            else
+                State.UpdateRegion(regId, Rname, (int)Rarea, Rpop.ToString(), Rtype, Rcen, Rlead, country);
         }
     }
 }

@@ -28,192 +28,181 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pop = new System.Windows.Forms.TextBox();
-            this.area = new System.Windows.Forms.TextBox();
-            this.name = new System.Windows.Forms.TextBox();
+            this.CancelBtn = new System.Windows.Forms.Button();
+            this.SaveBtn = new System.Windows.Forms.Button();
+            this.NameField = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.latD = new System.Windows.Forms.NumericUpDown();
-            this.latM = new System.Windows.Forms.NumericUpDown();
-            this.latS = new System.Windows.Forms.NumericUpDown();
+            this.LatDegsField = new System.Windows.Forms.NumericUpDown();
+            this.LatMinsField = new System.Windows.Forms.NumericUpDown();
+            this.LatSecsField = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.latN = new System.Windows.Forms.RadioButton();
-            this.latSou = new System.Windows.Forms.RadioButton();
+            this.LatNorthChB = new System.Windows.Forms.RadioButton();
+            this.LatSouthChB = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lonE = new System.Windows.Forms.RadioButton();
+            this.LonEastChB = new System.Windows.Forms.RadioButton();
             this.label13 = new System.Windows.Forms.Label();
-            this.lonW = new System.Windows.Forms.RadioButton();
+            this.LonWestChB = new System.Windows.Forms.RadioButton();
             this.label15 = new System.Windows.Forms.Label();
-            this.lonS = new System.Windows.Forms.NumericUpDown();
+            this.LonSecsField = new System.Windows.Forms.NumericUpDown();
             this.label18 = new System.Windows.Forms.Label();
-            this.lonM = new System.Windows.Forms.NumericUpDown();
-            this.lonD = new System.Windows.Forms.NumericUpDown();
+            this.LonMinsField = new System.Windows.Forms.NumericUpDown();
+            this.LonDegsField = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.latD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.latM)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.latS)).BeginInit();
+            this.AreaField = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
+            this.LeaderField = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.BuildYearField = new System.Windows.Forms.NumericUpDown();
+            this.PopulationField = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.LatDegsField)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LatMinsField)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LatSecsField)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lonS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lonM)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lonD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LonSecsField)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LonMinsField)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LonDegsField)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AreaField)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BuildYearField)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PopulationField)).BeginInit();
             this.SuspendLayout();
             // 
-            // button2
+            // CancelBtn
             // 
-            this.button2.BackColor = System.Drawing.Color.LightSalmon;
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Location = new System.Drawing.Point(243, 377);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(126, 34);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Отмена";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.CancelBtn.BackColor = System.Drawing.Color.LightSalmon;
+            this.CancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CancelBtn.Location = new System.Drawing.Point(247, 428);
+            this.CancelBtn.Name = "CancelBtn";
+            this.CancelBtn.Size = new System.Drawing.Size(126, 34);
+            this.CancelBtn.TabIndex = 16;
+            this.CancelBtn.Text = "Cancel";
+            this.CancelBtn.UseVisualStyleBackColor = false;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // button1
+            // SaveBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.LightGreen;
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(66, 377);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 34);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Сохранить";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.SaveBtn.BackColor = System.Drawing.Color.LightGreen;
+            this.SaveBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.SaveBtn.Location = new System.Drawing.Point(70, 428);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.Size = new System.Drawing.Size(126, 34);
+            this.SaveBtn.TabIndex = 15;
+            this.SaveBtn.Text = "Save";
+            this.SaveBtn.UseVisualStyleBackColor = false;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // pop
+            // NameField
             // 
-            this.pop.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.pop.Location = new System.Drawing.Point(168, 177);
-            this.pop.MaxLength = 9;
-            this.pop.Name = "pop";
-            this.pop.Size = new System.Drawing.Size(100, 26);
-            this.pop.TabIndex = 2;
-            // 
-            // area
-            // 
-            this.area.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.area.Location = new System.Drawing.Point(168, 131);
-            this.area.MaxLength = 9;
-            this.area.Name = "area";
-            this.area.Size = new System.Drawing.Size(100, 26);
-            this.area.TabIndex = 1;
-            // 
-            // name
-            // 
-            this.name.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.name.Location = new System.Drawing.Point(168, 88);
-            this.name.MaxLength = 30;
-            this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(182, 26);
-            this.name.TabIndex = 0;
+            this.NameField.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.NameField.Location = new System.Drawing.Point(161, 63);
+            this.NameField.MaxLength = 30;
+            this.NameField.Name = "NameField";
+            this.NameField.Size = new System.Drawing.Size(215, 26);
+            this.NameField.TabIndex = 0;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(37, 292);
+            this.label6.Location = new System.Drawing.Point(37, 267);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 22);
+            this.label6.Size = new System.Drawing.Size(104, 22);
             this.label6.TabIndex = 18;
-            this.label6.Text = "Долгота";
+            this.label6.Text = "Longitude";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(37, 221);
+            this.label5.Location = new System.Drawing.Point(37, 196);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 22);
             this.label5.TabIndex = 17;
-            this.label5.Text = "Широта";
+            this.label5.Text = "Latitude";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(37, 177);
+            this.label4.Location = new System.Drawing.Point(37, 152);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 22);
+            this.label4.Size = new System.Drawing.Size(110, 22);
             this.label4.TabIndex = 16;
-            this.label4.Text = "Население";
+            this.label4.Text = "Population";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(37, 131);
+            this.label3.Location = new System.Drawing.Point(37, 106);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 22);
+            this.label3.Size = new System.Drawing.Size(53, 22);
             this.label3.TabIndex = 15;
-            this.label3.Text = "Площадь";
+            this.label3.Text = "Area";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(37, 88);
+            this.label2.Location = new System.Drawing.Point(37, 63);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 22);
+            this.label2.Size = new System.Drawing.Size(62, 22);
             this.label2.TabIndex = 14;
-            this.label2.Text = "Название";
+            this.label2.Text = "Name";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 20F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(35, 20);
+            this.label1.Location = new System.Drawing.Point(142, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(192, 32);
+            this.label1.Size = new System.Drawing.Size(129, 32);
             this.label1.TabIndex = 13;
-            this.label1.Text = "Новый город";
+            this.label1.Text = "New City";
             // 
-            // latD
+            // LatDegsField
             // 
-            this.latD.Location = new System.Drawing.Point(6, 12);
-            this.latD.Maximum = new decimal(new int[] {
+            this.LatDegsField.Location = new System.Drawing.Point(6, 12);
+            this.LatDegsField.Maximum = new decimal(new int[] {
             89,
             0,
             0,
             0});
-            this.latD.Name = "latD";
-            this.latD.Size = new System.Drawing.Size(59, 24);
-            this.latD.TabIndex = 3;
+            this.LatDegsField.Name = "LatDegsField";
+            this.LatDegsField.Size = new System.Drawing.Size(59, 24);
+            this.LatDegsField.TabIndex = 3;
             // 
-            // latM
+            // LatMinsField
             // 
-            this.latM.Location = new System.Drawing.Point(82, 12);
-            this.latM.Maximum = new decimal(new int[] {
+            this.LatMinsField.Location = new System.Drawing.Point(82, 12);
+            this.LatMinsField.Maximum = new decimal(new int[] {
             59,
             0,
             0,
             0});
-            this.latM.Name = "latM";
-            this.latM.Size = new System.Drawing.Size(48, 24);
-            this.latM.TabIndex = 4;
+            this.LatMinsField.Name = "LatMinsField";
+            this.LatMinsField.Size = new System.Drawing.Size(48, 24);
+            this.LatMinsField.TabIndex = 4;
             // 
-            // latS
+            // LatSecsField
             // 
-            this.latS.Location = new System.Drawing.Point(153, 12);
-            this.latS.Maximum = new decimal(new int[] {
+            this.LatSecsField.Location = new System.Drawing.Point(153, 12);
+            this.LatSecsField.Maximum = new decimal(new int[] {
             59,
             0,
             0,
             0});
-            this.latS.Name = "latS";
-            this.latS.Size = new System.Drawing.Size(50, 24);
-            this.latS.TabIndex = 5;
+            this.LatSecsField.Name = "LatSecsField";
+            this.LatSecsField.Size = new System.Drawing.Size(50, 24);
+            this.LatSecsField.TabIndex = 5;
             // 
             // label7
             // 
@@ -242,56 +231,56 @@
             this.label9.TabIndex = 31;
             this.label9.Text = "″";
             // 
-            // latN
+            // LatNorthChB
             // 
-            this.latN.AutoSize = true;
-            this.latN.Checked = true;
-            this.latN.Location = new System.Drawing.Point(40, 40);
-            this.latN.Name = "latN";
-            this.latN.Size = new System.Drawing.Size(57, 21);
-            this.latN.TabIndex = 29;
-            this.latN.TabStop = true;
-            this.latN.Text = "с. ш.";
-            this.latN.UseVisualStyleBackColor = true;
+            this.LatNorthChB.AutoSize = true;
+            this.LatNorthChB.Checked = true;
+            this.LatNorthChB.Location = new System.Drawing.Point(40, 40);
+            this.LatNorthChB.Name = "LatNorthChB";
+            this.LatNorthChB.Size = new System.Drawing.Size(36, 21);
+            this.LatNorthChB.TabIndex = 6;
+            this.LatNorthChB.TabStop = true;
+            this.LatNorthChB.Text = "N";
+            this.LatNorthChB.UseVisualStyleBackColor = true;
             // 
-            // latSou
+            // LatSouthChB
             // 
-            this.latSou.AutoSize = true;
-            this.latSou.Location = new System.Drawing.Point(120, 40);
-            this.latSou.Name = "latSou";
-            this.latSou.Size = new System.Drawing.Size(60, 21);
-            this.latSou.TabIndex = 30;
-            this.latSou.Text = "ю. ш.";
-            this.latSou.UseVisualStyleBackColor = true;
+            this.LatSouthChB.AutoSize = true;
+            this.LatSouthChB.Location = new System.Drawing.Point(120, 40);
+            this.LatSouthChB.Name = "LatSouthChB";
+            this.LatSouthChB.Size = new System.Drawing.Size(36, 21);
+            this.LatSouthChB.TabIndex = 7;
+            this.LatSouthChB.Text = "S";
+            this.LatSouthChB.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Controls.Add(this.latN);
-            this.groupBox1.Controls.Add(this.latD);
-            this.groupBox1.Controls.Add(this.latM);
-            this.groupBox1.Controls.Add(this.latS);
-            this.groupBox1.Controls.Add(this.latSou);
+            this.groupBox1.Controls.Add(this.LatNorthChB);
+            this.groupBox1.Controls.Add(this.LatDegsField);
+            this.groupBox1.Controls.Add(this.LatMinsField);
+            this.groupBox1.Controls.Add(this.LatSecsField);
+            this.groupBox1.Controls.Add(this.LatSouthChB);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Location = new System.Drawing.Point(161, 209);
+            this.groupBox1.Location = new System.Drawing.Point(161, 184);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(229, 67);
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             // 
-            // lonE
+            // LonEastChB
             // 
-            this.lonE.AutoSize = true;
-            this.lonE.Checked = true;
-            this.lonE.Location = new System.Drawing.Point(49, 44);
-            this.lonE.Name = "lonE";
-            this.lonE.Size = new System.Drawing.Size(55, 21);
-            this.lonE.TabIndex = 29;
-            this.lonE.TabStop = true;
-            this.lonE.Text = "в. д.";
-            this.lonE.UseVisualStyleBackColor = true;
+            this.LonEastChB.AutoSize = true;
+            this.LonEastChB.Checked = true;
+            this.LonEastChB.Location = new System.Drawing.Point(49, 44);
+            this.LonEastChB.Name = "LonEastChB";
+            this.LonEastChB.Size = new System.Drawing.Size(36, 21);
+            this.LonEastChB.TabIndex = 11;
+            this.LonEastChB.TabStop = true;
+            this.LonEastChB.Text = "E";
+            this.LonEastChB.UseVisualStyleBackColor = true;
             // 
             // label13
             // 
@@ -302,15 +291,15 @@
             this.label13.TabIndex = 31;
             this.label13.Text = "°";
             // 
-            // lonW
+            // LonWestChB
             // 
-            this.lonW.AutoSize = true;
-            this.lonW.Location = new System.Drawing.Point(123, 44);
-            this.lonW.Name = "lonW";
-            this.lonW.Size = new System.Drawing.Size(54, 21);
-            this.lonW.TabIndex = 30;
-            this.lonW.Text = "з. д.";
-            this.lonW.UseVisualStyleBackColor = true;
+            this.LonWestChB.AutoSize = true;
+            this.LonWestChB.Location = new System.Drawing.Point(123, 44);
+            this.LonWestChB.Name = "LonWestChB";
+            this.LonWestChB.Size = new System.Drawing.Size(41, 21);
+            this.LonWestChB.TabIndex = 12;
+            this.LonWestChB.Text = "W";
+            this.LonWestChB.UseVisualStyleBackColor = true;
             // 
             // label15
             // 
@@ -321,17 +310,17 @@
             this.label15.TabIndex = 31;
             this.label15.Text = "′";
             // 
-            // lonS
+            // LonSecsField
             // 
-            this.lonS.Location = new System.Drawing.Point(153, 14);
-            this.lonS.Maximum = new decimal(new int[] {
+            this.LonSecsField.Location = new System.Drawing.Point(153, 14);
+            this.LonSecsField.Maximum = new decimal(new int[] {
             59,
             0,
             0,
             0});
-            this.lonS.Name = "lonS";
-            this.lonS.Size = new System.Drawing.Size(50, 24);
-            this.lonS.TabIndex = 8;
+            this.LonSecsField.Name = "LonSecsField";
+            this.LonSecsField.Size = new System.Drawing.Size(50, 24);
+            this.LonSecsField.TabIndex = 10;
             // 
             // label18
             // 
@@ -342,64 +331,148 @@
             this.label18.TabIndex = 31;
             this.label18.Text = "″";
             // 
-            // lonM
+            // LonMinsField
             // 
-            this.lonM.Location = new System.Drawing.Point(82, 14);
-            this.lonM.Maximum = new decimal(new int[] {
+            this.LonMinsField.Location = new System.Drawing.Point(82, 14);
+            this.LonMinsField.Maximum = new decimal(new int[] {
             59,
             0,
             0,
             0});
-            this.lonM.Name = "lonM";
-            this.lonM.Size = new System.Drawing.Size(48, 24);
-            this.lonM.TabIndex = 7;
+            this.LonMinsField.Name = "LonMinsField";
+            this.LonMinsField.Size = new System.Drawing.Size(48, 24);
+            this.LonMinsField.TabIndex = 9;
             // 
-            // lonD
+            // LonDegsField
             // 
-            this.lonD.Location = new System.Drawing.Point(6, 12);
-            this.lonD.Maximum = new decimal(new int[] {
+            this.LonDegsField.Location = new System.Drawing.Point(6, 12);
+            this.LonDegsField.Maximum = new decimal(new int[] {
             179,
             0,
             0,
             0});
-            this.lonD.Name = "lonD";
-            this.lonD.Size = new System.Drawing.Size(56, 24);
-            this.lonD.TabIndex = 6;
+            this.LonDegsField.Name = "LonDegsField";
+            this.LonDegsField.Size = new System.Drawing.Size(56, 24);
+            this.LonDegsField.TabIndex = 8;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.lonD);
-            this.groupBox2.Controls.Add(this.lonM);
+            this.groupBox2.Controls.Add(this.LonDegsField);
+            this.groupBox2.Controls.Add(this.LonMinsField);
             this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.lonS);
+            this.groupBox2.Controls.Add(this.LonSecsField);
             this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.lonW);
+            this.groupBox2.Controls.Add(this.LonWestChB);
             this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.lonE);
-            this.groupBox2.Location = new System.Drawing.Point(161, 282);
+            this.groupBox2.Controls.Add(this.LonEastChB);
+            this.groupBox2.Location = new System.Drawing.Point(161, 257);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(229, 72);
             this.groupBox2.TabIndex = 33;
             this.groupBox2.TabStop = false;
             // 
+            // AreaField
+            // 
+            this.AreaField.Increment = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.AreaField.Location = new System.Drawing.Point(161, 108);
+            this.AreaField.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.AreaField.Name = "AreaField";
+            this.AreaField.Size = new System.Drawing.Size(164, 24);
+            this.AreaField.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(37, 335);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(75, 22);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Leader";
+            // 
+            // LeaderField
+            // 
+            this.LeaderField.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LeaderField.Location = new System.Drawing.Point(161, 335);
+            this.LeaderField.MaxLength = 100;
+            this.LeaderField.Name = "LeaderField";
+            this.LeaderField.Size = new System.Drawing.Size(222, 26);
+            this.LeaderField.TabIndex = 13;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.Location = new System.Drawing.Point(37, 377);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(105, 22);
+            this.label11.TabIndex = 15;
+            this.label11.Text = "Build Year";
+            // 
+            // BuildYearField
+            // 
+            this.BuildYearField.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.BuildYearField.Location = new System.Drawing.Point(161, 379);
+            this.BuildYearField.Maximum = new decimal(new int[] {
+            20000,
+            0,
+            0,
+            0});
+            this.BuildYearField.Name = "BuildYearField";
+            this.BuildYearField.Size = new System.Drawing.Size(123, 24);
+            this.BuildYearField.TabIndex = 14;
+            // 
+            // PopulationField
+            // 
+            this.PopulationField.Increment = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.PopulationField.Location = new System.Drawing.Point(161, 154);
+            this.PopulationField.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.PopulationField.Name = "PopulationField";
+            this.PopulationField.Size = new System.Drawing.Size(164, 24);
+            this.PopulationField.TabIndex = 2;
+            // 
             // CityEditor
             // 
-            this.AcceptButton = this.button1;
+            this.AcceptButton = this.SaveBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(441, 426);
+            this.CancelButton = this.CancelBtn;
+            this.ClientSize = new System.Drawing.Size(441, 474);
+            this.Controls.Add(this.BuildYearField);
+            this.Controls.Add(this.PopulationField);
+            this.Controls.Add(this.AreaField);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pop);
-            this.Controls.Add(this.area);
-            this.Controls.Add(this.name);
+            this.Controls.Add(this.CancelBtn);
+            this.Controls.Add(this.SaveBtn);
+            this.Controls.Add(this.LeaderField);
+            this.Controls.Add(this.NameField);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -409,18 +482,21 @@
             this.Name = "CityEditor";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Добавление/изменение города";
+            this.Text = "City Edit";
             this.Load += new System.EventHandler(this.CityEditor_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.latD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.latM)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.latS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LatDegsField)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LatMinsField)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LatSecsField)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lonS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lonM)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lonD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LonSecsField)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LonMinsField)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LonDegsField)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AreaField)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BuildYearField)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PopulationField)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,34 +504,38 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox pop;
-        private System.Windows.Forms.TextBox area;
-        private System.Windows.Forms.TextBox name;
+        private System.Windows.Forms.Button CancelBtn;
+        private System.Windows.Forms.Button SaveBtn;
+        private System.Windows.Forms.TextBox NameField;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown latD;
-        private System.Windows.Forms.NumericUpDown latM;
-        private System.Windows.Forms.NumericUpDown latS;
+        private System.Windows.Forms.NumericUpDown LatDegsField;
+        private System.Windows.Forms.NumericUpDown LatMinsField;
+        private System.Windows.Forms.NumericUpDown LatSecsField;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RadioButton latN;
-        private System.Windows.Forms.RadioButton latSou;
+        private System.Windows.Forms.RadioButton LatNorthChB;
+        private System.Windows.Forms.RadioButton LatSouthChB;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton lonE;
+        private System.Windows.Forms.RadioButton LonEastChB;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.RadioButton lonW;
+        private System.Windows.Forms.RadioButton LonWestChB;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.NumericUpDown lonS;
+        private System.Windows.Forms.NumericUpDown LonSecsField;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.NumericUpDown lonM;
-        private System.Windows.Forms.NumericUpDown lonD;
+        private System.Windows.Forms.NumericUpDown LonMinsField;
+        private System.Windows.Forms.NumericUpDown LonDegsField;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.NumericUpDown AreaField;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox LeaderField;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.NumericUpDown BuildYearField;
+        private System.Windows.Forms.NumericUpDown PopulationField;
     }
 }

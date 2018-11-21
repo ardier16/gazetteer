@@ -1,68 +1,71 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Gazetteer
 {
-    public class Country : Unit
+    public class Country : SQLEditor
     {
-        public string Government { get; }
-        public string Capital { get; }
-        public List<Region> Regions { get; private set; }
-        public List<string> Languages { get; private set; }
-
-        public Country(string name, double pop, double area, string gov, string capital,
-                       List<Region> regs, List<string> langs) : base(name, pop, area)
+        public static void InsertCountry(string name, int area, string population, string gov, double gdp,
+                               string leader, string capital, string continent, string currency)
         {
-            this.Government = gov;
-            this.Capital = capital;
-            this.Regions = regs;
-            this.Languages = langs;
+            DoSqlOperation(String.Format("INSERT INTO Country VALUES('{0}', {1}, {2}, '{3}', {4}, '{5}', {6}, '{7}', {8})",
+                                            name, area, population, gov, gdp, leader, capital, continent, currency));
+        }
+
+        public static void UpdateCountry(string country, string name, int area, string population, string gov, double gdp,
+                                string leader, string capital, string continent, string currency)
+        {
+            DoSqlOperation("UPDATE Region SET CountryName=NULL WHERE CountryName='" + country + "'");
+            DoSqlOperation(String.Format("UPDATE Country SET CountryName='{0}', CountryArea={1}, CountryPopulation ={2}, " +
+                                            "CountryGovernment='{3}', CountryGDP={4}, CountryLeader='{5}', CountryCapital={6}, " +
+                                            "ContinentName='{7}', CurrencyName={8} WHERE CountryName='{9}'",
+                                            name, area, population, gov, gdp, leader, capital, continent, currency, country));
+            DoSqlOperation("UPDATE Region SET CountryName='" + name + "' WHERE CountryName IS NULL");
+        }
+
+        public static void DeleteCountry(string name)
+        {
+            UpdateContryLangs(name, name, new List<string>());
+            DoSqlOperation(String.Format("DELETE FROM City WHERE RegionId IN(SELECT RegionId FROM Region WHERE CountryName='{0}')", name));
+            DoSqlOperation(String.Format("DELETE FROM Region WHERE CountryName='{0}'", name));
+            DoSqlOperation(String.Format("DELETE FROM Country WHERE CountryName='{0}'", name));
         }
 
 
-        // Sum of a population of each region in the country
-        public double SummaryRegionsPopulation
+        public static void SetContryLangs(string countryName, List<string> langs)
         {
-            get
+            for (int i = 0; i < langs.Count; i++)
             {
-                double sumPop = 0;
-
-                for (int i = 0; i < this.Regions.Count; i++)
-                {
-                    sumPop += this.Regions[i].SummaryCitiesPopulation;
-                }
-
-                return sumPop;
+                DoSqlOperation(String.Format("INSERT INTO CountryLanguage VALUES('{0}', '{1}')", countryName, langs[i]));
             }
-            
         }
 
-        // The percentage of the country's urban population
-        public double Urbanization
+        public static void UpdateContryLangs(string oldName, string newName, List<string> langs)
         {
-            get { return Math.Round((this.SummaryRegionsPopulation * 100 / 
-                this.Population), 3); }
+            DoSqlOperation("DELETE FROM CountryLanguage WHERE CountryName='" + oldName + "'");
+            SetContryLangs(newName, langs);
         }
 
-        // Returns information about country in an array 
-        // {name, area, population, government, capital}
-        public string[] GetInfo()
+        public static List<string> GetContryLangs(string countryName)
         {
-            return new string[] { Name, Area.ToString(), Population.ToString(),
-                Government, Capital };
+            return GetList("SELECT LanguageName FROM CountryLanguage WHERE CountryName='" + countryName + "'");
         }
 
-        // Finds a region that has specified name. 
-        // If there's no such of region, method returns null
-        public Region SearchRegionByName(string name)
+        public static List<List<string>> CountryStat(string query)
         {
-            for (int i = 0; i < Regions.Count; i++)
+            List<List<string>> list = new List<List<string>>();
+            DataTable dt = DoSqlOperation(query);
+
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                if (Regions[i].Name == name)
-                    return Regions[i];
+                string name = dt.Rows[i].ItemArray[0].ToString();
+                string value = dt.Rows[i].ItemArray[1].ToString();
+                list.Add(new List<string>());
+                list[i].AddRange(new string[] { name, value });
             }
 
-            return null;
+            return list;
         }
     }
 }

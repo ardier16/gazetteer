@@ -1,23 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Gazetteer
 {
     public partial class Gazetteer : Form
     {
-        public List<Continent> conts;
-        public DocumentEditor doc = new DocumentEditor();
-        public string source;
-        
+        string user;
+        string search = "";
+        bool isSearched, isFiltered;
+
+
         public Gazetteer()
         {
             InitializeComponent();
         }
 
-        public Gazetteer(List<Continent> cs)
+        public Gazetteer(string user)
         {
-            this.conts = cs;
+            this.user = user;
             InitializeComponent();
         }
 
@@ -26,305 +26,266 @@ namespace Gazetteer
         {
             try
             {
-                source = "Data.xml";
-                conts = doc.GetData(source);
-                FillList();
-                FillContsBox();
+                CheckUser();
+                SetTableData();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Файл Data.xml не найден или имеет неизвестный формат");
-                создатьToolStripMenuItem1_Click(null, null);
-                conts = doc.GetData(source);
-                FillList();
-                FillContsBox();
-            }                  
-        }       
-
-        
-
-        private void GetContPopulation_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                double pop = Math.Round(conts[ContsPopBox.SelectedIndex].Population / 1000, 3);
-                ContPopResult.Text = "Суммарное население: " + pop.ToString() + " млн чел";
-            }
-            catch
-            {
-                MessageBox.Show("Не выбран континент");
-            }
-        }
-
-        private void SearchButton_Click(object sender, EventArgs e)
-        {
-            List<City> res = new List<City>();
-
-            if (SearchField.Text != "")
-            {
-                res = SearchCities(SearchField.Text);
-            }
-
-            else
-            {
-                res = SearchCitiesHomonyms();
-            }
-
-            if (res.Count > 0)
-            {
-                var cities = new Cities(res, SearchField.Text, source);
-                cities.ShowDialog();
-            }
-            else
-                MessageBox.Show("Города не найдены");
-        }
-
-        private void CountriesList_DoubleClick(object sender, EventArgs e)
-        {
-            if (CountriesList.SelectedIndices.Count == 1)
-            {
-                string name = CountriesList.Items[CountriesList.SelectedIndices[0]].SubItems[1].Text;
-                int[] idx = GetCountryIndex(conts, name);
-
-                var CountryInfo = new CountryInfo(idx, conts, source);
-                CountryInfo.ShowDialog();
+                MessageBox.Show(@"Error: " + ex.Message);
             }
         }
 
         private void Gazetteer_Activated(object sender, EventArgs e)
         {
-            RefreshList();
+            if (isFiltered)
+                SetFilterData();
+            else
+                SetTableData();
+        }
+
+        private void Gazetteer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
 
-        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FilterButton_Click(object sender, EventArgs e)
+        {
+            isFiltered = true;
+            isSearched = false;
+            SetFilterData();
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            if (StartSearchPos.Checked)
+                search = SearchField.Text + "%";
+            else
+                search = "%" + SearchField.Text + "%";
+
+            if (CounSearch.Checked)
+            {
+                isSearched = true;
+                isFiltered = false;
+                SetTableData();
+            }
+
+            else if (CtsSearch.Checked)
+            {
+                var form = new Cities(search, user);
+                form.ShowDialog();
+            }
+        }
+
+
+        private void CountriesTable_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var form = new CountryInfo(CountriesTable.SelectedRows[0].Cells[0].Value.ToString(), user);
+            form.ShowDialog();
+        }
+
+
+        private void ExitMenu_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string oldSource = source;
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                source = openFileDialog1.FileName;
-            }
-            
-            try
-            {
-                conts = doc.GetData(source);
-            }
-            catch
-            {                
-                source = oldSource;
-                conts = doc.GetData(source);
-                MessageBox.Show("Файл повреждён или имеет неизвестный формат");
-            }
-            finally
-            {
-                CountriesList.Items.Clear();
-                FillList();
-            }
+        private void AddMenu_Click(object sender, EventArgs e)
+        {
+            var form = new CountryEditor();
+            form.ShowDialog();
         }
 
-        private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void EditMenu_Click(object sender, EventArgs e)
         {
-            var addForm = new CountryEditor(conts, source);
-            addForm.ShowDialog();
+            var form = new CountryEditor(CountriesTable.SelectedRows[0].Cells[0].Value.ToString());
+            form.ShowDialog();
         }
 
-        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DeleteMenu_Click(object sender, EventArgs e)
         {
             try
             {
-                int[] idx = GetCountryIndex(conts, CountriesList.SelectedItems[0].SubItems[1].Text);
-
-                DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите удалить выбранную страну?", "Удаление страны", MessageBoxButtons.YesNo);
-
-                if (dialogResult == DialogResult.Yes)
-                {
-                    doc.DeleteCountry(source, idx[0], idx[1]);
-                    RefreshList();
-
-                }
-                else if (dialogResult == DialogResult.No)
-                {
-
-                }
+                Country.DeleteCountry(CountriesTable.SelectedRows[0].Cells[0].Value.ToString());
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Пожалуйста, выберите страну!", "Внимание!");
+                MessageBox.Show(@"Error: " + ex.Message);
             }
+
+            SetTableData();
         }
 
-        private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int[] k = GetCountryIndex(conts, CountriesList.SelectedItems[0].SubItems[1].Text);
-
-                Country c = null;
-
-                for (int i = 0; i < conts.Count; i++)
-                {
-                    c = conts[i].SearchCountryByName(
-                        CountriesList.Items[CountriesList.SelectedIndices[0]].SubItems[1].Text);
-
-                    if (c != null)
-                        break;
-                }
-
-                var form = new CountryEditor(conts, k, source);
-                form.ShowDialog();
-            }
-            catch
-            {
-                MessageBox.Show("Пожалуйста, выберите страну!", "Внимание!");
-            }
-        }
-
-        private void создатьToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-                {
-                    doc.CreateNewBase(saveFileDialog1.FileName);
-                    source = saveFileDialog1.FileName;
-                    CountriesList.Items.Clear();
-                    FillList();
-                    RefreshList();
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Ошибка при создании файла");
-            }
-        }
-
-
-        public void FillList()
-        {
-            for (int i = 0; i < conts.Count; i++)
-            {
-                for (int j = 0; j < conts[i].Countries.Count; j++)
-                {
-                    string[] info = new string[6];
-                    info[0] = conts[i].Name;
-
-                    for (int k = 1; k < info.Length; k++)
-                    {
-                        info[k] = conts[i].Countries[j].GetInfo()[k - 1];
-                    }
-
-                    ListViewItem list = new ListViewItem(info);
-                    CountriesList.Items.AddRange(new ListViewItem[] { list });
-                }
-            }
-        }
-
-        public void FillContsBox()
-        {
-            for (int i = 0; i < conts.Count; i++)
-            {
-                ContsPopBox.Items.Add(conts[i].Name);
-            }
-        }
-
-        public void RefreshList()
-        {
-            conts = doc.GetData(source);
-            CountriesList.Items.Clear();
-            FillList();
-        }
-
-
-
-
-        public List<City> SearchCities(string key)
-        {
-            List<City> res = new List<City>();
-
-            for (int i = 0; i < conts.Count; i++)
-            {
-                res.AddRange(conts[i].SearchCities(key, StartSearchPos.Checked));
-            }
-
-            return res;
-        }
-
-        public List<City> SearchCitiesHomonyms()
-        {
-            List<City> res = new List<City>();
-
-            for (int i = 0; i < conts.Count; i++)
-            {
-                for (int j = 0; j < conts[i].Countries.Count; j++)
-                {
-                    for (int k = 0; k < conts[i].Countries[j].Regions.Count; k++)
-                    {
-                        for (int l = 0; l < conts[i].Countries[j].Regions[k].Cities.Count; l++)
-                        {
-                            City temp = conts[i].Countries[j].Regions[k].Cities[l];
-                            List<City> search = SearchCities(temp.Name);
-
-                            if (search.Count > 1)
-                                res.AddRange(search);
-
-                        }
-                    }
-                }
-            }
-
-            return RemoveSameCities(res);
-        }
-
-        public List<City> RemoveSameCities(List<City> source)
-        {
-            for (int i = 0; i < source.Count; i++)
-            {
-                for (int j = i + 1; j < source.Count; j++)
-                {
-                    if (source[i].Latitude == source[j].Latitude &&
-                        source[i].Longitude == source[j].Longitude)
-                    {
-                        source.RemoveAt(j);
-                        j--;
-                    }
-                }
-            }
-
-            return source;
-        }
-
-        public int[] GetCountryIndex(List<Continent> conts, string name)
-        {
-            for (int i = 0; i < conts.Count; i++)
-            {
-                for (int j = 0; j < conts[i].Countries.Count; j++)
-                {
-                    if (conts[i].Countries[j].Name == name)
-                        return new int[] { i, j };
-                }
-            }
-
-            return new int[0];
-        }
-
-        private void справкаToolStripMenuItem_Click(object sender, EventArgs e)
+        
+        private void AboutMenu_Click(object sender, EventArgs e)
         {
             var about = new About();
             about.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void SignInUpMenu_Click(object sender, EventArgs e)
         {
-            var form = new Map(conts);
+            var form = new SignIn();
+            form.Show();
+            this.Visible = false;      
+        }
+
+
+        private void NewGameMenu_Click(object sender, EventArgs e)
+        {
+            var form = new Map(user);
             form.ShowDialog();
         }
 
 
+        private void adminPanelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new AdminPanel();
+            form.ShowDialog();
+        }
+
+
+        #region Statistics
+        private void top10CountriesByAreaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new Statistics(Country.CountryStat("SELECT TOP 10 CountryName, CountryArea FROM Country ORDER BY CountryArea DESC"), "Top 10 Countries By Area", "Area, sq. km");
+            form.ShowDialog();
+        }
+
+        private void top10CountriesByPopulationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new Statistics(Country.CountryStat("SELECT TOP 10 CountryName, CountryPopulation FROM Country ORDER BY CountryPopulation DESC"), "Top 10 Countries By Population", "Population");
+            form.ShowDialog();
+        }
+
+        private void top10CitiesByAreaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new Statistics(City.CityStat(@"SELECT TOP 10 City.CityName, Country.CountryName, City.CityArea FROM City, Region, Country 
+                                        WHERE City.RegionId=Region.RegionId AND Region.CountryName=Country.CountryName ORDER BY City.CityArea DESC"),
+                                         "Top 10 Cities By Area", "Area, sq. km");
+            form.ShowDialog();
+        }
+
+        private void top10CitiesByPopulationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new Statistics(City.CityStat(@"SELECT TOP 10 City.CityName, Country.CountryName, City.CityPopulation FROM City, Region, Country 
+                                        WHERE City.RegionId=Region.RegionId AND Region.CountryName=Country.CountryName ORDER BY City.CityPopulation DESC"),
+                                         "Top 10 Cities By Population", "Population");
+            form.ShowDialog();
+        }
+
+        private void top10MostUsedCurrenciesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new Statistics(Country.CountryStat(@"SELECT TOP 10 CurrencyName, COUNT(CountryName) FROM Country WHERE CurrencyName IS NOT NULL
+                                         GROUP BY CurrencyName ORDER BY COUNT(CountryName) DESC"),
+                                         "Top 10 Most Used Currencies", "Count Of Countries");
+            form.ShowDialog();
+
+        }
+
+        private void top10MostSuccessfullGamesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new Statistics(Country.CountryStat(@"SELECT TOP 10 UserLogin, GameScore FROM Game ORDER BY GameScore DESC"),
+                                         "Top 10 Most Successful Games", "Score");
+            form.ShowDialog();
+        }
+        #endregion
+
+
+        private void sQLEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new SQLEdit();
+            form.Show();
+        }
+
+
+        private void requestAdminRootsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            User.UpdateAdmin("Requested", user);
+            MessageBox.Show("Admin Roots Requested!");
+            requestAdminRootsToolStripMenuItem.Enabled = false;
+        }
+
+
+        private void SetTableData()
+        {
+            string query = @"SELECT CountryName AS 'Name', CountryArea AS 'Area', CountryPopulation AS 'Population', 
+                                CountryGovernment AS 'Government', CountryGDP AS 'GDP', CountryLeader AS 'Leader', 'Nope' AS 'Capital', 
+                                ContinentName AS 'Continent', CurrencyName AS 'Currency' FROM Country WHERE CountryCapital IS NULL";
+
+            if (search != "" && isSearched)
+                query += " AND CountryName LIKE '" + search + "'";
+
+            query += @" UNION SELECT Country.CountryName AS 'Name', Country.CountryArea AS 'Area', 
+                                Country.CountryPopulation AS 'Population', Country.CountryGovernment AS 'Government', Country.CountryGDP AS 'GDP', 
+                                Country.CountryLeader AS 'Leader', City.CityName AS 'Capital', Country.ContinentName AS 'Continent', Country.CurrencyName AS 'Currency' 
+                                FROM Country, City WHERE Country.CountryCapital=City.CityId";
+
+            if (search != "" && isSearched)
+                query += " AND Country.CountryName LIKE '" + search + "'";
+
+            CountriesTable.DataSource = SQLEditor.DoSqlOperation(query);
+
+            try
+            {
+                MaxAreaField.Value = MaxAreaField.Maximum = Convert.ToDecimal(SQLEditor.DoSqlOperation("SELECT MAX(CountryArea) FROM Country").Rows[0].ItemArray[0].ToString());
+                MaxPopField.Value = MaxPopField.Maximum = Convert.ToDecimal(SQLEditor.DoSqlOperation("SELECT MAX(CountryPopulation) FROM Country").Rows[0].ItemArray[0].ToString());
+                ContsList.DataSource = SQLEditor.GetCurList("SELECT ContinentName FROM Continent");
+                MinAreaField.Maximum = MaxAreaField.Maximum;
+                MinPopField.Maximum = MaxPopField.Maximum;
+            }
+            catch { }
+        }
+
+        private void SetFilterData()
+        {
+            string subquery = String.Format(" AND Country.CountryArea BETWEEN '{0}' AND '{1}' AND Country.CountryPopulation BETWEEN '{2}' AND '{3}'",
+                            MinAreaField.Value.ToString(), MaxAreaField.Value.ToString(), MinPopField.Value.ToString().Replace(',', '.'), 
+                            MaxPopField.Value.ToString().Replace(',', '.'));
+
+            if (ContsList.Text != "Nope")
+                subquery += String.Format(" AND Country.ContinentName='{0}'", ContsList.Text);
+
+            string query = @"SELECT CountryName AS 'Name', CountryArea AS 'Area', CountryPopulation AS 'Population', 
+                                CountryGovernment AS 'Government', CountryGDP AS 'GDP', CountryLeader AS 'Leader', 'Nope' AS 'Capital', 
+                                ContinentName AS 'Continent', CurrencyName AS 'Currency' FROM Country WHERE CountryCapital IS NULL";
+
+            query += subquery;
+
+            query += @" UNION SELECT Country.CountryName AS 'Name', Country.CountryArea AS 'Area', 
+                                Country.CountryPopulation AS 'Population', Country.CountryGovernment AS 'Government', Country.CountryGDP AS 'GDP', 
+                                Country.CountryLeader AS 'Leader', City.CityName AS 'Capital', Country.ContinentName AS 'Continent', Country.CurrencyName AS 'Currency' 
+                                FROM Country, City WHERE Country.CountryCapital=City.CityId";
+            query += subquery;
+
+            CountriesTable.DataSource = SQLEditor.DoSqlOperation(query);
+        }
+
+        private void CheckUser()
+        {
+            if (user != null)
+            {
+                if (User.GetUserData(user) != "")
+                {
+                    StatisticsMenu.Visible = true;
+                    NewGameMenu.Visible = true;
+                    SignInUpMenu.Text = "Sign Out";
+                    requestAdminRootsToolStripMenuItem.Visible = true;
+
+                    if (User.GetUserData(user) == "Requested")
+                        requestAdminRootsToolStripMenuItem.Enabled = false;
+
+                    if (User.GetUserData(user) == "Yes")
+                    {
+                        AdminMenu.Visible = true;
+                        EditCountryMenu.Visible = true;
+                        SQLEditorMenu.Visible = true;
+                        requestAdminRootsToolStripMenuItem.Visible = false;
+                    }
+                }
+            }
+        }
     }
 }

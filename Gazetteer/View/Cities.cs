@@ -6,48 +6,116 @@ namespace Gazetteer
 {
     public partial class Cities : Form
     {
-        public List<Continent> conts;
-        public List<City> cities;
         public string SearchInfo;
-        public string source;
-        public int[] idx;
-        public DocumentEditor doc = new DocumentEditor();
+        string user;
+        int regId;
+        string searchCities;
+        bool isFiltered;
+
 
         public Cities()
         {
             InitializeComponent();
         }
 
-        public Cities(List<Continent> c, int[] id, int rid, string s)
+        public Cities(int id, string u)
         {
-            this.conts = c;
-            this.idx = new int[] { id[0], id[1], rid };
-            this.source = s;
+            regId = id;
+            user = u;
             InitializeComponent();
         }
 
-        public Cities(List<City> cs, string s, string sou)
+        public Cities(string search, string u)
         {
-            this.cities = cs;
-            this.SearchInfo = s;
-            this.source = sou;
+            searchCities = search;
+            user = u;
             InitializeComponent();
         }
-
 
 
         private void Cities_Load(object sender, EventArgs e)
         {
-            menuStrip1.Visible = false;
             SetCitiesData();
         }
 
+        private void Cities_Activated(object sender, EventArgs e)
+        {
+            Cities_Load(null, null);
+        }
+
+
+        private void AddMenu_Click(object sender, EventArgs e)
+        {
+            isFiltered = false;
+            var form = new CityEditor(regId);
+            form.ShowDialog();
+        }
+
+        private void EditMenu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                isFiltered = false;
+                var form = new CityEditor(regId, Convert.ToInt32(CitiesTable.SelectedRows[0].Cells[0].Value.ToString()));
+                form.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void DeleteMenu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string city = CitiesTable.SelectedRows[0].Cells[0].Value.ToString();
+                DialogResult dialogResult = MessageBox.Show("Are you sure to delete selected city?", "Delete City", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    City.DeleteCity(city, regId);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
 
         private void OKButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }       
+
+        private void ShowMapBtn_Click(object sender, EventArgs e)
+        {
+            List<string> idcs = new List<string>();
+            isFiltered = false;
+
+            for (int i = 0; i < CitiesTable.SelectedRows.Count; i++)
+            {
+                idcs.Add(CitiesTable.SelectedRows[i].Cells[0].Value.ToString());
+            }
+
+            var form = new Map(idcs, user);
+            form.ShowDialog();
         }
+
+        private void FilterBtn_Click(object sender, EventArgs e)
+        {
+            isFiltered = true;
+            Cities_Load(null, null);
+        }
+
+        private void ResetBtn_Click(object sender, EventArgs e)
+        {
+            isFiltered = false;
+            AreaMinField.Value = PopMinField.Value = YearMinField.Value = 0;
+            Cities_Load(null, null);
+        }
+
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -66,108 +134,74 @@ namespace Gazetteer
         }
 
 
-
-        public void SetCitiesData()
+        private void SetCitiesData()
         {
-            if (SearchInfo == null)
+            menuStrip1.Visible = User.GetUserData(user) == "Yes";
+
+            string query = @"SELECT CityId AS ID, CityName AS Name, CityLongitude AS Longitude, CityLatitude AS Latitude,  
+                CityArea AS Area, CityPopulation AS Population, CityBuildYear AS 'Build Year', CityLeader AS Leader FROM City";
+
+            if (regId > 0)
             {
-                InfoField.Text = "Города региона";
-                cities = conts[idx[0]].Countries[idx[1]].Regions[idx[2]].Cities;
-                menuStrip1.Visible = true;
-            }
-            else
-                SearchingInfo.Text = SearchInfo;
+                string subquery = " WHERE RegionId=" + regId;
 
-
-            for (int i = 0; i < cities.Count; i++)
-            {
-                string[] info = new string[] { cities[i].Name , cities[i].Region, cities[i].Area.ToString(),
-                                               cities[i].Population.ToString(), cities[i].Latitude, cities[i].Longitude};
-
-                ListViewItem list = new ListViewItem(info);
-                CitiesList.Items.AddRange(new ListViewItem[] { list });
-            }
-        }
-
-        private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = new CityEditor(conts, idx, source);
-            form.ShowDialog();
-        }
-
-        private void редактироватьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int cityId = CitiesList.SelectedIndices[0];
-
-                var form = new CityEditor(conts, idx, cityId, source);
-                form.ShowDialog();
-            }
-            catch
-            {
-                MessageBox.Show("Пожалуйста, выберите город!", "Внимание!");
-            }
-        }
-
-        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int cityId = CitiesList.SelectedIndices[0];
-                DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите удалить выбранный город?", "Удаление города", MessageBoxButtons.YesNo);
-
-                if (dialogResult == DialogResult.Yes)
+                if (isFiltered)
+                    subquery += String.Format(@" AND CityArea BETWEEN '{0}' AND '{1}' AND CityPopulation BETWEEN '{2}' AND 
+                                                '{3}' AND CityBuildYear BETWEEN '{4}' AND '{5}'",
+                        AreaMinField.Value.ToString(), AreaMaxField.Value.ToString(), PopMinField.Value.ToString(),
+                        PopMaxField.Value.ToString(), YearMinField.Value.ToString(), YearMaxField.Value.ToString());
+                else
                 {
-                    doc.DeleteCity(source, idx[0], idx[1], idx[2], cityId);
-                    RefreshList();
-
+                    try
+                    {
+                        AreaMinField.Maximum = AreaMaxField.Value = AreaMaxField.Maximum =
+                            Convert.ToDecimal(SQLEditor.DoSqlOperation("SELECT MAX(CityArea) FROM City" + subquery).Rows[0].ItemArray[0].ToString());
+                        PopMinField.Maximum = PopMaxField.Value = PopMaxField.Maximum =
+                            Convert.ToDecimal(SQLEditor.DoSqlOperation("SELECT MAX(CityPopulation) FROM City" + subquery).Rows[0].ItemArray[0].ToString());
+                        YearMinField.Maximum = YearMaxField.Value = YearMaxField.Maximum =
+                            Convert.ToDecimal(SQLEditor.DoSqlOperation("SELECT MAX(CityBuildYear) FROM City" + subquery).Rows[0].ItemArray[0].ToString());
+                    }
+                    catch { }
                 }
-                else if (dialogResult == DialogResult.No)
+
+                CitiesTable.DataSource = SQLEditor.DoSqlOperation(query + subquery);
+                InfoField.Text = "Region's cities";
+
+                CitiesTable.Columns[0].Visible = false;
+            }
+
+            else if (searchCities != null)
+            {
+                string subquery = " WHERE CityName LIKE '" + searchCities + "'";
+
+                if (isFiltered)
+                    subquery += String.Format(@" AND CityArea BETWEEN '{0}' AND '{1}' AND CityPopulation BETWEEN '{2}' AND '{3}' AND 
+                                              CityBuildYear BETWEEN '{4}' AND '{5}'",
+                            AreaMinField.Value.ToString(), AreaMaxField.Value.ToString(), PopMinField.Value.ToString().Replace(',', '.'),
+                            PopMaxField.Value.ToString().Replace(',', '.'), YearMinField.Value.ToString(), YearMaxField.Value.ToString());
+                else
                 {
-
+                    try
+                    {
+                        AreaMinField.Maximum = AreaMaxField.Value = AreaMaxField.Maximum =
+                            Convert.ToDecimal(SQLEditor.DoSqlOperation("SELECT MAX(CityArea) FROM City" + subquery).Rows[0].ItemArray[0].ToString());
+                        PopMinField.Maximum = PopMaxField.Value = PopMaxField.Maximum =
+                            Convert.ToDecimal(SQLEditor.DoSqlOperation("SELECT MAX(CityPopulation) FROM City" + subquery).Rows[0].ItemArray[0].ToString());
+                        YearMinField.Maximum = YearMaxField.Value = YearMaxField.Maximum =
+                            Convert.ToDecimal(SQLEditor.DoSqlOperation("SELECT MAX(CityBuildYear) FROM City" + subquery).Rows[0].ItemArray[0].ToString());
+                    }
+                    catch
+                    {
+                        AreaMinField.Maximum = AreaMaxField.Value = AreaMaxField.Maximum = PopMinField.Maximum = PopMaxField.Value = PopMaxField.Maximum =
+                            YearMinField.Maximum = YearMaxField.Value = YearMaxField.Maximum = 0;
+                    }
                 }
+
+                CitiesTable.DataSource = SQLEditor.DoSqlOperation(query + subquery);
+                InfoField.Text = "Search results: " + searchCities.Replace('%', ' ');
+                menuStrip1.Visible = false;
+                CitiesTable.Columns[0].Visible = false;
             }
-            catch
-            {
-                MessageBox.Show("Пожалуйста, выберите город!", "Внимание!");
-            }
-        }
-
-        public void RefreshList()
-        {
-            conts = doc.GetData(source);
-            CitiesList.Items.Clear();
-            SetCitiesData();
-        }
-
-        private void Cities_Activated(object sender, EventArgs e)
-        {
-            RefreshList();
-        }
-
-        private void CitiesList_DoubleClick(object sender, EventArgs e)
-        {
-            //City c = cities[CitiesList.SelectedIndices[0]];
-            //var form = new Map(c);
-            //form.ShowDialog();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            List<City> cts = new List<City>();
-
-            int idx = CitiesList.SelectedIndices.Count;
-
-            for (int i = 0; i < idx; i++)
-            {
-                cts.Add(cities[CitiesList.SelectedIndices[i]]);
-
-               
-            }
-
-            var form = new Map(cts);
-            form.ShowDialog();
         }
     }
 }

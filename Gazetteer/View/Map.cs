@@ -1,43 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 
 namespace Gazetteer
 {
     public partial class Map : Form
     {
-        private Point Center = new Point(540, 270);
-        private List<City> cities;
-        private List<Continent> conts;
-        private City c;
+        private static Point Center = new Point(540, 270);
         private int GameNumber = 1;
-        private double TotalScore = 0;
+        private int TotalScore = 0;
         private bool GameStarted;
-        private double HighScore;
         private Point ps;
         private bool MouseClicked;
+        List<string> CtsIdcs;
+        int nowId;
+        string userLogin;
+        string[,] tries;
+        int gameId;
+        Stopwatch time;
 
-        public Map()
+
+        public Map(string user)
         {
+            userLogin = user;
             InitializeComponent();
         }
 
-        public Map(List<City> c)
+        public Map(List<string> idcs, string login)
         {
-            this.cities = c;
-            InitializeComponent();
-        }
-
-        public Map(List<Continent> l)
-        {
-            this.conts = l;
+            CtsIdcs = idcs;
+            userLogin = login;
             InitializeComponent();
         }
 
 
-        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        private void MapPic_MouseClick(object sender, MouseEventArgs e)
         {
             if (GameStarted)
             {
@@ -48,53 +47,75 @@ namespace Gazetteer
      
         private void Map_Load(object sender, EventArgs e)
         {
-            if (conts != null)
-            {
-                cities = GetCities();
-            }
-            else if (cities != null)
-            {
+            if (CtsIdcs != null)
                 DelayDraw();
-            }
+            else
+                CtsIdcs = City.GetCitiesIdcs();
+
+            menuStrip1.Visible = userLogin != null;
         }
        
-        private void новаяИграToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NewGameMenu_Click(object sender, EventArgs e)
         {
-            try
+            if (GameNumber > 1)
             {
-                using (StreamReader sr = File.OpenText("score.txt"))
-                {
-                    HighScore = double.Parse(sr.ReadLine());
-                }
-            }
-            catch
-            {
-                HighScore = 0;
+                GameOver();
             }
 
+            CtsIdcs = City.GetCitiesIdcs();
             StartGame();
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void NextCityBtn_Click(object sender, EventArgs e)
         {
             if (GameStarted && MouseClicked)
             {
                 CheckAnswer();
             }
 
-            else if (button1.Text == "Конец")
+            else if (NextCityBtn.Text == "End Game")
             {
                 GameOver();
             }
         }
 
-        
 
-        public Point GetCoords(City city)
+        public void Draw(List<string> idcs)
         {
-            int[] lon = city.GetLongitude();
-            int[] lat = city.GetLatitude();
+            Graphics g = MapPic.CreateGraphics();
+            SolidBrush p = new SolidBrush(Color.White);
+            Font f = new Font("Arial", 16);
+
+            for (int i = 0; i < idcs.Count; i++)
+            {
+                List<string> city = City.GetCityByIndex(idcs[i]);
+                Point ps = GetCoords(city);
+
+                g.FillRectangle(new SolidBrush(Color.Black), ps.X - 35, ps.Y + 10, city[0].Length * 14, 25);
+                g.DrawString(city[0], f, p, new Point(ps.X - 35, ps.Y + 10));
+                Image b = Image.FromFile("map1.png");
+                g.DrawImage(b, new Point(ps.X - 21, ps.Y - 42));
+            }
+
+
+        }
+
+        public void DelayDraw()
+        {
+            System.Threading.Timer timer = null;
+            timer = new System.Threading.Timer((obj) =>
+            {
+                Draw(CtsIdcs);
+                timer.Dispose();
+            }, null, 100, System.Threading.Timeout.Infinite);
+        }
+
+
+        public Point GetCoords(List<string> Cities)
+        {
+            int[] lon = City.GetLongitude(Cities[1]);
+            int[] lat = City.GetLatitude(Cities[2]);
 
             int Lon = (int)(lon[0] + lon[1] / 60 + lon[2] / 360);
             int Lat = (int)(lat[0] + lat[1] / 60 + lat[2] / 360);
@@ -114,54 +135,6 @@ namespace Gazetteer
             return coordinate;
         }
 
-        public void Draw(List<City> cities)
-        {
-            Graphics g = pictureBox1.CreateGraphics();
-            SolidBrush p = new SolidBrush(Color.White);
-            Font f = new Font("Arial", 16);
-
-            for (int i = 0; i < cities.Count; i++)
-            {
-                Point ps = GetCoords(cities[i]);
-
-                g.FillRectangle(new SolidBrush(Color.Black), ps.X - 35, ps.Y + 10, cities[i].Name.Length*14, 25);
-                g.DrawString(cities[i].Name, f, p, new Point(ps.X - 35, ps.Y + 10));
-                Image b = Image.FromFile("map1.png");
-                g.DrawImage(b, new Point(ps.X - 21, ps.Y - 42));
-            }
-            
-
-        }
-
-        public List<City> GetCities()
-        {
-            List<City> cities = new List<City>();
-
-            for (int i = 0; i < conts.Count; i++)
-            {
-                for (int j = 0; j < conts[i].Countries.Count; j++)
-                {
-                    for (int k = 0; k < conts[i].Countries[j].Regions.Count; k++)
-                    {
-                        cities.AddRange(conts[i].Countries[j].Regions[k].Cities);
-                    }
-                }
-            }
-
-            return cities;
-        }
-
-        public void DelayDraw()
-        {
-            System.Threading.Timer timer = null;
-            timer = new System.Threading.Timer((obj) =>
-            {
-                Draw(cities);
-                timer.Dispose();
-            },
-                        null, 100, System.Threading.Timeout.Infinite);
-        }
-
         public double GetDistance(Point p1, Point p2)
         {
             int dX = Math.Abs(p1.X - p2.X);
@@ -177,32 +150,38 @@ namespace Gazetteer
             return 37.1 * dist;
         }
 
+
         public void StartGame()
         {
-            if (cities.Count > 5)
+            try
             {
+                time = new Stopwatch();
+                time.Start();
                 label6.Visible = false;
-                pictureBox1.Refresh();
+                MapPic.Refresh();
                 label2.Text = label4.Text = "";
-                label3.Text = "Рекорд: " + HighScore;
-                button1.Visible = true;
+                label3.Text = "Max Score: " + User.GetMaxScore(userLogin);
+                NextCityBtn.Visible = true;
                 GameStarted = true;
                 TotalScore = 0;
                 GameNumber = 1;
+                tries = new string[10, 4];
+                gameId = SQLEditor.SetId("SELECT GameId FROM Game");
+                Game.InsertGameData(userLogin);
                 NextCity();
             }
-            else
+            catch
             {
-                MessageBox.Show("Слишком мало городов");
+                MessageBox.Show("Error");
             }
         }
 
         public void NextCity()
         {
-            if (GameNumber > 5 && GameStarted)
+            if (GameNumber > 10 && GameStarted)
             {
                 GameStarted = false;
-                button1.Text = "Конец";
+                NextCityBtn.Text = "End Game";
                 label1.Text = "";
                 GameNumber = 1;
             }
@@ -210,65 +189,64 @@ namespace Gazetteer
             else
             {
                 Random r = new Random();
-                c = cities[r.Next(0, cities.Count - 1)];
-                label1.Text = GameNumber++ + ". " + c.Name + ", " + c.Region;
+                CtsIdcs = City.GetCitiesIdcs();
+                nowId = r.Next(0, CtsIdcs.Count);
+                List<string> city = City.GetCityByIndex(CtsIdcs[nowId].ToString());
+                label1.Text = GameNumber++ + ". " + city[0] + ", " +
+                    city[3] + ": " + city[4] + ", " +
+                    city[5];
             }
         }
 
         public void MakePoint(int X, int Y)
         {
             MouseClicked = true;
-            Graphics g = pictureBox1.CreateGraphics();
+            Graphics g = MapPic.CreateGraphics();
             ps = new Point(X, Y);
-            pictureBox1.Refresh();
+            MapPic.Refresh();
             Image b = Image.FromFile("map.png");
             g.DrawImage(b, new Point(ps.X - 21, ps.Y - 42));
         }
 
         public void CheckAnswer()
         {
-            List<City> cts = new List<City>();
-            cts.Add(c);
-            Point p = GetCoords(cts[0]);
+            List<string> cts = new List<string>();
+            cts.Add(CtsIdcs[nowId].ToString());
+            Point p = GetCoords(City.GetCityByIndex(CtsIdcs[nowId].ToString()));
             Draw(cts);
             MouseClicked = false;
 
-            double score = Math.Round(50000 / (GetDistance(ps, p) + 0.1), 2);
+            int score = (int)Math.Round(50000 / (GetDistance(ps, p) + 0.1), 2);
 
-            label4.Text = Math.Round(GetDistance(ps, p), 2).ToString() + " км";
+            label4.Text = Math.Round(GetDistance(ps, p), 2).ToString() + " km to goal";
             label2.Text = "+" + score.ToString();
             TotalScore += score;
-            label5.Text = "Счёт: " + TotalScore;
+            label5.Text = "Score: " + TotalScore;
+
+            Try.InsertTryResults(score.ToString(), gameId.ToString(), CtsIdcs[nowId].ToString());
+
             NextCity();
         }
 
         public void GameOver()
         {
-            if (TotalScore > HighScore)
+            time.Stop();
+            int gameTime = Convert.ToInt32(time.ElapsedMilliseconds / 1000);
+
+            if (TotalScore > User.GetMaxScore(userLogin))
             {
-                MessageBox.Show("Новый рекорд: " + TotalScore);
-                HighScore = TotalScore;
-
-                try
-                {
-                    using (StreamWriter wr = File.CreateText("score.txt"))
-                    {
-                        wr.Write(HighScore);
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show("Ошибка при записи файла");
-                }
-
-                label3.Text = "Рекорд: " + HighScore;
+                MessageBox.Show("New Max Score: " + TotalScore);
+                label3.Text = "Max Score: " + TotalScore;
+                User.UpdateMaxScore(userLogin, TotalScore.ToString());
             }
             else
-                MessageBox.Show("Ваш счёт: " + TotalScore);
+                MessageBox.Show("Your Score: " + TotalScore);
 
-            button1.Text = "Далее";
-            button1.Visible = false;
+            NextCityBtn.Text = "Next City";
+            NextCityBtn.Visible = false;
             label1.Text = label2.Text = label4.Text = label5.Text = "";
-        }             
+            Game.UpdateGameData(gameId.ToString(), TotalScore.ToString(), gameTime.ToString());
+        }      
+           
     }
 }

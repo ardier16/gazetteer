@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CountryInfo));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Info = new System.Windows.Forms.Label();
             this.CName = new System.Windows.Forms.Label();
             this.CArea = new System.Windows.Forms.Label();
@@ -36,13 +37,6 @@
             this.CGovernment = new System.Windows.Forms.Label();
             this.CCapital = new System.Windows.Forms.Label();
             this.CLanguages = new System.Windows.Forms.Label();
-            this.CountryRegions = new System.Windows.Forms.ListView();
-            this.RegionName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.RegionType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.RegionArea = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.RegionPopulation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.RegionUrban = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.RegionCenter = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CountryName = new System.Windows.Forms.Label();
             this.CountryArea = new System.Windows.Forms.Label();
             this.CountryPop = new System.Windows.Forms.Label();
@@ -51,12 +45,22 @@
             this.CountryLangs = new System.Windows.Forms.Label();
             this.CRegions = new System.Windows.Forms.Label();
             this.CUrbanization = new System.Windows.Forms.Label();
-            this.CountryUrban = new System.Windows.Forms.Label();
+            this.CountryCont = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.редактироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editRegionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addRegionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editRegionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteRegionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsDocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CountryGdp = new System.Windows.Forms.Label();
+            this.CountryLeader = new System.Windows.Forms.Label();
+            this.CountryCurrency = new System.Windows.Forms.Label();
+            this.RegionsTable = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RegionsTable)).BeginInit();
             this.SuspendLayout();
             // 
             // Info
@@ -93,48 +97,6 @@
             // 
             resources.ApplyResources(this.CLanguages, "CLanguages");
             this.CLanguages.Name = "CLanguages";
-            // 
-            // CountryRegions
-            // 
-            resources.ApplyResources(this.CountryRegions, "CountryRegions");
-            this.CountryRegions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.RegionName,
-            this.RegionType,
-            this.RegionArea,
-            this.RegionPopulation,
-            this.RegionUrban,
-            this.RegionCenter});
-            this.CountryRegions.FullRowSelect = true;
-            this.CountryRegions.GridLines = true;
-            this.CountryRegions.Name = "CountryRegions";
-            this.CountryRegions.ShowItemToolTips = true;
-            this.CountryRegions.UseCompatibleStateImageBehavior = false;
-            this.CountryRegions.View = System.Windows.Forms.View.Details;
-            this.CountryRegions.DoubleClick += new System.EventHandler(this.CountryRegions_DoubleClick);
-            // 
-            // RegionName
-            // 
-            resources.ApplyResources(this.RegionName, "RegionName");
-            // 
-            // RegionType
-            // 
-            resources.ApplyResources(this.RegionType, "RegionType");
-            // 
-            // RegionArea
-            // 
-            resources.ApplyResources(this.RegionArea, "RegionArea");
-            // 
-            // RegionPopulation
-            // 
-            resources.ApplyResources(this.RegionPopulation, "RegionPopulation");
-            // 
-            // RegionUrban
-            // 
-            resources.ApplyResources(this.RegionUrban, "RegionUrban");
-            // 
-            // RegionCenter
-            // 
-            resources.ApplyResources(this.RegionCenter, "RegionCenter");
             // 
             // CountryName
             // 
@@ -176,58 +138,124 @@
             resources.ApplyResources(this.CUrbanization, "CUrbanization");
             this.CUrbanization.Name = "CUrbanization";
             // 
-            // CountryUrban
+            // CountryCont
             // 
-            resources.ApplyResources(this.CountryUrban, "CountryUrban");
-            this.CountryUrban.Name = "CountryUrban";
+            resources.ApplyResources(this.CountryCont, "CountryCont");
+            this.CountryCont.Name = "CountryCont";
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.Ivory;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.добавитьToolStripMenuItem,
-            this.редактироватьToolStripMenuItem,
-            this.удалитьToolStripMenuItem});
+            this.editRegionToolStripMenuItem,
+            this.saveAsDocToolStripMenuItem});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
             // 
-            // добавитьToolStripMenuItem
+            // editRegionToolStripMenuItem
             // 
-            this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            resources.ApplyResources(this.добавитьToolStripMenuItem, "добавитьToolStripMenuItem");
-            this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
+            this.editRegionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addRegionToolStripMenuItem,
+            this.editRegionToolStripMenuItem1,
+            this.deleteRegionToolStripMenuItem});
+            this.editRegionToolStripMenuItem.Name = "editRegionToolStripMenuItem";
+            resources.ApplyResources(this.editRegionToolStripMenuItem, "editRegionToolStripMenuItem");
             // 
-            // редактироватьToolStripMenuItem
+            // addRegionToolStripMenuItem
             // 
-            this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
-            resources.ApplyResources(this.редактироватьToolStripMenuItem, "редактироватьToolStripMenuItem");
-            this.редактироватьToolStripMenuItem.Click += new System.EventHandler(this.редактироватьToolStripMenuItem_Click);
+            this.addRegionToolStripMenuItem.Name = "addRegionToolStripMenuItem";
+            resources.ApplyResources(this.addRegionToolStripMenuItem, "addRegionToolStripMenuItem");
+            this.addRegionToolStripMenuItem.Click += new System.EventHandler(this.addRegionToolStripMenuItem_Click);
             // 
-            // удалитьToolStripMenuItem
+            // editRegionToolStripMenuItem1
             // 
-            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            resources.ApplyResources(this.удалитьToolStripMenuItem, "удалитьToolStripMenuItem");
-            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
+            this.editRegionToolStripMenuItem1.Name = "editRegionToolStripMenuItem1";
+            resources.ApplyResources(this.editRegionToolStripMenuItem1, "editRegionToolStripMenuItem1");
+            this.editRegionToolStripMenuItem1.Click += new System.EventHandler(this.editRegionToolStripMenuItem1_Click);
+            // 
+            // deleteRegionToolStripMenuItem
+            // 
+            this.deleteRegionToolStripMenuItem.Name = "deleteRegionToolStripMenuItem";
+            resources.ApplyResources(this.deleteRegionToolStripMenuItem, "deleteRegionToolStripMenuItem");
+            this.deleteRegionToolStripMenuItem.Click += new System.EventHandler(this.deleteRegionToolStripMenuItem_Click);
+            // 
+            // saveAsDocToolStripMenuItem
+            // 
+            this.saveAsDocToolStripMenuItem.Name = "saveAsDocToolStripMenuItem";
+            resources.ApplyResources(this.saveAsDocToolStripMenuItem, "saveAsDocToolStripMenuItem");
+            this.saveAsDocToolStripMenuItem.Click += new System.EventHandler(this.saveAsDocToolStripMenuItem_Click);
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // CountryGdp
+            // 
+            resources.ApplyResources(this.CountryGdp, "CountryGdp");
+            this.CountryGdp.Name = "CountryGdp";
+            // 
+            // CountryLeader
+            // 
+            resources.ApplyResources(this.CountryLeader, "CountryLeader");
+            this.CountryLeader.Name = "CountryLeader";
+            // 
+            // CountryCurrency
+            // 
+            resources.ApplyResources(this.CountryCurrency, "CountryCurrency");
+            this.CountryCurrency.Name = "CountryCurrency";
+            // 
+            // RegionsTable
+            // 
+            this.RegionsTable.AllowUserToAddRows = false;
+            this.RegionsTable.AllowUserToDeleteRows = false;
+            this.RegionsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RegionsTable.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            resources.ApplyResources(this.RegionsTable, "RegionsTable");
+            this.RegionsTable.Name = "RegionsTable";
+            this.RegionsTable.ReadOnly = true;
+            this.RegionsTable.RowHeadersVisible = false;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.RegionsTable.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.RegionsTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.RegionsTable.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // CountryInfo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Ivory;
             resources.ApplyResources(this, "$this");
-            this.Controls.Add(this.CountryUrban);
+            this.Controls.Add(this.RegionsTable);
+            this.Controls.Add(this.CountryCont);
             this.Controls.Add(this.CUrbanization);
             this.Controls.Add(this.CRegions);
             this.Controls.Add(this.CountryLangs);
             this.Controls.Add(this.CountryCap);
             this.Controls.Add(this.CountryGov);
+            this.Controls.Add(this.CountryCurrency);
+            this.Controls.Add(this.CountryLeader);
             this.Controls.Add(this.CountryPop);
+            this.Controls.Add(this.CountryGdp);
             this.Controls.Add(this.CountryArea);
             this.Controls.Add(this.CountryName);
-            this.Controls.Add(this.CountryRegions);
             this.Controls.Add(this.CLanguages);
             this.Controls.Add(this.CCapital);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.CGovernment);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.CPopulation);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.CArea);
             this.Controls.Add(this.CName);
             this.Controls.Add(this.Info);
@@ -241,6 +269,7 @@
             this.Load += new System.EventHandler(this.CountryInfo_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RegionsTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,7 +284,6 @@
         private System.Windows.Forms.Label CGovernment;
         private System.Windows.Forms.Label CCapital;
         private System.Windows.Forms.Label CLanguages;
-        private System.Windows.Forms.ListView CountryRegions;
         private System.Windows.Forms.Label CountryName;
         private System.Windows.Forms.Label CountryArea;
         private System.Windows.Forms.Label CountryPop;
@@ -263,17 +291,20 @@
         private System.Windows.Forms.Label CountryCap;
         private System.Windows.Forms.Label CountryLangs;
         private System.Windows.Forms.Label CRegions;
-        private System.Windows.Forms.ColumnHeader RegionName;
-        private System.Windows.Forms.ColumnHeader RegionType;
-        private System.Windows.Forms.ColumnHeader RegionArea;
-        private System.Windows.Forms.ColumnHeader RegionPopulation;
-        private System.Windows.Forms.ColumnHeader RegionCenter;
         private System.Windows.Forms.Label CUrbanization;
-        private System.Windows.Forms.Label CountryUrban;
-        private System.Windows.Forms.ColumnHeader RegionUrban;
+        private System.Windows.Forms.Label CountryCont;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem редактироватьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label CountryGdp;
+        private System.Windows.Forms.Label CountryLeader;
+        private System.Windows.Forms.Label CountryCurrency;
+        private System.Windows.Forms.DataGridView RegionsTable;
+        private System.Windows.Forms.ToolStripMenuItem editRegionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addRegionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editRegionToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem deleteRegionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAsDocToolStripMenuItem;
     }
 }

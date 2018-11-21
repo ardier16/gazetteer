@@ -126,20 +126,20 @@
     <value>Arial, 30pt, style=Underline</value>
   </data>
   <data name="Info.Location" type="System.Drawing.Point, System.Drawing">
-    <value>185, 36</value>
+    <value>195, 24</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Info.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
   <data name="Info.Size" type="System.Drawing.Size, System.Drawing">
-    <value>432, 45</value>
+    <value>390, 45</value>
   </data>
   <data name="Info.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="Info.Text" xml:space="preserve">
-    <value>Информация о стране</value>
+    <value>Country's Information</value>
   </data>
   <data name="&gt;&gt;Info.Name" xml:space="preserve">
     <value>Info</value>
@@ -151,7 +151,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Info.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>22</value>
   </data>
   <data name="CName.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -163,13 +163,13 @@
     <value>37, 86</value>
   </data>
   <data name="CName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 22</value>
+    <value>69, 22</value>
   </data>
   <data name="CName.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="CName.Text" xml:space="preserve">
-    <value>Название:</value>
+    <value>Name:</value>
   </data>
   <data name="&gt;&gt;CName.Name" xml:space="preserve">
     <value>CName</value>
@@ -181,7 +181,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CName.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>21</value>
   </data>
   <data name="CArea.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -193,13 +193,13 @@
     <value>38, 121</value>
   </data>
   <data name="CArea.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 22</value>
+    <value>60, 22</value>
   </data>
   <data name="CArea.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="CArea.Text" xml:space="preserve">
-    <value>Площадь:</value>
+    <value>Area:</value>
   </data>
   <data name="&gt;&gt;CArea.Name" xml:space="preserve">
     <value>CArea</value>
@@ -211,7 +211,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CArea.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>20</value>
   </data>
   <data name="CPopulation.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -223,13 +223,13 @@
     <value>38, 156</value>
   </data>
   <data name="CPopulation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 22</value>
+    <value>117, 22</value>
   </data>
   <data name="CPopulation.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="CPopulation.Text" xml:space="preserve">
-    <value>Население:</value>
+    <value>Population:</value>
   </data>
   <data name="&gt;&gt;CPopulation.Name" xml:space="preserve">
     <value>CPopulation</value>
@@ -241,7 +241,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CPopulation.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>18</value>
   </data>
   <data name="CGovernment.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -253,13 +253,13 @@
     <value>37, 226</value>
   </data>
   <data name="CGovernment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 22</value>
+    <value>132, 22</value>
   </data>
   <data name="CGovernment.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
   <data name="CGovernment.Text" xml:space="preserve">
-    <value>Форма правления:</value>
+    <value>Government:</value>
   </data>
   <data name="&gt;&gt;CGovernment.Name" xml:space="preserve">
     <value>CGovernment</value>
@@ -271,7 +271,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CGovernment.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>16</value>
   </data>
   <data name="CCapital.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -283,13 +283,13 @@
     <value>38, 261</value>
   </data>
   <data name="CCapital.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 22</value>
+    <value>81, 22</value>
   </data>
   <data name="CCapital.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="CCapital.Text" xml:space="preserve">
-    <value>Столица:</value>
+    <value>Capital:</value>
   </data>
   <data name="&gt;&gt;CCapital.Name" xml:space="preserve">
     <value>CCapital</value>
@@ -301,7 +301,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CCapital.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>14</value>
   </data>
   <data name="CLanguages.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -310,17 +310,16 @@
     <value>Arial, 14pt, style=Bold</value>
   </data>
   <data name="CLanguages.Location" type="System.Drawing.Point, System.Drawing">
-    <value>37, 296</value>
+    <value>38, 297</value>
   </data>
   <data name="CLanguages.Size" type="System.Drawing.Size, System.Drawing">
-    <value>221, 22</value>
+    <value>190, 22</value>
   </data>
   <data name="CLanguages.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="CLanguages.Text" xml:space="preserve">
-    <value>Официальные языки:
-</value>
+    <value>Official Languages:</value>
   </data>
   <data name="&gt;&gt;CLanguages.Name" xml:space="preserve">
     <value>CLanguages</value>
@@ -332,70 +331,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CLanguages.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="CountryRegions.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="CountryRegions.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt, style=Bold</value>
-  </data>
-  <data name="CountryRegions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 396</value>
-  </data>
-  <data name="CountryRegions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>811, 267</value>
-  </data>
-  <data name="CountryRegions.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;CountryRegions.Name" xml:space="preserve">
-    <value>CountryRegions</value>
-  </data>
-  <data name="&gt;&gt;CountryRegions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CountryRegions.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;CountryRegions.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="RegionName.Text" xml:space="preserve">
-    <value>Название</value>
-  </data>
-  <data name="RegionName.Width" type="System.Int32, mscorlib">
-    <value>165</value>
-  </data>
-  <data name="RegionType.Text" xml:space="preserve">
-    <value>Тип</value>
-  </data>
-  <data name="RegionType.Width" type="System.Int32, mscorlib">
-    <value>120</value>
-  </data>
-  <data name="RegionArea.Text" xml:space="preserve">
-    <value>Площадь, тыс. кв. км</value>
-  </data>
-  <data name="RegionArea.Width" type="System.Int32, mscorlib">
-    <value>180</value>
-  </data>
-  <data name="RegionPopulation.Text" xml:space="preserve">
-    <value>Население, тыс. чел.</value>
-  </data>
-  <data name="RegionPopulation.Width" type="System.Int32, mscorlib">
-    <value>180</value>
-  </data>
-  <data name="RegionUrban.Text" xml:space="preserve">
-    <value>Урбанизация</value>
-  </data>
-  <data name="RegionUrban.Width" type="System.Int32, mscorlib">
-    <value>120</value>
-  </data>
-  <data name="RegionCenter.Text" xml:space="preserve">
-    <value>Центр</value>
-  </data>
-  <data name="RegionCenter.Width" type="System.Int32, mscorlib">
-    <value>150</value>
+    <value>13</value>
   </data>
   <data name="CountryName.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -404,7 +340,7 @@
     <value>Arial, 14pt, style=Bold, Italic, Underline</value>
   </data>
   <data name="CountryName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>359, 81</value>
+    <value>244, 86</value>
   </data>
   <data name="CountryName.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 23</value>
@@ -422,7 +358,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CountryName.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>12</value>
   </data>
   <data name="CountryArea.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -431,7 +367,7 @@
     <value>Arial, 14pt, style=Bold, Italic, Underline</value>
   </data>
   <data name="CountryArea.Location" type="System.Drawing.Point, System.Drawing">
-    <value>359, 121</value>
+    <value>244, 121</value>
   </data>
   <data name="CountryArea.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 23</value>
@@ -449,7 +385,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CountryArea.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>11</value>
   </data>
   <data name="CountryPop.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -458,7 +394,7 @@
     <value>Arial, 14pt, style=Bold, Italic, Underline</value>
   </data>
   <data name="CountryPop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>359, 156</value>
+    <value>244, 156</value>
   </data>
   <data name="CountryPop.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 23</value>
@@ -476,7 +412,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CountryPop.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>9</value>
   </data>
   <data name="CountryGov.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -485,7 +421,7 @@
     <value>Arial, 14pt, style=Bold, Italic, Underline</value>
   </data>
   <data name="CountryGov.Location" type="System.Drawing.Point, System.Drawing">
-    <value>359, 226</value>
+    <value>244, 225</value>
   </data>
   <data name="CountryGov.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 23</value>
@@ -503,7 +439,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CountryGov.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="CountryCap.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -512,7 +448,7 @@
     <value>Arial, 14pt, style=Bold, Italic, Underline</value>
   </data>
   <data name="CountryCap.Location" type="System.Drawing.Point, System.Drawing">
-    <value>359, 261</value>
+    <value>244, 260</value>
   </data>
   <data name="CountryCap.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 23</value>
@@ -530,7 +466,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CountryCap.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="CountryLangs.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -539,7 +475,7 @@
     <value>Arial, 14pt, style=Bold, Italic, Underline</value>
   </data>
   <data name="CountryLangs.Location" type="System.Drawing.Point, System.Drawing">
-    <value>359, 296</value>
+    <value>244, 296</value>
   </data>
   <data name="CountryLangs.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>420, 0</value>
@@ -560,7 +496,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CountryLangs.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="CRegions.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -572,13 +508,13 @@
     <value>356, 364</value>
   </data>
   <data name="CRegions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 29</value>
+    <value>108, 29</value>
   </data>
   <data name="CRegions.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
   <data name="CRegions.Text" xml:space="preserve">
-    <value>Регионы:</value>
+    <value>Regions</value>
   </data>
   <data name="&gt;&gt;CRegions.Name" xml:space="preserve">
     <value>CRegions</value>
@@ -590,22 +526,25 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CRegions.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="CUrbanization.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="CUrbanization.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 14pt, style=Bold</value>
   </data>
   <data name="CUrbanization.Location" type="System.Drawing.Point, System.Drawing">
     <value>38, 191</value>
   </data>
   <data name="CUrbanization.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 22</value>
+    <value>107, 22</value>
   </data>
   <data name="CUrbanization.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
   <data name="CUrbanization.Text" xml:space="preserve">
-    <value>Урбанизация</value>
+    <value>Continent:</value>
   </data>
   <data name="&gt;&gt;CUrbanization.Name" xml:space="preserve">
     <value>CUrbanization</value>
@@ -617,61 +556,79 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CUrbanization.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
-  <data name="CountryUrban.AutoSize" type="System.Boolean, mscorlib">
+  <data name="CountryCont.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="CountryUrban.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="CountryCont.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 14pt, style=Bold, Italic, Underline</value>
   </data>
-  <data name="CountryUrban.Location" type="System.Drawing.Point, System.Drawing">
-    <value>359, 191</value>
+  <data name="CountryCont.Location" type="System.Drawing.Point, System.Drawing">
+    <value>244, 191</value>
   </data>
-  <data name="CountryUrban.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="CountryCont.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 23</value>
   </data>
-  <data name="CountryUrban.TabIndex" type="System.Int32, mscorlib">
+  <data name="CountryCont.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
-  <data name="&gt;&gt;CountryUrban.Name" xml:space="preserve">
-    <value>CountryUrban</value>
+  <data name="&gt;&gt;CountryCont.Name" xml:space="preserve">
+    <value>CountryCont</value>
   </data>
-  <data name="&gt;&gt;CountryUrban.Type" xml:space="preserve">
+  <data name="&gt;&gt;CountryCont.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;CountryUrban.Parent" xml:space="preserve">
+  <data name="&gt;&gt;CountryCont.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;CountryUrban.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;CountryCont.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="добавитьToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 20</value>
+  <data name="addRegionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
   </data>
-  <data name="добавитьToolStripMenuItem.Text" xml:space="preserve">
-    <value>Добавить</value>
+  <data name="addRegionToolStripMenuItem.Text" xml:space="preserve">
+    <value>Add Region</value>
   </data>
-  <data name="редактироватьToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 20</value>
+  <data name="editRegionToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
   </data>
-  <data name="редактироватьToolStripMenuItem.Text" xml:space="preserve">
-    <value>Изменить</value>
+  <data name="editRegionToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Edit Region</value>
   </data>
-  <data name="удалитьToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 20</value>
+  <data name="deleteRegionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
   </data>
-  <data name="удалитьToolStripMenuItem.Text" xml:space="preserve">
-    <value>Удалить</value>
+  <data name="deleteRegionToolStripMenuItem.Text" xml:space="preserve">
+    <value>Delete Region</value>
+  </data>
+  <data name="editRegionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 20</value>
+  </data>
+  <data name="editRegionToolStripMenuItem.Text" xml:space="preserve">
+    <value>Edit Region</value>
+  </data>
+  <data name="editRegionToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="saveAsDocToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 20</value>
+  </data>
+  <data name="saveAsDocToolStripMenuItem.Text" xml:space="preserve">
+    <value>Save As Doc</value>
+  </data>
+  <data name="saveAsDocToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
   <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>835, 24</value>
+    <value>845, 24</value>
   </data>
   <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -689,7 +646,217 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 14pt, style=Bold</value>
+  </data>
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>470, 121</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 22</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>GDP</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 14pt, style=Bold</value>
+  </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>471, 156</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 22</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Leader:</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>17</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 14pt, style=Bold</value>
+  </data>
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>471, 191</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 22</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Currency:</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="CountryGdp.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="CountryGdp.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 14pt, style=Bold, Italic, Underline</value>
+  </data>
+  <data name="CountryGdp.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="CountryGdp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>593, 120</value>
+  </data>
+  <data name="CountryGdp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 23</value>
+  </data>
+  <data name="CountryGdp.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;CountryGdp.Name" xml:space="preserve">
+    <value>CountryGdp</value>
+  </data>
+  <data name="&gt;&gt;CountryGdp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CountryGdp.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CountryGdp.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="CountryLeader.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="CountryLeader.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 14pt, style=Bold, Italic, Underline</value>
+  </data>
+  <data name="CountryLeader.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="CountryLeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>593, 155</value>
+  </data>
+  <data name="CountryLeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 23</value>
+  </data>
+  <data name="CountryLeader.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;CountryLeader.Name" xml:space="preserve">
+    <value>CountryLeader</value>
+  </data>
+  <data name="&gt;&gt;CountryLeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CountryLeader.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CountryLeader.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="CountryCurrency.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="CountryCurrency.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 14pt, style=Bold, Italic, Underline</value>
+  </data>
+  <data name="CountryCurrency.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="CountryCurrency.Location" type="System.Drawing.Point, System.Drawing">
+    <value>593, 190</value>
+  </data>
+  <data name="CountryCurrency.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 23</value>
+  </data>
+  <data name="CountryCurrency.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;CountryCurrency.Name" xml:space="preserve">
+    <value>CountryCurrency</value>
+  </data>
+  <data name="&gt;&gt;CountryCurrency.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CountryCurrency.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CountryCurrency.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="RegionsTable.Location" type="System.Drawing.Point, System.Drawing">
+    <value>124, 410</value>
+  </data>
+  <data name="RegionsTable.Size" type="System.Drawing.Size, System.Drawing">
+    <value>597, 237</value>
+  </data>
+  <data name="RegionsTable.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;RegionsTable.Name" xml:space="preserve">
+    <value>RegionsTable</value>
+  </data>
+  <data name="&gt;&gt;RegionsTable.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RegionsTable.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;RegionsTable.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -698,10 +865,10 @@
     <value>25</value>
   </metadata>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>835, 659</value>
+    <value>845, 659</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 14pt, style=Bold</value>
+    <value>Arial, 12pt</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -996,61 +1163,34 @@
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Информация о стране</value>
+  <data name="&gt;&gt;editRegionToolStripMenuItem.Name" xml:space="preserve">
+    <value>editRegionToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;RegionName.Name" xml:space="preserve">
-    <value>RegionName</value>
-  </data>
-  <data name="&gt;&gt;RegionName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RegionType.Name" xml:space="preserve">
-    <value>RegionType</value>
-  </data>
-  <data name="&gt;&gt;RegionType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RegionArea.Name" xml:space="preserve">
-    <value>RegionArea</value>
-  </data>
-  <data name="&gt;&gt;RegionArea.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RegionPopulation.Name" xml:space="preserve">
-    <value>RegionPopulation</value>
-  </data>
-  <data name="&gt;&gt;RegionPopulation.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RegionUrban.Name" xml:space="preserve">
-    <value>RegionUrban</value>
-  </data>
-  <data name="&gt;&gt;RegionUrban.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RegionCenter.Name" xml:space="preserve">
-    <value>RegionCenter</value>
-  </data>
-  <data name="&gt;&gt;RegionCenter.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;добавитьToolStripMenuItem.Name" xml:space="preserve">
-    <value>добавитьToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;добавитьToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;editRegionToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;редактироватьToolStripMenuItem.Name" xml:space="preserve">
-    <value>редактироватьToolStripMenuItem</value>
+  <data name="&gt;&gt;addRegionToolStripMenuItem.Name" xml:space="preserve">
+    <value>addRegionToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;редактироватьToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;addRegionToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;удалитьToolStripMenuItem.Name" xml:space="preserve">
-    <value>удалитьToolStripMenuItem</value>
+  <data name="&gt;&gt;editRegionToolStripMenuItem1.Name" xml:space="preserve">
+    <value>editRegionToolStripMenuItem1</value>
   </data>
-  <data name="&gt;&gt;удалитьToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;editRegionToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;deleteRegionToolStripMenuItem.Name" xml:space="preserve">
+    <value>deleteRegionToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;deleteRegionToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;saveAsDocToolStripMenuItem.Name" xml:space="preserve">
+    <value>saveAsDocToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;saveAsDocToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

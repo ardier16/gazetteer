@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -64,6 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\DBScheme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DBScheme.Designer.cs">
+      <DependentUpon>DBScheme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Edit\CityEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,27 @@
     </Compile>
     <Compile Include="Edit\CountryEditor.Designer.cs">
       <DependentUpon>CountryEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\Try.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Edit\SQLEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit\SQLEdit.Designer.cs">
+      <DependentUpon>SQLEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminPanel.Designer.cs">
+      <DependentUpon>AdminPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SignIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SignIn.Designer.cs">
+      <DependentUpon>SignIn.cs</DependentUpon>
     </Compile>
     <Compile Include="View\About.cs">
       <SubType>Form</SubType>
@@ -88,7 +115,7 @@
     <Compile Include="View\Map.Designer.cs">
       <DependentUpon>Map.cs</DependentUpon>
     </Compile>
-    <Compile Include="DocumentEditor.cs" />
+    <Compile Include="Models\SQLEditor.cs" />
     <Compile Include="Edit\RegionEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,10 +129,8 @@
       <DependentUpon>Cities.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\City.cs" />
-    <Compile Include="Models\Continent.cs" />
     <Compile Include="Models\Country.cs" />
-    <Compile Include="Models\Region.cs" />
-    <Compile Include="Models\Unit.cs" />
+    <Compile Include="Models\State.cs" />
     <Compile Include="View\CountryInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +145,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\SignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SignUp.Designer.cs">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Statistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Statistics.Designer.cs">
+      <DependentUpon>Statistics.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\DBScheme.resx">
+      <DependentUpon>DBScheme.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Edit\CityEditor.resx">
       <DependentUpon>CityEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,8 +169,14 @@
     <EmbeddedResource Include="Edit\RegionEditor.resx">
       <DependentUpon>RegionEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Edit\SQLEdit.resx">
+      <DependentUpon>SQLEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\About.resx">
       <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminPanel.resx">
+      <DependentUpon>AdminPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Map.resx">
       <DependentUpon>Map.cs</DependentUpon>
@@ -156,7 +202,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="ClassDiagram.cd" />
+    <EmbeddedResource Include="View\SignIn.resx">
+      <DependentUpon>SignIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SignUp.resx">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Statistics.resx">
+      <DependentUpon>Statistics.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -173,7 +227,7 @@
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 и x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -183,7 +237,43 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Gazetteer.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gazetteer_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Gazetteer.mdf</DependentUpon>
+    </Content>
     <Content Include="MainIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
