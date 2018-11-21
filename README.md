@@ -1,10 +1,12 @@
-# Gazetteer
-OOP Course Work
+# Gazetteer DB
+DB Course Project
 
 Language: C#
 
+Platform: .NET 4.5
+
 Technology: Windows Forms
 
-Data Source: .XML Files
+DataBase: Microsoft SQL Server
 
-A simply geographical directory about countries, regions & cities.
+  The Gazetteer is a geographical directory that contains information about world's countries, their regions and cities. Also it may display the cities on a map. Moreover, signed up users may play the geografical game "Point City Location".
